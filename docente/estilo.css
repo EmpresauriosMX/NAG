@@ -1,0 +1,16 @@
+body{
+  
+}
+.card-body-i{
+   
+    width: 50%;
+    float: left;
+    position: relative;
+}
+.derecha{
+    width: 40%;
+    float: right;
+  
+    position: relative;  
+}
+   
