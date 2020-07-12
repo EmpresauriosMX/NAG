@@ -1,5 +1,6 @@
 <?php
 include '../inc/templates/header.php';
+
 ?>
 <!-- se agrega el header-->
 
@@ -66,7 +67,7 @@ include '../inc/templates/header.php';
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="../" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -123,16 +124,6 @@ include '../inc/templates/header.php';
                   <i class="fas fa-map-marker-alt mr-1"></i>
                   Visitors
                 </h3>
-                <!-- card tools -->
-                <div class="card-tools">
-                  <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
-                    <i class="far fa-calendar-alt"></i>
-                  </button>
-                  <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
               </div>
               <div class="card-body">
                 <div id="world-map" style="height: 250px; width: 100%;"></div>
