@@ -35,7 +35,7 @@
             <a href="index3.html" class="nav-link">materia</a>
           </li>
           <li class="nav-item">
-            <a href="../docente/subir_calificacion.html" class="nav-link">subir calificacion</a>
+            <a href="../docente/subir_calificacion.php" class="nav-link">subir calificacion</a>
           </li>
         </ul>
       </div>
@@ -43,7 +43,7 @@
       <!-- derecha barra de navegacion-->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <li class="nav-item dropdown">
-            <a href="../docente/index.html" class="nav-link">perfil</a> 
+            <a href="../docente/index.php" class="nav-link">perfil</a> 
         </li>
         <li class="nav-item">
             <div class="image">
