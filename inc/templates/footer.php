@@ -45,6 +45,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 
+<!-- script en docentes-->
 <script src="script.js"></script>
+<!--script de sweetalert2 -->
+<script src="../dist/js/sweetalert2.all.min.js"></script>
 </body>
 </html>

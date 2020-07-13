@@ -66,7 +66,7 @@ include '../inc/templates/header.php';
 
             <div class="card-body">
 
-<table id="example2" class="table table-bordered table-hover">
+<table id="example2" name="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>Nombre</th>
@@ -83,61 +83,61 @@ include '../inc/templates/header.php';
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" class="calificaciones" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion1" id="calificacion1" class="calificaciones" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion2" id="calificacion2" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion3" id="calificacion3" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion4" id="calificacion4" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion5" id="calificacion5" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion6" id="calificacion6" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion7" id="calificacion7" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion8" id="calificacion8" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion9" id="calificacion9" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
                     <td>Maria</td>
                     <td>Perez</td>
-                    <td> <input type="text" name="calificacion" id="calificacion" placeholder="calificacion"  required disabled></td>
+                    <td> <input type="text" name="calificacion0" id="calificacion0" placeholder="calificacion"  required disabled></td>
                 </tr>
                 </tr>
                 <tr>
@@ -178,6 +178,15 @@ include '../inc/templates/header.php';
   </div>
 </div></a>
 
+<!-- 4-->
+<a href="#" id="confirmacion" name="confirmacion" style="display: none">
+<div class="info-box bg-info">
+  <span class="info-box-icon"><i class="far fa-flag"></i></span>
+  <div class="info-box-content">
+    <span class="info-box-text">subir</span>
+  </div>
+</div>
+</a>
 
     </div>
   </div>

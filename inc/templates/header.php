@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <!--sweetalert estilos -->
+    <link rel="stylesheet" href="../dist/css/sweetalert2.min.css">
+
   </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
