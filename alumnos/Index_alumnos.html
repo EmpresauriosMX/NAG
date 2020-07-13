@@ -112,12 +112,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-header">
       <div  class="container">
           
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Status <small>Alumno: ID_74</small></h1>
-          </div><!-- /.col -->
-
-        </div><!-- /.row -->
+       
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -135,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="card card-widget widget-user">
                   <!-- Add the bg color to the header using any of the bg-* classes -->
                   <div class="widget-user-header bg-info">
-                    <h3 class="widget-user-username">Alumno: ID_74</h3>
+                    <h3 class="widget-user-username">Alumno: "Nombre"</h3>
                     <h5 class="widget-user-desc">Matricula: 1234567890</h5>
                   </div>
                   <div class="widget-user-image">
@@ -171,6 +166,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <!-- /.widget-user -->
               </div>
+
+              <!--Barra de progreso-->
+              <div class="progress mb-3">
+                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                     aria-valuemax="100" style="width: 40%">
+                  <span class="sr-only">40% Complete (success)</span>
+                </div>
+              </div>
+
+
+
+
 
               <!--Lista de Tareas-->
               <div class="col-md-7">
@@ -286,11 +293,113 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             </div>
             <!--Fin Lista de tareas-->
-
-
         </div>
         <!-- Fin del row -->
+
+        <!--Botones desplegables de cuatri y parcial-->
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default">Cuatrimestre</button>
+              <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu" role="menu">
+                <a class="dropdown-item" href="#">1</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">3</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">4</a>
+              </div>
+            </div> 
         
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">Parcial</button>
+                <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="#">1</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">2</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">3</a>
+                </div>
+            </div>
+          </div>
+        </div>
+            <!--Fin botones desplegables-->
+        <br>
+        <!--Inicio de Tabla de Horario-->
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">Horario del Cuatrimestre: xx, Parcial: xx</h3>
+                            </div>
+                            <div class="card-body">
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr align="center">
+                                    <th>Hora</th>
+                                    <th>Lunes</th>
+                                    <th>Martes</th>
+                                    <th>Miercoles</th>
+                                    <th>Jueves</th>
+                                    <th>Viernes</th>
+                                    <th>Sabado</th>
+                                    <th>Domingo</th>
+                                  </tr>
+                                </thead>
+        
+                                <tbody>
+                                  <tr align="center">
+                                    <td style="width: 90px">2:00-3:00</td>
+                                    <td>Programacion de Sisteas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Taller de Responsabilidad Social</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
+        
+                                  <tr align="center">
+                                    <td style="width: 90px">3:00-4:00</td>
+                                    <td>Programacion de Sisteas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Taller de Responsabilidad Social</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </section>
+        <!--Fin de tabla de horario-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!--Row de estadisticas-->
         <div class="row">
           <div class="col-12">
