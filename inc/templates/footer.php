@@ -8,6 +8,8 @@
   </footer>
 </div>
 <!-- ./wrapper -->
+
+
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -42,5 +44,7 @@
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>
