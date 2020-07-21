@@ -113,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="card-body box-profile">
                     <div class="text-center">
                         <img class="profile-user-img img-fluid img-circle"
-                        src="../../dist/img/user4-128x128.jpg"
+                        src="../dist/img/user4-128x128.jpg"
                         alt="User profile picture">
                         </div>
         
