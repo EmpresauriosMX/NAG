@@ -218,7 +218,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="row">
                                           <div class="col-7">
                                             <h2 class="lead"><b>Mauricio Pech Chan</b></h2>
-                                            <p class="text-muted text-sm"><b>Materia: </b> Redes de Computadoras </p>
+                                            <p class="text-muted text-sm"><b>Materia: </b> Redes de Computadora </p>
                                           </div>
                                           <div class="col-5 text-center">
                                             <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
