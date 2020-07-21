@@ -73,10 +73,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Perfil</a>
+            <a href="cambiar_contra.php" class="nav-link">Perfil</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+              <i class="fas fa-th-large"></i>
+            </a>
           </li>
           <!--Opciones de perfil-->
           <!--<li class="nav-item dropdown"> -->
@@ -128,7 +133,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <!--Botones desplegables de cuatri y parcial-->
-       <div class="row">
+      <div class="row">
         <div class="col-md-2">
         <div class="card">
             <div class="btn-group">
@@ -146,27 +151,155 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <a class="dropdown-item" href="#">4</a>
                 </div>
               </div> 
+          </div>
         </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card">
-        <div class="btn-group">
-            <button type="button" class="btn btn-default">Parcial</button>
-            <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu" role="menu">
-              <a class="dropdown-item" href="#">1</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">2</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">3</a>
+        <div class="col-md-2">
+          <div class="card">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default">Parcial</button>
+                  <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" href="#">1</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">2</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">3</a>
+                  </div>
+              </div> 
             </div>
-          </div> 
-    </div>
-    </div>
-</div>
-<!--Fin botones desplegables-->
+        </div>
+      </div>
+      <!--Fin botones desplegables-->
+
+
+      <div class="col-md-6">
+        <!-- AREA CHART -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Avances. Cuatrimeste _ parcial _</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <a href="#" class="btn btn-tool btn-sm">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5>Promedio: </h5> 
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Materia</th>
+                  <th>Docente</th>
+                  <th style="width: 100px">Calificación</th>
+                  <th>Progreso</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.</td>
+                  <td>Interfaces</td>
+                  <td>Lorenzo Balam Chay</td>
+                  <td align="center">84</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 84%"></div>
+                    </div>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td>2.</td>
+                  <td>Simulacion</td>
+                  <td>Carlos Cabello</td>
+                  <td align="center">92</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar bg-success" style="width: 92%"></div>
+                    </div>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td>3.</td>
+                  <td>Sistemas distribuidos</td>
+                  <td>Guadalupe</td>
+                  <td align="center">98</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: 98%"></div>
+                    </div>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td>4.</td>
+                  <td>Taller de Base de Datos</td>
+                  <td>Miguel Garrido</td>
+                  <td align="center">80</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar bg-success" style="width: 80%"></div>
+                    </div>
+                  </td>
+                </tr>
+  
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+        <!-- DONUT CHART -->
+        <div class="card card-danger">
+          <div class="card-header">
+            <h3 class="card-title">Donut Chart</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+           
+            </div>
+          </div>
+          <div class="card-body">
+            <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+        <!-- PIE CHART -->
+        <div class="card card-danger">
+          <div class="card-header">
+            <h3 class="card-title">Pie Chart</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </div>
 
   <!--Tabla de Calificaciones-->
   <div class="row">
@@ -305,7 +438,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-      <h5>Title</h5>
+      <h5>menu colores</h5>
       <p>Sidebar content</p>
     </div>
   </aside>

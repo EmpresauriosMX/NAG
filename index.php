@@ -13,21 +13,22 @@
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/sweetalert2.min.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../index2.html"><b>Nag</b></a>
+    <a name="url" id="url" href="../index2.html"><b>Nag</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="../index3.html" method="post">
+      <form id="formulario" method="post">
         <div class="input-group mb-3">
             <!--obtener el correo -->
-          <input type="email" class="form-control" placeholder="correo o usuario">
+          <input name="email" id="email" type="email" class="form-control" placeholder="correo o usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -36,7 +37,7 @@
         </div>
         <!--obtener la contraseña-->
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="contraseña">
+          <input name="contra" id="contra" type="password" class="form-control" placeholder="contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -54,7 +55,8 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Iniciar</button>
+          <a href="#" name="enviar" id="enviar"><div class="btn btn-primary btn-block"> iniciar</div> </a>
+            
           </div>
           <!-- /.col -->
         </div>
@@ -75,6 +77,8 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<script src="dist/js/sweetalert2.all.min.js"></script>
+<script src="inicio_temporal.js"></script>
 
 </body>
 </html>

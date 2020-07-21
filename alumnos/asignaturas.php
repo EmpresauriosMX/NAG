@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Top Navigation</title>
+  <title>NAG | Asignaturas</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -45,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="Calificaciones.html" class="nav-link">Calificaciones</a>
+            <a href="Calificaciones.php" class="nav-link">Calificaciones</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>
@@ -57,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Perfil</a>
+            <a href="cambiar_contra.php" class="nav-link">Perfil</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>

@@ -55,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="asignaturas.php" class="nav-link">Asignaturas</a>
+            <a href="asignaturas.html" class="nav-link">Asignaturas</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>
@@ -73,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="cambiar_contra.php" class="nav-link">Perfil</a>
+            <a href="camiar_contra.php" class="nav-link">Perfil</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>
