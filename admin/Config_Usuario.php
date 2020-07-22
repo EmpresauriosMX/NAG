@@ -337,9 +337,15 @@
                     <input type="text" class="form-control" id="nombreusuario" placeholder="Escribe el Nombre del usuario">
                   </div>
 
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Correo</label>
-                    <input type="email" class="form-control" id="correo" placeholder="Escribe el correo">
+                  
+                  <label for="exampleInputPassword1">Correo</label>
+                  <div class="col-md-12">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="email" id="correo" class="form-control" placeholder="Escribe el Correo" data-mask>
+                  </div>
                   </div>
 
                   <label for="exampleInputPassword1">Telefono</label>
@@ -348,7 +354,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-phone"></i></span>
                     </div>
-                    <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"'  data-mask>
+                    <input type="text" id="telefono" class="form-control" data-inputmask='"mask": "(999) 999-9999"'  data-mask>
                   </div>
                   </div>
 
