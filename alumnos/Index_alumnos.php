@@ -99,7 +99,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item">
           <a href="#">
             <img src="../dist/img/avatar4.png"  class="brand-image img-circle" style="opacity: .8">
-            <span class="brand-text">Alumno: ID_74</span>
+           
+            <span class="brand-text">Alumno:</span>
+          
           </a>
           </li>
           <!--Fin imagen usuario-->
