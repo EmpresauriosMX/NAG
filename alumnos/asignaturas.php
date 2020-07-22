@@ -89,6 +89,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </nav>
 <!--Fin de Navbar-->
+<?php
+  /*CONEXION A BD*/ 
+  include("../inc/funciones/conexal.php");
+  $link=Conectarse();
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -107,12 +112,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <label>Cuatrimestre</label>
                 <select class="form-control">
                 <?php
-							    include '../conexion.php';
-							    $link = $conn;
 							    $result=mysqli_query($link,"select * from licenciatura_activa");  
 							    echo '<option>Seleccione una opción</option>';
 							    while($row=mysqli_fetch_array($result)){
-									echo '<option value="'.$row[ID_LicActiva].'">'.$row["grado"].'</option>';
+									echo '<option value="'.$row["ID_LicActiva"].'">'.$row["grado"].'</option>';
 								}
 							  ?>
                 </select>
