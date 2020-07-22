@@ -1,5 +1,5 @@
 <?php
-  $conn = new mysqli('localhost','root','adminadmin','escolar');
+  $conn = new mysqli('localhost','root','babaro123','escolar');
 
   if ($conn->ping()) {
    echo json_encode ('¡La conexión está bien!');

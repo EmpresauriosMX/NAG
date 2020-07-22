@@ -106,12 +106,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="form-group">
                 <label>Cuatrimestre</label>
                 <select class="form-control">
-                    <option>-- Elige un opción --</option>
-                    <option>Primero</option>
-                    <option>Segundo</option>
-                    <option>Tercero</option>
-                    <option>Cuarto</option>
-                    <option>Quinto</option>
+                <?php
+							    include '../conexion.php';
+							    $link = $conn;
+							    $result=mysqli_query($link,"select * from licenciatura_activa");  
+							    echo '<option>Seleccione una opción</option>';
+							    while($row=mysqli_fetch_array($result)){
+									echo '<option value="'.$row[ID_LicActiva].'">'.$row["grado"].'</option>';
+								}
+							  ?>
                 </select>
                 </div>
             </div>
@@ -149,7 +152,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                           <p class="text-muted text-sm"><b>Materia: </b> Programación en Sistemas Distribuidos </p>
                                         </div>
                                         <div class="col-5 text-center">
-                                          <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                          <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                                         </div>
                                       </div>
                                     </div>
@@ -173,7 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Fundamentos de Desarrollo de Sistemas </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -197,7 +200,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Simulación </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -221,7 +224,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Redes de Computadora </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -245,7 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Taller de Base de Datos </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -269,7 +272,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Taller de Base de Datos </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -293,7 +296,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Taller de Responsabilidad Social VI </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
