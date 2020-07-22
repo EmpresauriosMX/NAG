@@ -375,30 +375,7 @@
                     <!-- /.card-body -->
                     <div class="card-footer bg-white p-0">
                         <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            United States of America
-                            <span class="float-right text-danger">
-                                <i class="fas fa-arrow-down text-sm"></i>
-                                12%</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            India
-                            <span class="float-right text-success">
-                                <i class="fas fa-arrow-up text-sm"></i> 4%
-                            </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            China
-                            <span class="float-right text-warning">
-                                <i class="fas fa-arrow-left text-sm"></i> 0%
-                            </span>
-                            </a>
-                        </li>
+                        
                         </ul>
                     </div>
                     <!-- /.footer -->
