@@ -1,0 +1,34 @@
+h6 {
+    margin-top: 1rem;
+    color: red;
+}
+
+.form-group label {
+    color: slategray;
+}
+
+.acomodar-select {
+    display: flex;
+    margin-right: 1rem;
+}
+
+.form-group {
+    margin-bottom: 0;
+    margin-top: .2rem;
+}
+
+.desactivar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-default {
+    color: black;
+    background-color: mediumspringgreen;
+}
+
+.card-footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40rem;
+}
