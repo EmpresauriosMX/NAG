@@ -9,7 +9,7 @@
     else{
         $estatus_c = "activo";
     }
-
+    
     echo "estatus: $estatus_c";
 
     include("../../inc/funciones/conexal.php");

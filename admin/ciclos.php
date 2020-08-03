@@ -83,7 +83,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Main row -->
-        <div class="row">
+        <div class="row" id="recarga_ciclos">
             <div class="col-md-12 col-lg-10 mx-auto col-s-12">
                 <!----------------------------------------ESTE CICLO--------------------------------------------->
                 <?php
@@ -116,7 +116,7 @@
                                           <div class="form-group">
                                             <label>Fecha de inicio</label>
                                               <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                                  <input type="text" name="fecha_i_ciclo_hoy"  class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="" />
+                                                  <input type="text" value="'.$ciclo_actual["fecha_inicio"].'" name="fecha_i_ciclo_hoy"  class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="" />
                                                   <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                   </div>
@@ -128,7 +128,7 @@
                                           <div class="form-group">
                                             <label>Fecha de fin</label>
                                               <div class="input-group date" id="reservationdate2" data-target-input="nearest">
-                                                  <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate2"/>
+                                                  <input type="text" value="'.$ciclo_actual["fecha_fin"].'" class="form-control datetimepicker-input" data-target="#reservationdate2"/>
                                                   <div class="input-group-append" data-target="#reservationdate2" data-toggle="datetimepicker">
                                                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                   </div>
@@ -223,7 +223,7 @@
                 <!-- Fin de agregar ciclo ---------->
                 
                       <!--- -------------------- TABLA DE CICLOS ---------------------->
-                      <div class="card" id="recarga_ciclos">
+                      <div class="card" id="">
                           <div class="card-header">
                           <h3 class="card-title">CICLOS FUTUROS</h3>
                         </div>
@@ -250,12 +250,12 @@
                                     <th>'.$ciclo_actual["ID_Ciclo"].'</th>
                                     <td>Fecha inicio: <strong>'.$ciclo_actual["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$ciclo_actual["fecha_fin"].'</strong></h5></td>
                                     <td>
-                                    <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl'.$row_ciclos_futuros["ID_Ciclo"].'">Configurar</button>
+                                    <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl'.$ciclo_actual["ID_Ciclo"].'">Configurar</button>
                                     </td>
                                     <td><span class="badge bg-danger">Actual</span></td>
                                   </tr>
                                   <!-----------------------------MODAL DE CONFIGURACIÓN--------->
-                                    <div class="modal fade" id="modal-xl'.$row_ciclos_futuros["ID_Ciclo"].'">
+                                    <div class="modal fade" id="modal-xl'.$ciclo_actual["ID_Ciclo"].'">
                                       <div class="modal-dialog modal-xl">
                                         <div class="modal-content">
                                           <div class="modal-header">
@@ -275,7 +275,7 @@
                                                             <div class="form-group">
                                                               <label>Fecha de inicio</label>
                                                                 <div class="input-group date" id="reservationdate5" data-target-input="nearest">
-                                                                    <input type="text" name="fecha_i_ciclo_n" id="fecha_i_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate5" />
+                                                                    <input type="text" value="'.$ciclo_actual["fecha_inicio"].'" name="fecha_i_ciclo_n" id="fecha_i_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate5" />
                                                                     <div class="input-group-append" data-target="#reservationdate5" data-toggle="datetimepicker">
                                                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                                     </div>  
@@ -287,7 +287,7 @@
                                                             <div class="form-group">
                                                               <label>Fecha de fin</label>
                                                                 <div class="input-group date" id="reservationdate6" data-target-input="nearest">
-                                                                    <input type="text" name="fecha_f_ciclo_n" id="fecha_f_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate6"/>
+                                                                    <input type="text" value="'.$ciclo_actual["fecha_fin"].'" name="fecha_f_ciclo_n" id="fecha_f_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate6"/>
                                                                     <div class="input-group-append" data-target="#reservationdate6" data-toggle="datetimepicker">
                                                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                                     </div>
@@ -356,7 +356,7 @@
                                                           <div class="form-group">
                                                             <label>Fecha de inicio</label>
                                                               <div class="input-group date" id="reservationdate5" data-target-input="nearest">
-                                                                  <input type="text" name="fecha_i_ciclo_n" id="fecha_i_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate5" />
+                                                                  <input type="text" value="'.$row_ciclos_futuros["fecha_inicio"].'" name="fecha_i_ciclo_n" id="fecha_i_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate5" />
                                                                   <div class="input-group-append" data-target="#reservationdate5" data-toggle="datetimepicker">
                                                                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                                   </div>  
@@ -368,7 +368,7 @@
                                                           <div class="form-group">
                                                             <label>Fecha de fin</label>
                                                               <div class="input-group date" id="reservationdate6" data-target-input="nearest">
-                                                                  <input type="text" name="fecha_f_ciclo_n" id="fecha_f_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate6"/>
+                                                                  <input type="text" value="'.$row_ciclos_futuros  ["fecha_fin"].'" name="fecha_f_ciclo_n" id="fecha_f_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate6"/>
                                                                   <div class="input-group-append" data-target="#reservationdate6" data-toggle="datetimepicker">
                                                                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                                   </div>
@@ -381,15 +381,18 @@
                                                     <p> 1.1Esta accion cambia toda la arquitectura de los alumnos, docentes, licenciaturas, calificaciones y demás campos. aplicar solo cuando haya finalizado el ciclo anterior </p>
                                                     <p style="color:red;">2. Sólo cambia a activo si no hay otro ciclo activo </p>
                                                     <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
-                                                    <!----- ON OFF BUTTON --->
-                                                    <input type="checkbox"  name="my-checkbox" id="estado_ciclo_n" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                                    <!----- ON OFF BUTTON --->';
+                                                      if(!$hay_ciclo_activo){
+                                                          echo '<input type="checkbox"  name="my-checkbox" id="estado_ciclo_n" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">';
+                                                      }
+                                                    echo '
                                                     <!-- / FORMULARIO DEL CICLO NUEVO -->
                                                   </form> 
                                                 
                                         </div>
                                         <div class="modal-footer justify-content-between">
                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary">Save changes</button>
+                                          <button type="button" class="btn btn-primary">Guardar cambios</button>
                                         </div>
                                       </div>
                                       <!-- /.modal-content -->
