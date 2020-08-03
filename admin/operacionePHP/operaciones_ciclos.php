@@ -1,19 +1,22 @@
 <?php
-$materia = $_GET["materia"];
-$titulo = $_GET["titulo"];
-$descripcion = $_GET["descripcion"];
-$fecha = $_GET["fecha"];
-$color = $_GET["color"];
-//$usuario = $_GET["usuario"];
-//echo $materia.  " ". $titulo . " " . $descripcion . " " . $fecha . " " . $color;
-//echo $color . "---";
+    $fecha1 = $_GET["fecha_i_n"];
+    $fecha2 = $_GET["fecha_f_n"];
+    $estatus = $_GET["estado_n"];
 
-include("../php/conexion.php");
-$link = conectarse();
-mysqli_query($link, "INSERT INTO `eventos`(`id_materia`, `titulo`, `descripcion`, `fecha`, `color_importancia`, `id_usuario`, `estado`)
-VALUES ($materia,'$titulo','$descripcion','$fecha','$color',1,0)");
+    if ($estatus == "false"){
+        $estatus_c = "futuro";
+    }
+    else{
+        $estatus_c = "activo";
+    }
 
-//INSERT INTO `eventos`(`id_materia`, `titulo`, `descripcion`, `fecha`, `color_importancia`, `id_usuario`, `estado`) 
-//VALUES (2,'Examen','estudiar el pdf','2020-04-09','#9ae6ae',1,0)
+    echo "estatus: $estatus_c";
 
+    include("../../inc/funciones/conexal.php");
+    $link = Conectarse();
+    mysqli_query($link, "INSERT INTO `ciclo` (`ID_Ciclo`, `fecha_inicio`, `fecha_fin`, `estatus`) 
+                         VALUES (NULL, '$fecha1', '$fecha2', '$estatus_c')");
+
+    echo "INSERT INTO `ciclo` (`ID_Ciclo`, `fecha_inicio`, `fecha_fin`, `estatus`) 
+    VALUES (NULL, '$fecha1', '$fecha2', '$estatus_c')";
 ?> 

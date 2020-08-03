@@ -28,25 +28,25 @@ function getXMLHTTPRequest(){
     
     //------------------------------------CICLOS NUEVO INICIO--------------------------
     function nuevo_ciclo(){
-    var fecha_i_ciclo_n = document.form_ciclo_nuevo.fecha_i_ciclo_n.value;
-    var fecha_f_ciclo_n = document.form_ciclo_nuevo.fecha_f_ciclo_n.value;
-    var estado_ciclo_n  = document.form_ciclo_nuevo.estado_ciclo_n.checked;
-    alert("fecha inicio ciclo n " + fecha_i_ciclo_n + " fecha fin " + fecha_f_ciclo_n + " estado ciclo n " + estado_ciclo_n);
-    var url = "./operacionesPHP/operaciones_ciclos.php?fecha_i_n=" + fecha_i_ciclo_n +"&"+"fecha_f_n="+fecha_i_ciclo_n+"&"+"estado_n="+estado_ciclo_n;
-    miPeticion.open("GET", url, true);
-    miPeticion.onreadystatechange=respuestaAjax;
-    miPeticion.send(null);
-    setTimeout('llamarAjax()', 1000);
+      var fecha_i_ciclo_n = document.getElementById("fecha_i_ciclo_n").value;
+      var fecha_f_ciclo_n = document.getElementById("fecha_f_ciclo_n").value;
+      var estado_ciclo_n  = document.getElementById("estado_ciclo_n").checked;
+      alert("fecha inicio ciclo n " + fecha_i_ciclo_n + " fecha fin " + fecha_f_ciclo_n + " estado ciclo n " + estado_ciclo_n);
+      var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_n=" + fecha_i_ciclo_n +"&"+"fecha_f_n="+fecha_i_ciclo_n+"&"+"estado_n="+estado_ciclo_n;
+      miPeticion.open("GET", url, true);
+      miPeticion.onreadystatechange=respuestaAjax;
+      miPeticion.send(null);
+      setTimeout('llamarAjax()', 1000);
     }
     
     function respuestaAjax() {
     if(miPeticion.readyState == 1) {
-        document.getElementById("recarga").innerHTML="<center>Loading...</center>";
+        document.getElementById("recarga_ciclos").innerHTML="<center>Loading...</center>";
     }
     else if(miPeticion.readyState == 4) {
     if(miPeticion.status == 200) {
      var mitexto=miPeticion.responseText;
-     document.getElementById("recarga").innerHTML=mitexto;
+     document.getElementById("recarga_ciclos").innerHTML=mitexto;
             } else {
             alert("Ha ocurrido un error: " + miPeticion.statusText);
             }
