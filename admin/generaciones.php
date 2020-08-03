@@ -176,8 +176,8 @@
                         </p>
                         <div class="form-group">
                             <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                            <label class="custom-control-label" for="customSwitch3">Desactivado / Activado</label>
+                            <input type="checkbox" name="gen1" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Desactivado / Activado</label>
                             </div>
                         </div>
                     </div>  
@@ -285,8 +285,8 @@
                         </p>
                         <div class="form-group">
                             <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                            <label class="custom-control-label" for="customSwitch3">Desactivado / Activado</label>
+                            <input type="checkbox" name="gen2" class="custom-control-input" id="customSwitch2">
+                            <label class="custom-control-label" for="customSwitch2">Desactivado / Activado</label>
                             </div>
                         </div>
                     </div>  
@@ -395,7 +395,7 @@
                         </p>
                         <div class="form-group">
                             <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch3">
+                            <input type="checkbox" name="gen3" class="custom-control-input" id="customSwitch3">
                             <label class="custom-control-label" for="customSwitch3">Desactivado / Activado</label>
                             </div>
                         </div>
