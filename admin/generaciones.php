@@ -412,6 +412,152 @@
               </form>
             </div>
             <!-- /.card -->
+
+            
+             <!-- /.card -->
+            <!-- Horizontal Form -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Agregar una nueva generación</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form class="form-horizontal">
+                <div class="card-body">
+                <label for="ciclo">Periodo</label>
+                  <div class="form-group row acomodar-select">
+                        <label for="ciclo" class="col-sm-2 col-form-label">Inicio</label>
+                        
+                        <!-- select -->
+                            <div class="form-group acomodar-select">
+                                <select class="form-control" id="ciclo">
+                                <option value="#" disabled selected>Año</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                                <option>option 5</option>
+                                </select>
+                            </div>
+
+                        <!-- select -->
+                            <div class="form-group acomodar-select">
+                                <select class="form-control" id="ciclo">
+                                <option value="#" disabled selected>Mes</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                                <option>option 5</option>
+                                </select>
+                            </div>
+
+                        <!-- select -->
+                            <div class="form-group acomodar-select">
+                                <select class="form-control" id="ciclo">
+                                <option value="#" disabled selected>Día</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                                <option>option 5</option>
+                                </select>
+                            </div>
+                  </div>
+
+                  <div class="form-group row acomodar-select">
+                        <label for="ciclo" class="col-sm-2 col-form-label">Fin</label>
+                        
+                        <!-- select -->
+                            <div class="form-group acomodar-select">
+                                <select class="form-control" id="ciclo">
+                                <option value="#" disabled selected>Año</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                                <option>option 5</option>
+                                </select>
+                            </div>
+
+                        <!-- select -->
+                            <div class="form-group acomodar-select">
+                                <select class="form-control" id="ciclo">
+                                <option value="#" disabled selected>Mes</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                                <option>option 5</option>
+                                </select>
+                            </div>
+
+                        <!-- select -->
+                            <div class="form-group acomodar-select">
+                                <select class="form-control" id="ciclo">
+                                <option value="#" disabled selected>Día</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                                <option>option 5</option>
+                                </select>
+                            </div>
+                         </div>
+                          <label for="">Ciclos de la generación</label>
+                            <div class="form-group">
+                              <div class="acomodarcheck">
+
+                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox">
+                                  <label class="form-check-label">Agregar</label>
+                                </div>
+
+                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox">
+                                  <label class="form-check-label">Agregar</label>
+                                </div>
+
+                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox">
+                                  <label class="form-check-label">Agregar</label>
+                                </div>
+
+                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox">
+                                  <label class="form-check-label">Agregar</label>
+                                </div>
+
+                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox">
+                                  <label class="form-check-label">Agregar</label>
+                                </div>
+
+                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox">
+                                  <label class="form-check-label">Agregar</label>
+                                </div>
+
+                              </div>
+                            </div>
+                            </div>
+
+
+                      </div>
+                    </div>
+                         
+
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <h5>Ciclos activos en la generación: </h5>
+                  <button type="submit" class="btn btn-default float-right">Guardar Cambios</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+            <!-- /.card -->
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
