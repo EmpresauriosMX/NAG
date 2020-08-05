@@ -242,10 +242,10 @@
                             </div>
                   </div>
 
-                  <div class="form-group row acomodar-select">
-                        <label for="ciclo" class="col-sm-2 col-form-label">Fin</label>
+                          <div class="form-group row acomodar-select">
+                            <label for="ciclo" class="col-sm-2 col-form-label">Fin</label>
                         
-                        <!-- select -->
+                            <!-- select -->
                             <div class="form-group acomodar-select">
                                 <select class="form-control" id="ciclo">
                                 <option value="#" disabled selected>Año</option>
@@ -256,8 +256,8 @@
                                 </select>
                             </div>
 
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
+                              <!-- select -->
+                              <div class="form-group acomodar-select">
                                 <select class="form-control" id="ciclo">
                                 <option value="#" disabled selected>Mes</option>
                                 <option>option 2</option>
@@ -265,10 +265,10 @@
                                 <option>option 4</option>
                                 <option>option 5</option>
                                 </select>
-                            </div>
+                              </div>
 
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
+                              <!-- select -->
+                              <div class="form-group acomodar-select">
                                 <select class="form-control" id="ciclo">
                                 <option value="#" disabled selected>Día</option>
                                 <option>option 2</option>
@@ -276,20 +276,20 @@
                                 <option>option 4</option>
                                 <option>option 5</option>
                                 </select>
-                            </div>
-                         </div>
+                              </div>
+                          </div>
                     <h6>Cambiar a generación desactivada</h6>
-                    <div class="desactivar">   
-                        <p>Esta acción cambia toda la arquitectura de los alumnos, docentes,
+                        <div class="desactivar">   
+                          <p>Esta acción cambia toda la arquitectura de los alumnos, docentes,
                             licenciaturas, calificaciones y más
-                        </p>
-                        <div class="form-group">
+                          </p>
+                          <div class="form-group">
                             <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                            <input type="checkbox" name="gen2" class="custom-control-input" id="customSwitch2">
-                            <label class="custom-control-label" for="customSwitch2">Desactivado / Activado</label>
+                              <input type="checkbox" name="gen2" class="custom-control-input" id="customSwitch2">
+                              <label class="custom-control-label" for="customSwitch2">Desactivado / Activado</label>
                             </div>
-                        </div>
-                    </div>  
+                          </div>
+                        </div>  
 
 
                 </div>
@@ -297,6 +297,7 @@
                 <div class="card-footer">
                   <h5>Ciclos activos en la generación: </h5>
                   <button type="submit" class="btn btn-default float-right">Guardar Cambios</button>
+                </div>
                 </div>
                 <!-- /.card-footer -->
               </form>
@@ -424,8 +425,8 @@
               <!-- form start -->
               <form class="form-horizontal">
                 <div class="card-body">
-                <label for="ciclo">Periodo</label>
-                  <div class="form-group row acomodar-select">
+                  <label for="ciclo">Periodo</label>
+                    <div class="form-group row acomodar-select">
                         <label for="ciclo" class="col-sm-2 col-form-label">Inicio</label>
                         
                         <!-- select -->
@@ -460,9 +461,9 @@
                                 <option>option 5</option>
                                 </select>
                             </div>
-                  </div>
+                      </div>
 
-                  <div class="form-group row acomodar-select">
+                      <div class="form-group row acomodar-select">
                         <label for="ciclo" class="col-sm-2 col-form-label">Fin</label>
                         
                         <!-- select -->
@@ -540,15 +541,10 @@
 
                               </div>
                             </div>
-                            </div>
-
+                            
+  
 
                       </div>
-                    </div>
-                         
-
-
-                </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <h5>Ciclos activos en la generación: </h5>
