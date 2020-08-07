@@ -1,3 +1,7 @@
+<?php
+  include '../inc/funciones/funciones_admin_licenciaturas.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,14 +90,14 @@
     <div class="row">
         <div class="col-2">  </div>
         <div class="col-3">Nombre</div>
-        <div class="col-3"> <input> </div>
+        <div class="col-3">   <input name="NombreLic" id="NombreLic"> </div>
     </div>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-3">Numero de periodos</div>
         <div class="col-3">
 
-        <div class="btn-group">
+        <div class="btn-group" >
                     <button type="button" class="btn btn-default">periodo</button>
                     <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
                       <span class="sr-only">Toggle Dropdown</span>
@@ -109,7 +113,10 @@
 
         </div>
     </div>
+    <div id="formulario">
     <button type="button" class="btn btn-block btn-warning">Agregar licenciatura</button>
+    </div>
+
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
@@ -121,40 +128,32 @@
             <!-- Custom Tabs -->
             <div class="card">
               <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">Numero De Periodo</h3>
-                <ul class="nav nav-pills ml-auto p-2">
-                  <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab"> Num: 1</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab"> Num: 2</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab"> Num: 3</a></li>
-                 
+                <ul class="nav nav-pills ml-auto p-2" id = "submenu" name = "submenu">
+                 <?php
+                    $proyecto = obtenerProyectos();
+                      foreach ($proyecto as $proyectos): ?>
+                                          <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $proyectos['ID_Lincenciatura'] ?>" data-toggle="tab"><?php echo $proyectos['NombreLic'] ?></a></li>  
+                    <?php endforeach; ?>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">
-                  matematicas 2<br>
-                    español <br>
-                    sistemas computacionales 3 <br>
-                    <button type="button" class="btn btn-block btn-info">Agregar materia</button>
-                  </div>
-                  <!-- /.tab-pane -->
-                  <div class="tab-pane" id="tab_2">
-                  matematicas 3<br>
-                    español <br>
-                    sistemas computacionales 3 <br>
-                    taller de base de datos 2 <br>
-                    <button type="button" class="btn btn-block btn-info">Agregar materia</button>
-                  </div>
-                  <!-- /.tab-pane -->
-                  <div class="tab-pane" id="tab_3">
-                  matematicas 2<br>
-                    español <br>
-                    simulacion <br>
-                    redes <br>
-                    sistemas computacionales 3 <br>
-                    <button type="button" class="btn btn-block btn-info">Agregar materia</button>
-                  </div>
-                  <!-- /.tab-pane -->
+                <div class="tab-content" id="contenedor_licenciaturas" name="contenedor_licenciaturas">
+                  <?php
+                    $proyecto = obtenerProyectos();
+                      foreach ($proyecto as $proyectos): ?>
+
+                      <div class="tab-pane" id="tab_<?php echo $proyectos['ID_Lincenciatura'] ?>">
+                        <?php echo $proyectos['NombreLic']; 
+                              echo $proyectos['NombreLic'];
+                              echo $proyectos['NombreLic'];   
+                        ?>
+                      <div id="materias" name="materias">
+                      <input name="Nombre_materia<?php echo $proyectos['ID_Lincenciatura']?>" id="Nombre_Materia<?php echo $proyectos['ID_Lincenciatura']?>">
+                      <input type="hidden" id="id_lic" value="otro">
+                            <button type="button" class="btn btn-block btn-info" onclick =AgregarMateria(<?php echo $proyectos['ID_Lincenciatura']?>)>Agregar materia</button>
+                      </div>
+                      </div>
+                    <?php endforeach; ?>
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
@@ -166,8 +165,6 @@
  
  
  <!--fin seccion de edicion -->
- 
- </div></div>
   
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -189,6 +186,7 @@
 <!--  seccion de scriptos y footer-->
 <!-- OPTIONAL SCRIPTS -->
 <script src="../dist/js/demo.js"></script>
+<script src="../admin/funciones js/licenciaturas.js"></script>
 
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -233,6 +231,7 @@
 <!-- ChartJS -->
 <script src="../plugins/chart.js/Chart.min.js"></script>
 <!-- PAGE SCRIPTS -->
+<script src="../dist/js/pages/dashboard2.js"></script>
 <script src="../dist/js/pages/dashboard2.js"></script>
 </body>
 </html>

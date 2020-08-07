@@ -1,5 +1,6 @@
 <?php
 include '../inc/templates/header.php';
+include '../inc/funciones/funciones.php';
 ?>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -34,8 +35,11 @@ include '../inc/templates/header.php';
         <span class="sr-only">Toggle Dropdown</span>
       </button>
       <div class="dropdown-menu" role="menu">
-        <a class="dropdown-item" href="#">sistemas</a>
-        <a class="dropdown-item" href="#">psicologia</a>
+      <?php
+            while($row=mysqli_fetch_array($resultado)){ ?> 
+            <a class="dropdown-item" href="#"> <?php echo ($row["NombreLic"]);?> </a>
+      <?php
+} ?>
       </div>
     </div> <!--fin de btn-group-->
     <div class="btn-group">
@@ -78,7 +82,7 @@ include '../inc/templates/header.php';
                 <tr>
                   <td>Maria</td>
                   <td>Perez</td>
-                  <td> <input type="text" name="calificacion" id="calificacion" class="calificaciones" placeholder="calificacion"  required disabled></td>
+                  <td> <input type="text" name="calificacion_prueba" id="calificacion" class="calificaciones" placeholder="calificacion"  required disabled></td>
                 </tr>
                 <tr>
                     <td>Maria</td>
