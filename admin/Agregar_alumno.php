@@ -285,11 +285,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Agregar nuevo alumno</h1>
               <?php
                $result=mysqli_query($link,"select Puesto_laboral from administrador where ID_Admin=2");
                $total = mysqli_num_rows($result);
                while($row=mysqli_fetch_array($result)){
                    echo'
+                   
             <h1 class="m-0 text-dark">Bienvenido  '.$row["Puesto_laboral"].'</h1>
             ';
                }
@@ -326,39 +328,37 @@
         <div class="col-md-12">
         <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Datos de la Institución</h3>
+                <h3 class="card-title">Datos Personales</h3>
               </div>
 
-              <form name="guardar_institución" id="guardar_institución" method="GET" action="">
+              <form>
                 
                 <div class="card-body">
 
-
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre de institucion</label>
-                    <input type="text" class="form-control" id="nombreinstitucion" name="nombreinstitucion" required="required" placeholder="Escribe el nombre de la Institución">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Clave</label>
-                    <input type="text" class="form-control" id="claveinstitucion" name="claveinstitucion" required="required" placeholder="Escribe la clave de la institución">
+                    <label for="exampleInputPassword1">Nombres</label>
+                    <input type="text" class="form-control" id="nombres" placeholder="Escribe el Nombre">
                   </div>
                  
                   <div class="form-group">
-                    <label for="ap">Tipo de institución</label>
-                    <input type="text" class="form-control" id="tipoinstitucion" name="tipoinstitucion" required="required" placeholder="Escribe el Atipo de institución">
+                    <label for="ap">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="apellidopat" placeholder="Escribe el Apellido Paterno">
                   </div>
 
                   <div class="form-group">
-                    <label for="ap">Descripción</label>
-                    <input type="text" class="form-control" id="descripcioninstitucion" name="descripcioninstitucion" required="required" placeholder="Escribe la descripción de la institución">
+                    <label for="ap">Apellido Materno</label>
+                    <input type="text" class="form-control" id="apellidomat" placeholder="Escribe el Apellido Materno">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="nombreusuario" placeholder="Escribe el Nombre del usuario">
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputPassword1">Dirección</label>
-                    <input type="text" class="form-control" id="direccioninstitucion" name="direccioninstitucion" required="required" placeholder="Escribe la direccion de la Institución">
+                    <input type="text" class="form-control" id="direccion" placeholder="Escribe el Nombre del usuario">
                   </div>
-
                   
                   <label for="exampleInputPassword1">Correo</label>
                   <div class="col-md-12">
@@ -366,7 +366,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                     </div>
-                    <input type="email" id="correoinst" name="correoinst" class="form-control" required="required" placeholder="Escribe el Correo" data-mask>
+                    <input type="email" id="correo" class="form-control" placeholder="Escribe el Correo" data-mask>
                   </div>
                   </div>
 
@@ -376,32 +376,281 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-phone"></i></span>
                     </div>
-                    <input type="text" id="telefonoinst" name="telefonoinst" class="form-control" required="required" data-inputmask='"mask": "(999) 999-9999"' placeholder="(999) 999-9999"  data-mask>
+                    <input type="text" id="telefono" class="form-control" data-inputmask='"mask": "(999) 999-9999"'  data-mask>
                   </div>
                   </div>
 
+                  <div class="col-sm-3">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Genero</label>
+                        <select class="form-control">
+                          <option>Femenino</option>
+                          <option>Masculino</option>
+                          <option>Indefinido</option>
+                        </select>
+                      </div>
+                    </div>
+
+
                   
+                  <label for="exampleInputPassword1">Fecha de nacimiento</label>
+                  <div class="row">
+                    <div class="col-sm-1">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Año</option>
+                          <option>2003</option>
+                          <option>2002</option>
+                          <option>2001</option>
+                          <option>2000</option>
+                          <option>1999</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-1">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Mes</option>
+                          <option>01</option>
+                          <option>02</option>
+                          <option>03</option>
+                          <option>04</option>
+                          <option>05</option>
+                          <option>07</option>
+                          <option>08</option>
+                          <option>09</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-1">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Dia</option>
+                          <option>01</option>
+                          <option>02</option>
+                          <option>03</option>
+                          <option>04</option>
+                          <option>05</option>
+                          <option>07</option>
+                          <option>08</option>
+                          <option>09</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    </div>
 
                 </div>
                 <!-- /.card-body -->
 
-                <div class="card-footer">
-                  <button type="button" id="btn_enviar" class="btn btn-primary">Enviar datos</button>
-                </div>
+                
               </form>
+
+              <div class="card-header">
+                <h3 class="card-title">Datos Academicos</h3>
+              </div>
+
+              <form>
+                
+                <div class="card-body">
+
+               
+                <label>Licenciatura</label>
+                  <div class="col-sm-3">
+                      <!-- select -->
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Select</option>
+                          <option>Masculino</option>
+                          <option>Indefinido</option>
+                        </select>
+                      </div>
+                    </div>
+
+
+                  
+                  <label for="exampleInputPassword1">Grupo</label>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Select</option>
+                          <option>2003</option>
+                          <option>2002</option>
+                          <option>2001</option>
+                          <option>2000</option>
+                          <option>1999</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <label>Generación</label>
+                  <div class="col-sm-3">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Select</option>
+                          <option>Masculino</option>
+                          <option>Indefinido</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <label>Ciclo</label>
+                  <div class="col-sm-3">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Select</option>
+                          <option>Masculino</option>
+                          <option>Indefinido</option>
+                        </select>
+                      </div>
+                    </div>
+
+                </div>
+
+              </form>
+
+              <div class="card-header">
+                <h3 class="card-title">Datos del tutor</h3>
+              </div>
+
+              <form>
+                
+                <div class="card-body">
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nombres</label>
+                    <input type="text" class="form-control" id="nombres" placeholder="Escribe el Nombre">
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="ap">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="apellidopat" placeholder="Escribe el Apellido Paterno">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="ap">Apellido Materno</label>
+                    <input type="text" class="form-control" id="apellidomat" placeholder="Escribe el Apellido Materno">
+                  </div>
+                  
+                  <label for="exampleInputPassword1">Correo</label>
+                  <div class="col-md-12">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="email" id="correo" class="form-control" placeholder="Escribe el Correo" data-mask>
+                  </div>
+                  </div>
+
+                  <label for="exampleInputPassword1">Telefono</label>
+                  <div class="col-md-4">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                    <input type="text" id="telefono" class="form-control" data-inputmask='"mask": "(999) 999-9999"'  data-mask>
+                  </div>
+                  </div>
+
+                  
+                  <label for="exampleInputPassword1">Fecha de nacimiento</label>
+                  <div class="row">
+                    <div class="col-sm-1">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Año</option>
+                          <option>2003</option>
+                          <option>2002</option>
+                          <option>2001</option>
+                          <option>2000</option>
+                          <option>1999</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-1">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Mes</option>
+                          <option>01</option>
+                          <option>02</option>
+                          <option>03</option>
+                          <option>04</option>
+                          <option>05</option>
+                          <option>07</option>
+                          <option>08</option>
+                          <option>09</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-1">
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>Dia</option>
+                          <option>01</option>
+                          <option>02</option>
+                          <option>03</option>
+                          <option>04</option>
+                          <option>05</option>
+                          <option>07</option>
+                          <option>08</option>
+                          <option>09</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                
+              </form>
+
+              <div class="card-header">
+                <h3 class="card-title">Datos de Usuario</h3>
+              </div>
+
+              <form>
+                
+                <div class="card-body">
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">ID del Usuario</label>
+                    <input type="text" class="form-control" id="nombres" placeholder="Escribe el Nombre">
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="ap">Contraseña</label>
+                    <input type="password" class="form-control" id="apellidopat" placeholder="Escribe el Apellido Paterno">
+                  </div>
+
+
+                </div>
+                <!-- /.card-body -->
+
+                
+              </form>
+
             </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
 
 
       </div>
