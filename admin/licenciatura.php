@@ -8,7 +8,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> licenciatura | Dashboard</title>
-
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -90,7 +89,6 @@
     <div class="row">
         <div class="col-2">  </div>
         <div class="col-3">Nombre</div>
-        <div class="col-3">   <input name="NombreLic" id="NombreLic"> </div>
     </div>
     <div class="row">
         <div class="col-2"></div>
@@ -112,10 +110,6 @@
                   </div>
 
         </div>
-    </div>
-    <div id="formulario">
-    <button type="button" class="btn btn-block btn-warning">Agregar licenciatura</button>
-    </div>
 
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
@@ -162,10 +156,170 @@
           </div>
           <!-- /.col -->
         </div>
- 
- 
- <!--fin seccion de edicion -->
-  
+                          <!-- inicio tablas -->
+        <div class="container-fluid">
+  <h1>Licenciaturas</h1>
+  <div class="row" style="background-color:white;">
+    <div class="col-md-6">
+    <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Agregar licenciatura</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre licenciatura</label>
+                    <input class="form-control" placeholder="Ingrese un nombre" name="NombreLic" id="NombreLic">
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                <div id="formulario">
+    <button type="button" class="btn btn-primary">Agregar</button>
+    </div>
+                </div>
+              </form>
+            </div>
+    </div>
+    <div class="col-md-6">
+     <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>licenciatura</th>
+                    <th>opciones</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                    $proyecto = obtenerProyectos();
+                      foreach ($proyecto as $proyectos): ?>
+                      <tr>
+                      <td><?php echo $proyectos['ID_Lincenciatura'] ?></td>
+                      <td><?php echo $proyectos['NombreLic'] ?></td>
+                      <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm">Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                      </div>
+                      </td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>licenciaturas</th>
+                    <th>opciones</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+  </div>
+</div>
+
+<!--seccion licenciatura activa -->
+<div class="container-fluid">
+  <h1>Licenciaturas activas</h1>
+  <div class="row" style="background-color:white;">
+    <div class="col-md-6">
+    <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">formulario licenciatura activa</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre licenciatura</label>
+                    
+                    <input class="form-control" placeholder="Ingrese un nombre" name="NombreLic" id="NombreLic">
+                   
+                    <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-flat">Action</button>
+                    <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                    <?php
+                    $proyecto = obtenerProyectos();
+                      foreach ($proyecto as $proyectos): ?>
+                       <a class="dropdown-item" href="#"><?php echo $proyectos['NombreLic'] ?></a>
+                    <?php endforeach; ?>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                <div id="formulario">
+    <button type="button" class="btn btn-primary">Agregar</button>
+    </div>
+                </div>
+              </form>
+            </div>
+    </div>
+    <div class="col-md-6">
+     <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table">
+                  <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Fecha inicio</th>
+                    <th>Fecha fin </th>
+                    <th>opciones</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                    $LicActiva = obtenerLicActiva();
+                      foreach ($LicActiva as $LicActiva_S): ?>
+                      <tr>
+                      <td><?php echo $LicActiva_S['NombreLic'] ?></td>
+                      <td><?php echo $LicActiva_S['fecha_inicio'] ?></td>
+                      <td> <?php echo $LicActiva_S['fecha_fin']?> </td>
+                      <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm">Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                      </div>
+                      </td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>licenciaturas</th>
+                    <th>opciones</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+  </div>
+</div>
+
+ <!--fin seccion de edicion --> 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -174,7 +328,6 @@
       <b>Version</b> 3.1.0-pre
     </div>
   </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
 
@@ -233,5 +386,30 @@
 <!-- PAGE SCRIPTS -->
 <script src="../dist/js/pages/dashboard2.js"></script>
 <script src="../dist/js/pages/dashboard2.js"></script>
+
+
+<!--tablas-->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
 </html>
