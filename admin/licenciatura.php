@@ -73,23 +73,24 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> licenciatura y materias</h1>
+            <h1 class="m-0 text-dark"> Licenciatura y Materias</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Main row -->
     <div class="row">
         <div class="col-2">  </div>
         <div class="col-3">Nombre</div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" id="nombres" placeholder="Escribe el Nombre">
+          </div>
     </div>
+<br>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-3">Numero de periodos</div>
@@ -97,9 +98,7 @@
 
         <div class="btn-group" >
                     <button type="button" class="btn btn-default">periodo</button>
-                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                      <span class="sr-only">Toggle Dropdown</span>
-                    </button>
+                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false"></button>
                     <div class="dropdown-menu" role="menu" style="">
                       <a class="dropdown-item" href="#">1</a>
                       <a class="dropdown-item" href="#">2 </a>
@@ -111,25 +110,22 @@
 
         </div>
 
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
 
     <div class="container-fluid"> 
     <div class="row">
           <div class="col-12">
-            <!-- Custom Tabs -->
             <div class="card">
               <div class="card-header d-flex p-0">
                 <ul class="nav nav-pills ml-auto p-2" id = "submenu" name = "submenu">
                  <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
-                                          <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $proyectos['ID_Lincenciatura'] ?>" data-toggle="tab"><?php echo $proyectos['NombreLic'] ?></a></li>  
+                        <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $proyectos['ID_Lincenciatura'] ?>" data-toggle="tab"><?php echo $proyectos['NombreLic'] ?></a></li>  
                     <?php endforeach; ?>
                 </ul>
-              </div><!-- /.card-header -->
+              </div>
               <div class="card-body">
                 <div class="tab-content" id="contenedor_licenciaturas" name="contenedor_licenciaturas">
                   <?php
@@ -183,12 +179,13 @@
               </form>
             </div>
     </div>
-    <div class="col-md-6">
+
+    
+    <div class="col-xs-12 col-sm-6 col-lg-6">
      <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Tabla de Licenciaturas</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table">
                   <thead>
@@ -214,19 +211,15 @@
                       </tr>
                     <?php endforeach; ?>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>#</th>
-                    <th>licenciaturas</th>
-                    <th>opciones</th>
-                  </tr>
-                  </tfoot>
+                  
                 </table>
               </div>
               <!-- /.card-body -->
             </div>
   </div>
 </div>
+
+
 
 <!--seccion licenciatura activa -->
 <div class="container-fluid">
@@ -237,8 +230,7 @@
               <div class="card-header">
                 <h3 class="card-title">formulario licenciatura activa</h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
+              
               <form>
                 <div class="card-body">
                   <div class="form-group">
@@ -272,10 +264,10 @@
               </form>
             </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-12 col-sm-6 col-lg-6">
      <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Licenciaturas Activas</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
