@@ -26,19 +26,39 @@ function getXMLHTTPRequest(){
     
     var miPeticion = getXMLHTTPRequest();
     
-    //------------------------------------CICLOS NUEVO INICIO--------------------------
-    function nuevo_ciclo(){
+    //------------------------------------CICLOS NUEVO-------------------------
+    function nuevo_ciclo(operacion){
+      var operacion;
       var fecha_i_ciclo_n = document.getElementById("fecha_i_ciclo_n").value;
       var fecha_f_ciclo_n = document.getElementById("fecha_f_ciclo_n").value;
+      var ciclo_activo = document.getElementById("ciclo_activo").value;
       var estado_ciclo_n  = document.getElementById("estado_ciclo_n").checked;
-      alert("fecha inicio ciclo n " + fecha_i_ciclo_n + " fecha fin " + fecha_f_ciclo_n + " estado ciclo n " + estado_ciclo_n);
-      var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_n=" + fecha_i_ciclo_n +"&"+"fecha_f_n="+fecha_i_ciclo_n+"&"+"estado_n="+estado_ciclo_n;
+      if(ciclo_activo > 0 ){
+        ciclo_activo = true;
+      }
+      alert("fecha inicio ciclo n " + fecha_i_ciclo_n + " fecha fin " + fecha_f_ciclo_n + " estado ciclo n " + estado_ciclo_n + " operacion= "+operacion + " ciclo a= "+ciclo_activo);
+      var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_n=" + fecha_i_ciclo_n +"&"+"fecha_f_n="+fecha_i_ciclo_n+"&"+"estado_n="+estado_ciclo_n+"&"+"operacion="+operacion+"&"+"ciclo_activo="+ciclo_activo;
       miPeticion.open("GET", url, true);
       miPeticion.onreadystatechange=respuestaAjax;
       miPeticion.send(null);
       setTimeout('llamarAjax()', 1000);
     }
+    //---------------------------------ACTUALIZAR CICLO---------------------
+    function actualizar_ciclo(id){
+      var id;
+      var id_ciclo_a = document.getElementById("id_ciclo_a" + id).value;
+      var fecha_f_ciclo_a = document.getElementById("fecha_f_ciclo_a" + id).value;
+      var estado_ciclo_a  = document.getElementById("estado_ciclo_a" + id).checked;
+      
+      alert("fecha inicio ciclo a " + fecha_i_ciclo_n + " fecha fin " + fecha_f_ciclo_a + " estado ciclo a " + estado_ciclo_a + " operacion= actualizar " +"id "+id );
+      /*var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_a=" + fecha_i_ciclo_a +"&"+"fecha_f_a="+fecha_i_ciclo_a+"&"+"estado_a="+estado_ciclo_a+"&"+"operacion=actual"+"&"+"id="+id;
+      miPeticion.open("GET", url, true);
+      miPeticion.onreadystatechange=respuestaAjax;
+      miPeticion.send(null);
+      setTimeout('llamarAjax()', 1000);*/
+    }
     
+    //---------------------------RESPUESTA DEL AJAX--------------------------
     function respuestaAjax() {
     if(miPeticion.readyState == 1) {
         document.getElementById("recarga_ciclos").innerHTML="<center>Loading...</center>";
@@ -52,59 +72,4 @@ function getXMLHTTPRequest(){
             }
         }
     }
-    
-    //---------------------MARCAR--------------------------------
-    
-    function marcar_evento(id){
-      var id
-      //alert("id " +id);
-      var url = "./resumen/marcar_evento.php?id=" + id;
-      miPeticion.open("GET", url, true);
-      miPeticion.onreadystatechange=respuestaAjax1;
-      miPeticion.send(null);
-      //setTimeout('llamarAjax()', 1000);
-      }
-      
-      function respuestaAjax1() {
-      if(miPeticion.readyState == 1) {
-        document.getElementById("recarga").innerHTML="<center>Loading...</center>";
-      }
-      else if(miPeticion.readyState == 4) {
-      if(miPeticion.status == 200) {
-       var mitexto=miPeticion.responseText;
-       document.getElementById("recarga").innerHTML=mitexto;
-              } else {
-          alert("Ha ocurrido un error: " + miPeticion.statusText);
-              }
-          }
-      }
-    
-      //---------------ELIMINAR EVENTO
-    
-      function eliminar_evento(id){
-        var id
-        //alert("id " +id);
-        var url = "./resumen/eliminar_evento.php?id=" + id;
-        miPeticion.open("GET", url, true);
-        miPeticion.onreadystatechange=respuestaAjax2;
-        miPeticion.send(null);
-        //setTimeout('llamarAjax()', 1000);
-        }
-        
-        function respuestaAjax2() {
-        if(miPeticion.readyState == 1) {
-          document.getElementById("recarga").innerHTML="<center>Loading...</center>";
-        }
-        else if(miPeticion.readyState == 4) {
-        if(miPeticion.status == 200) {
-         var mitexto=miPeticion.responseText;
-         document.getElementById("recarga").innerHTML=mitexto;
-                } else {
-            alert("Ha ocurrido un error: " + miPeticion.statusText);
-                }
-            }
-        }
-    
-    //-------------------------------EVENTOS FINAL----------------------------------
-    
     
