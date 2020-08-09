@@ -73,23 +73,24 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-             <h1 class="m-0 text-dark"> Licenciatura y Materias</h1>
+            <h1 class="m-0 text-dark"> Licenciatura y Materias</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Main row -->
     <div class="row">
         <div class="col-2">  </div>
         <div class="col-3">Nombre</div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" id="nombres" placeholder="Escribe el Nombre">
+          </div>
     </div>
+<br>
     <div class="row">
         <div class="col-2"></div>
         <div class="col-3">Numero de periodos</div>
@@ -97,9 +98,7 @@
 
         <div class="btn-group" >
                     <button type="button" class="btn btn-default">periodo</button>
-                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                      <span class="sr-only">Toggle Dropdown</span>
-                    </button>
+                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false"></button>
                     <div class="dropdown-menu" role="menu" style="">
                       <a class="dropdown-item" href="#">1</a>
                       <a class="dropdown-item" href="#">2 </a>
@@ -111,25 +110,22 @@
 
         </div>
 
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
 
     <div class="container-fluid"> 
     <div class="row">
           <div class="col-12">
-            <!-- Custom Tabs -->
             <div class="card">
               <div class="card-header d-flex p-0">
                 <ul class="nav nav-pills ml-auto p-2" id = "submenu" name = "submenu">
                  <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
-                                          <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $proyectos['ID_Lincenciatura'] ?>" data-toggle="tab"><?php echo $proyectos['NombreLic'] ?></a></li>  
+                        <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $proyectos['ID_Lincenciatura'] ?>" data-toggle="tab"><?php echo $proyectos['NombreLic'] ?></a></li>  
                     <?php endforeach; ?>
                 </ul>
-              </div><!-- /.card-header -->
+              </div>
               <div class="card-body">
                 <div class="tab-content" id="contenedor_licenciaturas" name="contenedor_licenciaturas">
                   <?php
@@ -158,7 +154,6 @@
         </div>
                           <!-- inicio tablas -->
         <div class="container-fluid">
-  
   <h1>Licenciaturas</h1>
   <div class="row" style="background-color:white;">
     <div class="col-md-6">
@@ -184,12 +179,13 @@
               </form>
             </div>
     </div>
-    <div class="col-md-6">
+
+    
+    <div class="col-xs-12 col-sm-6 col-lg-6">
      <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Tabla de Licenciaturas</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table">
                   <thead>
@@ -199,7 +195,7 @@
                     <th>opciones</th>
                   </tr>
                   </thead>
-                  <tbody id = "submenu1" name = "submenu1">
+                  <tbody>
                   <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
@@ -215,19 +211,15 @@
                       </tr>
                     <?php endforeach; ?>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>#</th>
-                    <th>licenciaturas</th>
-                    <th>opciones</th>
-                  </tr>
-                  </tfoot>
+                  
                 </table>
               </div>
               <!-- /.card-body -->
             </div>
   </div>
 </div>
+
+
 
 <!--seccion licenciatura activa -->
 <div class="container-fluid">
@@ -238,35 +230,31 @@
               <div class="card-header">
                 <h3 class="card-title">formulario licenciatura activa</h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
+              
               <form>
-                          <div class="card-body">
-                          <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      Action
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre licenciatura</label>
+                    
+                    <input class="form-control" placeholder="Ingrese un nombre" name="NombreLic" id="NombreLic">
+                   
+                    <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-flat">Action</button>
+                    <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                      <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <div class="dropdown-menu" style="">
+                    <div class="dropdown-menu" role="menu">
                     <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
-                       <a class="dropdown-item" onclick =AgregarMateria(<?php echo $proyectos['ID_Lincenciatura']?>)><?php echo $proyectos['NombreLic'] ?></a>
+                       <a class="dropdown-item" href="#"><?php echo $proyectos['NombreLic'] ?></a>
                     <?php endforeach; ?>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Separated link</a>
                     </div>
                   </div>
-                  <!-- /btn-group -->
-                  <input type="text" class="form-control">
+                  </div>
                 </div>
-                          </div>
-
-
-        
-
-
-               
                 <!-- /.card-body -->
                 <div class="card-footer">
                 <div id="formulario">
@@ -276,14 +264,14 @@
               </form>
             </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-12 col-sm-6 col-lg-6">
      <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Licenciaturas Activas</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table">
+                <table id="example1" class="table">
                   <thead>
                   <tr>
                     <th>Nombre</th>
@@ -311,9 +299,8 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Nombre</th>
-                    <th>Fecha inicio</th>
-                    <th>Fecha fin </th>
+                    <th>#</th>
+                    <th>licenciaturas</th>
                     <th>opciones</th>
                   </tr>
                   </tfoot>
@@ -322,7 +309,8 @@
               <!-- /.card-body -->
             </div>
   </div>
-</div>          
+</div>
+
  <!--fin seccion de edicion --> 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
