@@ -92,7 +92,9 @@
                   $result = mysqli_query($link, "SELECT * FROM `ciclo` WHERE estatus = 'activo'");
                   $hay_ciclo_activo = mysqli_num_rows($result);
                   $ciclo_actual=mysqli_fetch_array($result);
+                  $checkBox = false;
                   if ($hay_ciclo_activo){
+                    $checkBox = true;
                     echo'
                       <div class="card card-danger">
                           <div class="card-header">
@@ -139,9 +141,9 @@
                                   </div>
                                   <p style="color:red;"> Cambiar a ciclo inactivo </p>
                                   <p> Esta accion cambia toda la arquitectura de los alumnos, docentes, licenciaturas, calificaciones y demás </p>
-                                  <input type="checkbox" id="estado_ciclo_a" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                                  <input type="hidden" id="id_ciclo" value="'.$ciclo_actual["ID_Ciclo"].'">
-                                  <button type="button" onClick=nuevo_ciclo("actual") class="btn btn-danger float-right">Guardar Cambios</button>
+                                  <input type="checkbox" id="estado_ciclo_a" name="my-checkbox" checked="true" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                  <!--input type="hidden" id="id_ciclo_a" value="'.$ciclo_actual["ID_Ciclo"].'"-->
+                                  <button type="button" onClick=actualizar_ciclo("'.$ciclo_actual["ID_Ciclo"].'") class="btn btn-danger float-right">Guardar Cambios</button>
                                 </form>
                               </div>
                           </div>
@@ -278,11 +280,11 @@
                                                           <div class="col-md-3">
                                                             <div class="form-group">
                                                               <label>Fecha de inicio</label>
-                                                                <div class="input-group date" id="reservationdate5" data-target-input="nearest">
-                                                                    <input type="text" value="'.$ciclo_actual["fecha_inicio"].'" name="fecha_i_ciclo_n" id="fecha_i_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate5" />
-                                                                    <div class="input-group-append" data-target="#reservationdate5" data-toggle="datetimepicker">
-                                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                                    </div>  
+                                                                <div class="input-group">
+                                                                  <div class="input-group-prepend">
+                                                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                  </div>
+                                                                  <input type="text" value="'.$ciclo_actual["fecha_inicio"].'" name="fecha_i_ciclo_n" id="fecha_i_ciclo_n" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                                                 </div>
                                                             </div>
                                                           </div>
@@ -290,11 +292,11 @@
                                                           <div class="col-md-3">
                                                             <div class="form-group">
                                                               <label>Fecha de fin</label>
-                                                                <div class="input-group date" id="reservationdate6" data-target-input="nearest">
-                                                                    <input type="text" value="'.$ciclo_actual["fecha_fin"].'" name="fecha_f_ciclo_n" id="fecha_f_ciclo_n" class="form-control datetimepicker-input" data-target="#reservationdate6"/>
-                                                                    <div class="input-group-append" data-target="#reservationdate6" data-toggle="datetimepicker">
-                                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                                    </div>
+                                                                <div class="input-group">
+                                                                  <div class="input-group-prepend">
+                                                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                  </div>
+                                                                  <input type="text" value="'.$ciclo_actual["fecha_fin"].'" name="fecha_f_ciclo_n" id="fecha_f_ciclo_n" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                                                 </div>
                                                             </div>
                                                           </div>
@@ -363,7 +365,8 @@
                                                                   <input type="text" value="'.$row_ciclos_futuros["fecha_inicio"].'" id="fecha_i_ciclo_n'.$row_ciclos_futuros["ID_Ciclo"].'" class="form-control datetimepicker-input" data-target="#reservationdate'.$row_ciclos_futuros["ID_Ciclo"].'" />
                                                                   <div class="input-group-append" data-target="#reservationdate'.$row_ciclos_futuros["ID_Ciclo"].'" data-toggle="datetimepicker">
                                                                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                                  </div>  
+                                                                  </div>
+                                                                   
                                                               </div>
                                                           </div>
                                                         </div>
@@ -492,7 +495,7 @@
 
     $("input[data-bootstrap-switch]").each(function(){
       $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    });s
+    });
 
   })
 </script>
