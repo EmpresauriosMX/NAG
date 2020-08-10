@@ -247,7 +247,7 @@
                     <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
-                       <a class="dropdown-item" onclick =AgregarMateria(<?php echo $proyectos['ID_Lincenciatura']?>)><?php echo $proyectos['NombreLic'] ?></a>
+                       <a class="dropdown-item" onclick =LicenciaturaActiva(<?php echo $proyectos['ID_Lincenciatura']?>)><?php echo $proyectos['NombreLic'] ?></a>
                     <?php endforeach; ?>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Separated link</a>
@@ -274,15 +274,17 @@
                 <table id="example2" class="table">
                   <thead>
                   <tr>
+                    <th>#</th>
                     <th>licenciatura</th>
                     <th>opciones</th>
                   </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="tabla_lic_activa" name="tabla_lic_activa">
                   <?php
                     $LicActiva = obtenerLicActiva();
                       foreach ($LicActiva as $LicActiva_S): ?>
                       <tr>
+                      <td><?php echo $LicActiva_S['ID_LicActiva'] ?> </td>
                       <td><?php echo $LicActiva_S['NombreLic']?> <?php echo $LicActiva_S['ID_LicActiva']?></td>
                       <td>
                       <div class="btn-group">
@@ -295,6 +297,7 @@
                   </tbody>
                   <tfoot>
                   <tr>
+                    <th>#</th>
                     <th>licenciaturas</th>
                     <th>opciones</th>
                   </tr>

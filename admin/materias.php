@@ -86,7 +86,7 @@
       <div class="container-fluid">
         <!-- Main row -->
             <div class="card-body" style="background-color:white;">
-            <h4>Left Sided</h4>
+            <h4>Licenciaturas en el ciclo activo</h4>
             <div class="row" >
               <div class="col-5 col-sm-3">
                 <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
@@ -118,23 +118,19 @@
                 </ul>
               </div>
               <div class="card-body">
-                <div class="tab-content" id="contenedor_licenciaturas" name="contenedor_licenciaturas">
+                <div class="tab-content" id="Contenedor_Materias" name="Contenedor_Materias">
                   <?php
                    $generacion = Obtener_Generaciones($LicActiva_S['ID_Lincenciatura']);
                    foreach($generacion as $generaciones):?>
 
                       <div class="tab-pane" id="tab_<?php echo $generaciones['ID_LicActiva'] ?>">
-                      <div id="materias" name="materias">
-                      <?php
+                      <input name="Nombre_materia<?php echo $generaciones['ID_LicActiva']?>" id="Nombre_Materia<?php echo $generaciones['ID_LicActiva']?>">
+                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(<?php echo $generaciones['ID_LicActiva']?>)>Agregar materia</button>
+                            <?php
                           $asignaturas = Obtener_Asignaturas($generaciones['ID_LicActiva']);
                           foreach($asignaturas as $asignatura):?>
                           <?php echo $asignatura['Nombre_Asignatura']?> <br>
                           <?php endforeach; ?>
-
-                      <input name="Nombre_materia<?php echo $generaciones['ID_LicActiva']?>" id="Nombre_Materia<?php echo $generaciones['ID_LicActiva']?>">
-                      <input type="hidden" id="id_lic" value="otro">
-                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(<?php echo $generaciones['ID_LicActiva']?>)>Agregar materia</button>
-                      </div>
                       </div>
                     <?php endforeach; ?>
                 </div>

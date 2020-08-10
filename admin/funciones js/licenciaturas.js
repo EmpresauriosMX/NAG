@@ -1,7 +1,6 @@
 
 var ListaLicenciaturas = document.querySelector('tbody#submenu1');
-var CampoLicenciaturas = document.querySelector('#contenedor_licenciaturas');
-
+var ListaLicenciaturasActivas = document.querySelector('tbody#tabla_lic_activa');
 eventListeners();
 
 function eventListeners(){
@@ -51,7 +50,7 @@ function AgregarLicenciatura(e){ // si entra
       xhr.send(datos);
   }
 
-  function AgregarMateria(id_recibido){
+  function LicenciaturaActiva(id_recibido){
    //  var Nueva_tarea = document.querySelector('#Nombre_Materia'+id_recibido).value;
    console.log('si entro a_agregar licenciatura activa');
     var operacion = 'agregar_materia';
@@ -68,6 +67,20 @@ function AgregarLicenciatura(e){ // si entra
        if(this.status === 200) {
            var respuesta = JSON.parse(xhr.responseText);
            console.log(respuesta);
+               //agregar elementos a este submenu//
+               var NuevaLicenciatura_Activa = document.createElement('tr'); //se crea la lista dentro del html
+               NuevaLicenciatura.innerHTML = ` 
+                <td>${respuesta.id_licenciatura}</td>
+                <td>${nombre}</td>
+                <td>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-primary btn-sm">Editar</button>
+                  <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                </div>
+                </td>
+                       `;// url donde se envia//
+                       ListaLicenciaturasActivas.appendChild(NuevaLicenciatura_Activa); //agregar al innerHTML
+                   //*************************fin de agregar al submenu*****************************//
                               }         
      }   
      xhr.send(datos);
@@ -91,6 +104,16 @@ function AgregarLicenciatura(e){ // si entra
            if(this.status === 200) {
                var respuesta = JSON.parse(xhr.responseText);
                console.log(respuesta);
+               var CampoMateria = document.querySelector('#tab_'+id_Lic_Recibida);
+
+               var NuevoCampo_materia = document.createElement('div');
+               NuevoCampo_materia.className = "tab-pane";
+               NuevoCampo_materia.setAttribute("id","tab_"+id_Lic_Recibida);
+               NuevoCampo_materia.innerHTML = `
+                 ${Nueva_tarea}
+                      `;// url donde se envia//
+                      CampoMateria.appendChild(NuevoCampo_materia)
+                console.log("correcto ingreso de datos");
                                   }         
          }   
          xhr.send(datos);
