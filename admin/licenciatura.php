@@ -195,7 +195,7 @@
                     <th>opciones</th>
                   </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="submenu1" name ="submenu1">
                   <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
@@ -247,7 +247,7 @@
                     <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
-                       <a class="dropdown-item" href="#"><?php echo $proyectos['NombreLic'] ?></a>
+                       <a class="dropdown-item" onclick =AgregarMateria(<?php echo $proyectos['ID_Lincenciatura']?>)><?php echo $proyectos['NombreLic'] ?></a>
                     <?php endforeach; ?>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Separated link</a>
@@ -271,12 +271,10 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table">
+                <table id="example2" class="table">
                   <thead>
                   <tr>
-                    <th>Nombre</th>
-                    <th>Fecha inicio</th>
-                    <th>Fecha fin </th>
+                    <th>licenciatura</th>
                     <th>opciones</th>
                   </tr>
                   </thead>
@@ -285,9 +283,7 @@
                     $LicActiva = obtenerLicActiva();
                       foreach ($LicActiva as $LicActiva_S): ?>
                       <tr>
-                      <td><?php echo $LicActiva_S['NombreLic'] ?></td>
-                      <td><?php echo $LicActiva_S['fecha_inicio'] ?></td>
-                      <td> <?php echo $LicActiva_S['fecha_fin']?> </td>
+                      <td><?php echo $LicActiva_S['NombreLic']?> <?php echo $LicActiva_S['ID_LicActiva']?></td>
                       <td>
                       <div class="btn-group">
                         <button type="button" class="btn btn-outline-primary btn-sm">Editar</button>
@@ -299,7 +295,6 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>#</th>
                     <th>licenciaturas</th>
                     <th>opciones</th>
                   </tr>

@@ -1,3 +1,6 @@
+<?php
+  include '../inc/funciones/funciones_admin_licenciaturas.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,19 +81,79 @@
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
+    <!------------------------------------------------------------------------inicio seccion de edicion -->
     <section class="content">
       <div class="container-fluid">
         <!-- Main row -->
-            <div class="row">
-                <div class="card">
-                    
+            <div class="card-body" style="background-color:white;">
+            <h4>Left Sided</h4>
+            <div class="row" >
+              <div class="col-5 col-sm-3">
+                <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                <?php
+                    $LicActiva = obtenerLicActiva_materias();
+                      foreach ($LicActiva as $LicActiva_S): ?>
+                       <a class="nav-link" id="vert-tabs-<?php echo $LicActiva_S['ID_LicActiva']?>-tab" data-toggle="pill" href="#vert-tabs-<?php echo $LicActiva_S['ID_LicActiva']?>" role="tab" aria-controls="vert-tabs-<?php echo $LicActiva_S['ID_LicActiva']?>" aria-selected="false"><?php echo $LicActiva_S['NombreLic']?></a>
+                    <?php endforeach; ?>
                 </div>
+              </div>
+              <div class="col-7 col-sm-9">
+                <div class="tab-content" id="vert-tabs-tabContent">
+                <?php
+                    $LicActiva = obtenerLicActiva_materias();
+                      foreach ($LicActiva as $LicActiva_S): ?>
+                        <div class="tab-pane fade" id="vert-tabs-<?php echo $LicActiva_S['ID_LicActiva']?>" role="tabpanel" aria-labelledby="vert-tabs-<?php echo $LicActiva_S['ID_LicActiva']?>-tab">
+
+                            <!----------------------INICIO GENERACION----------------------------------------------------->
+                            <div class="card">
+              <div class="card-header d-flex p-0">
+                <ul class="nav nav-pills ml-auto p-2" id = "submenu" name = "submenu">
+               
+                  <?php
+                    $generacion = Obtener_Generaciones($LicActiva_S['ID_Lincenciatura']);
+                      foreach($generacion as $generaciones):?>
+                        <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $generaciones['ID_LicActiva'] ?>" data-toggle="tab"><?php echo $LicActiva_S['NombreLic'] ?> <?php echo $generaciones['ID_LicActiva']?></a></li>  
+                  <?php endforeach; ?>
+
+                </ul>
+              </div>
+              <div class="card-body">
+                <div class="tab-content" id="contenedor_licenciaturas" name="contenedor_licenciaturas">
+                  <?php
+                   $generacion = Obtener_Generaciones($LicActiva_S['ID_Lincenciatura']);
+                   foreach($generacion as $generaciones):?>
+
+                      <div class="tab-pane" id="tab_<?php echo $generaciones['ID_LicActiva'] ?>">
+                      <div id="materias" name="materias">
+                      <?php
+                          $asignaturas = Obtener_Asignaturas($generaciones['ID_LicActiva']);
+                          foreach($asignaturas as $asignatura):?>
+                          <?php echo $asignatura['Nombre_Asignatura']?> <br>
+                          <?php endforeach; ?>
+
+                      <input name="Nombre_materia<?php echo $generaciones['ID_LicActiva']?>" id="Nombre_Materia<?php echo $generaciones['ID_LicActiva']?>">
+                      <input type="hidden" id="id_lic" value="otro">
+                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(<?php echo $generaciones['ID_LicActiva']?>)>Agregar materia</button>
+                      </div>
+                      </div>
+                    <?php endforeach; ?>
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
             </div>
+
+                                <!--------------------------fin de generacion------------------------------------ -->
+                            <?php  echo $LicActiva_S['NombreLic']?>
+                  </div>
+                    <?php endforeach; ?>
+                </div>
+              </div>
+            </div>
+          </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+    <!----------------------------------------------------------------------- /.fin seccion de edicion -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -108,7 +171,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
+<!--Mis scripts -->
+<script src="../admin/funciones js/licenciaturas.js"></script> 
 <!-- OPTIONAL SCRIPTS -->
 <script src="../dist/js/demo.js"></script>
 

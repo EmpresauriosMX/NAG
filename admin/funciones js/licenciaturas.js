@@ -14,6 +14,7 @@ function AgregarLicenciatura(e){ // si entra
     e.preventDefault();
     var lic = document.querySelector('#NombreLic').value,
         operacion = 'AgregarLicenciatura';
+
       var datos = new FormData();
       datos.append('NombreLicenciatura',lic);
       datos.append('operacion',operacion);
@@ -52,6 +53,7 @@ function AgregarLicenciatura(e){ // si entra
 
   function AgregarMateria(id_recibido){
    //  var Nueva_tarea = document.querySelector('#Nombre_Materia'+id_recibido).value;
+   console.log('si entro a_agregar licenciatura activa');
     var operacion = 'agregar_materia';
     var ciclo = 1;
      var datos = new FormData();
@@ -69,4 +71,28 @@ function AgregarLicenciatura(e){ // si entra
                               }         
      }   
      xhr.send(datos);
+      }
+
+      function AgregarNuevaMateria(id_Lic_Recibida){
+        var Nueva_tarea = document.querySelector('#Nombre_Materia'+id_Lic_Recibida).value;
+        operacion = 'agregar_nueva_materia';
+        console.log(Nueva_tarea);
+         console.log(id_Lic_Recibida); 
+
+         var datos = new FormData();
+         datos.append('id_Lic_Recibida',id_Lic_Recibida),
+         datos.append('Nueva_tarea',Nueva_tarea),
+         datos.append('operacion',operacion);
+    
+         var xhr = new XMLHttpRequest();
+         xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+    
+         xhr.onload = function(){
+           if(this.status === 200) {
+               var respuesta = JSON.parse(xhr.responseText);
+               console.log(respuesta);
+                                  }         
+         }   
+         xhr.send(datos);
+
       }
