@@ -5,27 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 
-  <script language="javascript">
-    function validar(){
-      var nom=document.formescolar.nombreinstitucion.value;
-      var clave=document.formescolar.claveinstitucion.value;
-      var tipo=document.formescolar.tipoinstitucion.value;
-      var desc=document.formescolar.descripcioninstitucion.value;
-      var direc=document.formescolar.direccioninstitucion.value;
-      var correo=document.formescolar.correoinst.value;
-      var tel=document.formescolar.telefonoinst.value;
-
-      //Comprobar campos completos
-      if(nom!="" & clave!="" & tipo!="" & desc!="" & direc!="" & correo!="" & tel!=""){
-        document.formescolar.submit();
-        //alert("Paso a agde.php");
-      }else{
-        alert("Rellene todos los campos");
-      }
-      //Fin comprobar campos
-    }
-  </script>
-
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -335,86 +314,72 @@
       <div class="row">
       <div class="col-md-1"></div>
         <div class="col-md-10">
-        <div class="card card-primary">
+       
+ <!-- Información sobre la institución -->
+ <?php
+               $result=mysqli_query($link,"select * from instituto where nombre='Centro Universitario Valladolid' and tipo_de_institucion='Universidad'");
+               $total = mysqli_num_rows($result);
+               while($row=mysqli_fetch_array($result)){
+                echo '  
+               
+ <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Datos de la Institución</h3>
               </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-university mr-1"></i>Nombre de Institución</strong>
 
-              <form name="formescolar" id="formescolar" data-parsley-validate class="form-horizontal form-label-left" method="get" action="agde.php" enctype="multipart/form-data">
+                <p class="text-muted">
+                '.$row["nombre"].'
+                </p>
+
+                <hr>
+
+                <strong><i class="fas fa-ellipsis-h mr-1"></i>Clave</strong>
+
+                <p class="text-muted">'.$row["clave"].'</p>
+
+                <hr>
+
+                <strong><i class="fab fa-buffer mr-1"></i> Tipo</strong>
+
+                <p class="text-muted">'.$row["tipo_de_institucion"].'</p>
+
+                <hr>
+
+                <strong><i class="far fa-file-alt mr-1"></i> Descripción</strong>
+
+                <p class="text-muted">'.$row["descripcion"].'</p>
+
+                <hr>
+
+                <strong><i class="fas fa-map-marked-alt mr-1"></i>Dirección</strong>
+
+                <p class="text-muted">direccion</p>
+
+                <hr>
+
+                <strong><i class="fas fa-envelope mr-1"></i>Correo</strong>
+
+                <p class="text-muted">'.$row["correo"].'</p>
+
+                <hr>
+
+                <strong><i class="fas fa-phone mr-1"></i>Telefono</strong>
+
+                <p class="text-muted">'.$row["telefono"].'</p>
+
+                <hr>
                 
-                <div class="card-body">
-
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre de institucion</label>
-                    <input type="text" class="form-control" id="nombreinstitucion" name="nombreinstitucion" required="required" placeholder="Escribe el nombre de la Institución">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Clave</label>
-                    <input type="text" class="form-control" id="claveinstitucion" name="claveinstitucion" required="required" placeholder="Escribe la clave de la institución">
-                  </div>
-                 
-                  <div class="form-group">
-                    <label for="ap">Tipo de institución</label>
-                    <input type="text" class="form-control" id="tipoinstitucion" name="tipoinstitucion" required="required" placeholder="Escribe el Atipo de institución">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="ap">Descripción</label>
-                    <input type="text" class="form-control" id="descripcioninstitucion" name="descripcioninstitucion" required="required" placeholder="Escribe la descripción de la institución">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Dirección</label>
-                    <input type="text" class="form-control" id="direccioninstitucion" name="direccioninstitucion" required="required" placeholder="Escribe la direccion de la Institución">
-                  </div>
-
-                  
-                  <label for="exampleInputPassword1">Correo</label>
-                  <div class="col-md-12">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                    </div>
-                    <input type="email" id="correoinst" name="correoinst" class="form-control" required="required" placeholder="Escribe el Correo" data-mask>
-                  </div>
-                  </div>
-
-                  <label for="exampleInputPassword1">Telefono</label>
-                  <div class="col-md-4">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                    </div>
-                    <input type="text" id="telefonoinst" name="telefonoinst" class="form-control" required="required" data-inputmask='"mask": "(999) 999-9999"' placeholder="(999) 999-9999"  data-mask>
-                  </div>
-                  </div>
-
-                  
-
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="button" id="enviar" onClick="validar()" class="btn btn-success">Guardar</button>
-                </div>
-              </form>
+              </div>
+              <!-- /.card-body -->
             </div>
-        </div>
+            <!-- Fin informacion de institucion -->
+       '; }
+        ?>
+
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
     </section>
     <!-- /.content -->
