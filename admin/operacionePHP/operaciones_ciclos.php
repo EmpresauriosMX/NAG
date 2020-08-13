@@ -44,13 +44,7 @@
             echo '<br>';
             echo $id_ciclo_a;
             
-                if ($estatus == false){
-                    $estatus_c = "futuro";
-                }
-                else{
-                    $estatus_c = "activo";
-                }  
-                mysqli_query($link, "UPDATE `ciclo` SET `fecha_inicio`='$fecha1',`fecha_fin`='$fecha2',`estatus`= '$estatus_c' WHERE `ID_Ciclo`= $id_ciclo_a");
+                mysqli_query($link, "UPDATE `ciclo` SET `fecha_inicio`='$fecha1',`fecha_fin`='$fecha2',`estatus`= '$estatus' WHERE `ID_Ciclo`= $id_ciclo_a");
         break;
         
     }
