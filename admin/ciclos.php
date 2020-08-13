@@ -259,12 +259,10 @@
                                     <td>Fecha inicio: <strong>'.$ciclo_actual["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$ciclo_actual["fecha_fin"].'</strong></h5></td>
                                     <td>
                                     <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl'.$ciclo_actual["ID_Ciclo"].'">Configurar</button>
-                                    <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$ciclo_actual["ID_Ciclo"].'">Eliminar</button>
+                                    
                                     </td>
                                     <td><span class="badge bg-danger">Actual</span></td>
                                   </tr>
-                                  
-
                                   <!-----------------------------MODAL DE CONFIGURACIÓN--------->
                                     <div class="modal fade" id="modal-xl'.$ciclo_actual["ID_Ciclo"].'">
                                       <div class="modal-dialog modal-xl">
@@ -318,7 +316,7 @@
                                           </div>
                                           <div class="modal-footer justify-content-between">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo('.$ciclo_actual["ID_Ciclo"].')>Save changes</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo('.$ciclo_actual["ID_Ciclo"].')>Guardar cambios</button>
                                           </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -339,7 +337,7 @@
                                   <tr>
                                     <td>'.$cont_ciclos.'</td>
                                     <th>'.$row_ciclos_futuros["ID_Ciclo"].'</th>
-                                    <td>Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></h5></td>
+                                    <td>Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></td>
                                     <td>
                                       <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl'.$row_ciclos_futuros["ID_Ciclo"].'">Configurar</button>
                                       <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">Eliminar</button>
@@ -351,17 +349,17 @@
                                     <div class="modal-dialog">
                                       <div class="modal-content">
                                         <div class="modal-header">
-                                          <h4 class="modal-title">Default Modal</h4>
+                                          <h4 class="modal-title">Ciclo Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong> Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></h5> </h4>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                           </button>
                                         </div>
                                         <div class="modal-body">
-                                          <p>One fine body&hellip;</p>
+                                          <p>¿Desea eliminar este ciclo?</p>
                                         </div>
                                         <div class="modal-footer justify-content-between">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary">Save changes</button>
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=eliminar_ciclo_futuro('.$row_ciclos_futuros["ID_Ciclo"].')>Eliminar</button>
                                         </div>
                                       </div>
                                       <!-- /.modal-content -->
