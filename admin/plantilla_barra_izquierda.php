@@ -1,7 +1,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="indes.php" class="brand-link">
+    <a href="index.php" class="brand-link">
       <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
       <span class="brand-text font-weight-light">Administrador</span>
     </a>
@@ -26,29 +26,35 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-chart-bar"></i>
               <p>
-                Estadisticas
+                Estadísticas
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="#" class="nav-link active">
+                  <i class="fas fa-poll"></i>
                   <p>General</p>
                 </a>
               </li>
+
+<?php
+/*
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Estudiantes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Docentes</p>
                 </a>
               </li>
+              */
+?>
+
             </ul>
           </li>
           
@@ -64,21 +70,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ver alumnos</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-friends"></i>
+                  <p>Ver Alumnos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar alumnos</p>
+                <a href="Agregar_alumno.php" class="nav-link">
+                  <i class="fas fa-user-plus"></i>
+                  <p>Agregar Alumnos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar alumnos</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-edit"></i>
+                  <p>Editar Alumnos</p>
                 </a>
               </li>
             </ul>
@@ -94,21 +100,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ver docentes</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-users"></i>
+                  <p>Ver Docentes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar docente</p>
+                <a href="Agregar_docente.php" class="nav-link">
+                  <i class="fas fa-user-plus"></i>
+                  <p>Agregar Docente</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar docente</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-edit"></i>
+                  <p>Editar Docente</p>
                 </a>
               </li>
             </ul>
@@ -124,21 +130,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ver administradores</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-friends"></i>
+                  <p>Ver Administradores</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar administradores</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-plus"></i>
+                  <p>Agregar Administrador</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar administradores</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-edit"></i>
+                  <p>Editar Administrador</p>
                 </a>
               </li>
             </ul>
@@ -146,7 +152,7 @@
           
           <li class="nav-header">ESTE CICLO</li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="ciclos.php" class="nav-link">
               <i class="nav-icon fas fa-circle-notch"></i>
               <p>
                 Ciclos
@@ -165,7 +171,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="materias.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Asignaturas
@@ -174,7 +180,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-friends"></i>
               <p>
                 Grupos
@@ -184,7 +190,7 @@
           
           <!--li class="nav-header">MISCELLANEOUS</li-->
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0/" class="nav-link">
+            <a href="licenciatura.php" class="nav-link">
               <i class="nav-icon fas fa-scroll"></i>
               <p>Licenciaturas</p>
             </a>
@@ -192,16 +198,29 @@
 
 
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0/" class="nav-link">
+            <a href="Datos_escolares.php" class="nav-link">
               <i class="nav-icon fas fa-university"></i>
               <p>Institución</p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0/" class="nav-link">
+            <a href="Config_Usuario.php" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
-              <p>Configuracion de usuario</p>
+              <p>Configuración de usuario</p>
+            </a>
+          </li>
+           <li class="nav-header">INFO. NAG</li>
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book-reader"></i>
+              <p>Guía de Usuario</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fab fa-ello"></i>
+              <p>~~~~~~~~~~</p>
             </a>
           </li>
         </ul>

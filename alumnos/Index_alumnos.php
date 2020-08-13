@@ -138,11 +138,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <?php
         
-        $result=mysqli_query($link,"select usuarios.Nombre,usuarios.ApellidoPat,usuarios.ApellidoMat,usuarios.Usuario, alumnos.Matricula from usuarios,alumnos where usuarios.ID_Usuario=1 and alumnos.ID_Usuario=1");
+        $result=mysqli_query($link,"select Nombre,ApellidoPat,ApellidoMat from usuarios where ID_Usuario='JRABM02'");
         $total = mysqli_num_rows($result);
         while($row=mysqli_fetch_array($result)){
           echo'
-          <h3>Bienvenido: "'.$row["Usuario"].'  :)"</h3>
+          <h3>Bienvenido: "'.$row["Nombre"].'  :)"</h3>
         
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <!--Perfil de Usuario-->
@@ -154,7 +154,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- Add the bg color to the header using any of the bg-* classes -->
                   <div class="widget-user-header bg-info">
                     <h3 class="widget-user-username">Alumno: "'.$row["Nombre"].' '.$row["ApellidoPat"].' '.$row["ApellidoMat"].'"</h3>
-                    <h5 class="widget-user-desc">Matricula: '.$row["Matricula"].'</h5>
+                    <h5 class="widget-user-desc">Matricula: #####</h5>
                   </div>
                   <div class="widget-user-image">
                     <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
