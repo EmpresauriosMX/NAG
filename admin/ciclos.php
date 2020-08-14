@@ -248,6 +248,8 @@
                             <tbody>
           <?php             //CICLO ACTUAL
                               $cont_ciclos = 0;
+                              //Si existe un ciclo actual en la tabla de los ciclos se crea el primer elemento que es el ese ciclo
+                              //en este se agrega el boton para encender o apagar el ciclo
                               if($hay_ciclo_activo){
                                 $cont_ciclos += 1;
                                 echo'
@@ -257,6 +259,7 @@
                                     <td>Fecha inicio: <strong>'.$ciclo_actual["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$ciclo_actual["fecha_fin"].'</strong></h5></td>
                                     <td>
                                     <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl'.$ciclo_actual["ID_Ciclo"].'">Configurar</button>
+                                    
                                     </td>
                                     <td><span class="badge bg-danger">Actual</span></td>
                                   </tr>
@@ -271,7 +274,6 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                                  
                                                     <form action="#" method="GET" name="form_ciclo_nuevo">
                                                       <div class="form-group">
                                                         <label>Rango de fechas</label>
@@ -284,7 +286,7 @@
                                                                   <div class="input-group-prepend">
                                                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                                                   </div>
-                                                                  <input type="text" value="'.$ciclo_actual["fecha_inicio"].'" name="fecha_i_ciclo_n" id="fecha_i_ciclo_n" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                                  <input type="text" value="'.$ciclo_actual["fecha_inicio"].'" id="fecha_i_ciclo_a'.$ciclo_actual["ID_Ciclo"].'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                                                 </div>
                                                             </div>
                                                           </div>
@@ -296,7 +298,7 @@
                                                                   <div class="input-group-prepend">
                                                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                                                   </div>
-                                                                  <input type="text" value="'.$ciclo_actual["fecha_fin"].'" name="fecha_f_ciclo_n" id="fecha_f_ciclo_n" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                                  <input type="text" value="'.$ciclo_actual["fecha_fin"].'" id="fecha_f_ciclo_a'.$ciclo_actual["ID_Ciclo"].'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                                                 </div>
                                                             </div>
                                                           </div>
@@ -307,14 +309,14 @@
                                                       <p style="color:red;">2. Sólo cambia a activo si no hay otro ciclo activo </p>
                                                       <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
                                                       <!----- ON OFF BUTTON --->
-                                                      <input type="checkbox"  name="my-checkbox" id="estado_ciclo_n" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                                      <input type="checkbox"  name="my-checkbox" id="estado_ciclo_a'.$ciclo_actual["ID_Ciclo"].'" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
                                                       <!-- / FORMULARIO DEL CICLO NUEVO -->
                                                     </form> 
                                                   
                                           </div>
                                           <div class="modal-footer justify-content-between">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo('.$ciclo_actual["ID_Ciclo"].')>Guardar cambios</button>
                                           </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -335,12 +337,37 @@
                                   <tr>
                                     <td>'.$cont_ciclos.'</td>
                                     <th>'.$row_ciclos_futuros["ID_Ciclo"].'</th>
-                                    <td>Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></h5></td>
+                                    <td>Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></td>
                                     <td>
                                       <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl'.$row_ciclos_futuros["ID_Ciclo"].'">Configurar</button>
+                                      <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">Eliminar</button>
                                     </td>
                                     <td><span class="badge bg-primary">Futuro</span></td>
                                   </tr>
+                                  <!-----------------------------MODAL PARA ELIMINAR LOS CICLOS-------->
+                                  <div class="modal fade" id="modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Ciclo Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong> Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></h5> </h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>¿Desea eliminar este ciclo?</p>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=eliminar_ciclo_futuro('.$row_ciclos_futuros["ID_Ciclo"].')>Eliminar</button>
+                                        </div>
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+
+
                                   <!-----------------------------MODAL DE CONFIGURACIÓN--------->
                                   <div class="modal fade" id="modal-xl'.$row_ciclos_futuros["ID_Ciclo"].'">
                                     <div class="modal-dialog modal-xl">
@@ -361,12 +388,11 @@
                                                         <div class="col-md-3">
                                                           <div class="form-group">
                                                             <label>Fecha de inicio</label>
-                                                              <div class="input-group date" id="reservationdate'.$row_ciclos_futuros["ID_Ciclo"].'" data-target-input="nearest">
-                                                                  <input type="text" value="'.$row_ciclos_futuros["fecha_inicio"].'" id="fecha_i_ciclo_n'.$row_ciclos_futuros["ID_Ciclo"].'" class="form-control datetimepicker-input" data-target="#reservationdate'.$row_ciclos_futuros["ID_Ciclo"].'" />
-                                                                  <div class="input-group-append" data-target="#reservationdate'.$row_ciclos_futuros["ID_Ciclo"].'" data-toggle="datetimepicker">
-                                                                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                                  </div>
-                                                                   
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value="'.$row_ciclos_futuros["fecha_inicio"].'" id="fecha_i_ciclo_a'.$row_ciclos_futuros["ID_Ciclo"].'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                                               </div>
                                                           </div>
                                                         </div>
@@ -374,11 +400,11 @@
                                                         <div class="col-md-3">
                                                           <div class="form-group">
                                                             <label>Fecha de fin</label>
-                                                              <div class="input-group date" id="reservationdate2'.$row_ciclos_futuros["ID_Ciclo"].'" data-target-input="nearest">
-                                                                  <input type="text" value="'.$row_ciclos_futuros["fecha_fin"].'"  id="fecha_f_ciclo_n'.$row_ciclos_futuros["ID_Ciclo"].'" class="form-control datetimepicker-input" data-target="#reservationdate2'.$row_ciclos_futuros["ID_Ciclo"].'"/>
-                                                                  <div class="input-group-append" data-target="#reservationdate2'.$row_ciclos_futuros["ID_Ciclo"].'" data-toggle="datetimepicker">
-                                                                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                                  </div>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value="'.$row_ciclos_futuros["fecha_fin"].'"  id="fecha_f_ciclo_a'.$row_ciclos_futuros["ID_Ciclo"].'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                                               </div>
                                                           </div>
                                                         </div>
@@ -390,7 +416,7 @@
                                                     <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
                                                     <!----- ON OFF BUTTON --->';
                                                       if(!$hay_ciclo_activo){
-                                                          echo '<input type="checkbox"  name="my-checkbox" id="estado_ciclo_n'.$row_ciclos_futuros["ID_Ciclo"].'" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">';
+                                                          echo '<input type="checkbox"  name="my-checkbox" id="estado_ciclo_a'.$row_ciclos_futuros["ID_Ciclo"].'" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">';
                                                       }
                                                     echo '
                                                     <!-- / FORMULARIO DEL CICLO NUEVO -->
@@ -400,7 +426,7 @@
                                         </div>
                                         <div class="modal-footer justify-content-between">
                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo('.$row_ciclos_futuros["ID_Ciclo"].')>Guardar cambios</button>
+                                          <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo('.$row_ciclos_futuros["ID_Ciclo"].')>Guardar cambios</button>
                                         </div>
                                       </div>
                                       <!-- /.modal-content -->
