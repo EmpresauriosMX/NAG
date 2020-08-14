@@ -103,13 +103,14 @@
         <div class="row mb-2">
           <div class="col-sm-6">
               <?php
+              /*
                $result=mysqli_query($link,"select Puesto_laboral from administrador where ID_Admin=2");
                $total = mysqli_num_rows($result);
                while($row=mysqli_fetch_array($result)){
                    echo'
             <h1 class="m-0 text-dark">Bienvenido  '.$row["Puesto_laboral"].'</h1>
             ';
-               }
+               }*/
             ?>
           </div><!-- /.col -->
           <div class="col-sm-6">
