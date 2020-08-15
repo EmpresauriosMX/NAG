@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+      <link rel="stylesheet" href="../dist/css/sweetalert2.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -199,13 +200,13 @@
                   <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
-                      <tr>
+                      <tr name="campo_Licenciaturas<?php echo $proyectos['ID_Lincenciatura']?>" id="campo_Licenciaturas<?php echo $proyectos['ID_Lincenciatura']?>">
                       <td><?php echo $proyectos['ID_Lincenciatura'] ?></td>
                       <td><?php echo $proyectos['NombreLic'] ?></td>
                       <td>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-outline-primary btn-sm">Editar</button>
-                        <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick =Editar_licenciaturas(<?php echo $proyectos['ID_Lincenciatura']?>)>Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(<?php echo $proyectos['ID_Lincenciatura']?>)>Eliminar</button>
                       </div>
                       </td>
                       </tr>
@@ -325,11 +326,13 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
+</body>
 <!-- ./wrapper -->
 <!--  seccion de scriptos y footer-->
 <!-- OPTIONAL SCRIPTS -->
 <script src="../dist/js/demo.js"></script>
 <script src="../admin/funciones js/licenciaturas.js"></script>
+<script src="../dist/js/sweetalert2.all.min.js"></script>
 
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -401,5 +404,4 @@
     });
   });
 </script>
-</body>
 </html>

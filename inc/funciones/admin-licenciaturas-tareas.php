@@ -34,6 +34,68 @@ switch ($operacion) {
     }
     echo json_encode($respuesta);
     break;
+    //-------------------editar licenciaturas -----------------------------
+    case 'editar_licenciatura':
+      $id_recibido = $_POST['id_licenciatura'];
+      $NombreLicenciatura = $_POST['nombre'];
+      include 'conexion.php';
+      try{
+     $stmt = $conn->prepare("update licenciatura set NombreLic =? where ID_Lincenciatura=?");
+     $stmt->bind_param('si',$NombreLicenciatura,$id_recibido);
+     $stmt->execute(); 
+   
+     if($stmt->affected_rows > 0){  
+       $respuesta = array(   
+         'como_respuesta' => 'editar_la_lic',
+         'id_asignatura' => $stmt->insert_id,
+         'Nombre_Asignatura' => $NombreLicenciatura
+       );
+     }else{
+       $respuesta = array(
+         'respuesta' => 'error',
+         'id_recibido' => $id_recibido,
+          'nombre_asignatura' => $NombreLicenciatura
+       );
+     }   
+     $stmt->close(); 
+     $conn->close(); 
+
+   }catch(Exception $e){
+     $respuesta = array(
+       'error' => $e->getMessage()
+     );
+   }
+   echo json_encode($respuesta);
+    break;
+    // *********************** eliminar licenciatura **************************
+    case 'Eliminar_licenciatura':
+      $id_recibido = $_POST['id_licenciatura'];
+      include 'conexion.php';
+      try{
+     $stmt = $conn->prepare("delete from licenciatura where ID_Lincenciatura=?");
+     $stmt->bind_param('i',$id_recibido);
+     $stmt->execute(); 
+   
+     if($stmt->affected_rows > 0){  
+       $respuesta = array(   
+         'como_respuesta' => 'borrado',
+         'id_asignatura' => $id_recibido
+       );
+     }else{
+       $respuesta = array(
+         'respuesta' => 'error'
+       );
+     }   
+     $stmt->close(); 
+     $conn->close(); 
+
+   }catch(Exception $e){
+     $respuesta = array(
+       'error' => $e->getMessage()
+     );
+   }
+   echo json_encode($respuesta);
+    break;
 //    ************agregar Licenciatura_activa seccion del case************************
       case 'agregar_materia':
         $id_recibido = $_POST['id_licenciatura'];

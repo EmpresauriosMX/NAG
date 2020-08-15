@@ -31,15 +31,17 @@ function AgregarLicenciatura(e){ // si entra
             //************************navegacion del submenu de licenciaturas***********************//
             //agregar elementos a este submenu//
             var NuevaLicenciatura = document.createElement('tr'); //se crea la lista dentro del html
+            NuevaLicenciatura.setAttribute("id","campo_Licenciaturas"+id);
+            NuevaLicenciatura.setAttribute("name","campo_Licenciaturas"+id);
             NuevaLicenciatura.innerHTML = ` 
              <tr>
              <td>${id}</td>
              <td>${nombre}</td>
              <td>
              <div class="btn-group">
-               <button type="button" class="btn btn-outline-primary btn-sm">Editar</button>
-               <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
-             </div>
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick =Editar_licenciaturas(${id})>Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(${id})>Eliminar</button>
+                      </div>
              </td>
              </tr>
                     `;// url donde se envia//
@@ -53,6 +55,7 @@ function AgregarLicenciatura(e){ // si entra
   function LicenciaturaActiva(id_recibido){
    //  var Nueva_tarea = document.querySelector('#Nombre_Materia'+id_recibido).value;
    console.log('si entro a_agregar licenciatura activa');
+   Editar_licenciaturas(id_recibido);
     var operacion = 'agregar_materia';
     var ciclo = 1;
      var datos = new FormData();
@@ -85,7 +88,6 @@ function AgregarLicenciatura(e){ // si entra
      }   
      xhr.send(datos);
       }
-
       function AgregarNuevaMateria(id_Lic_Recibida){
         var Nueva_tarea = document.querySelector('#Nombre_Materia'+id_Lic_Recibida).value;
         operacion = 'agregar_nueva_materia';
@@ -117,5 +119,104 @@ function AgregarLicenciatura(e){ // si entra
                                   }         
          }   
          xhr.send(datos);
-
+      }
+  //************************* seccion de botones *********************************************************
+        //editar licenciatura
+      function Editar_licenciaturas(variable_recibida_editar){
+        
+        operacion = 'editar_licenciatura';
+        Swal
+        .fire({
+            title: "Tu nombre",
+            input: "text",
+            showCancelButton: true,
+            confirmButtonText: "Cambiar",
+            cancelButtonText: "Cancelar",
+        })
+        .then(resultado => {
+            if (resultado.value) {
+                let nombre = resultado.value;
+                console.log("Hola, " + nombre);
+                  Swal.fire({
+                    icon: 'success',
+                    type: 'success',
+                    title: 'ha cambiado'+nombre,
+                    text: 'Something went wrong!'
+                  })
+                  var datos = new FormData();
+        datos.append('id_licenciatura',variable_recibida_editar);
+        datos.append('nombre',nombre);
+        datos.append('operacion',operacion);
+          console.log(operacion);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+  
+        xhr.onload = function(){
+          if(this.status === 200) {
+              var respuesta = JSON.parse(xhr.responseText);
+              console.log(respuesta);
+                          //************************navegacion del submenu de licenciaturas***********************//
+            //agregar elementos a este submenu//
+            var NuevaLicenciatura = document.createElement('tr'); //se crea la lista dentro del html
+            NuevaLicenciatura.innerHTML = ` 
+             <tr>
+             <td>${variable_recibida_editar}</td>
+             <td>${nombre}</td>
+             <td>
+             <div class="btn-group">
+             <button type="button" class="btn btn-outline-primary btn-sm"onclick =Editar_licenciaturas(${variable_recibida_editar})>Editar</button>
+             <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(${variable_recibida_editar})>Eliminar</button>
+           </div>
+             </td>
+             </tr>
+                    `;// url donde se envia//
+                campo = document.querySelector('#campo_Licenciaturas'+variable_recibida_editar);
+               // ListaLicenciaturas.removeChild(campo); //agregar al innerHTML
+                ListaLicenciaturas.replaceChild(NuevaLicenciatura,campo);
+                                  //a donde se aplica, el nuevo contenido, el viejo contenido
+      }         
+        }   
+        xhr.send(datos);
+            }
+        });     
+    }
+      //eliminar licenciatura
+      function Eliminar_licenciatura(variable_recibida_eliminar){
+        campo = document.querySelector('#campo_Licenciaturas'+variable_recibida_eliminar);
+        console.log(variable_recibida_eliminar);
+        console.log("si entro a eliminar las licenciaturas");
+        Swal.fire({
+          title: 'Estas seguro?',
+          text: "Una vez enviado no se pueden cambiar",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Si, Eliminar!'
+        }).then((result) => {
+          if (result.value) {
+            Swal.fire(
+              'Eliminado!',
+              'ha sido eliminado la licenciatura',
+              'success'
+            )
+            operacion = 'Eliminar_licenciatura';
+            var datos = new FormData();
+            datos.append('id_licenciatura',variable_recibida_eliminar);
+            datos.append('operacion',operacion);
+              console.log(operacion);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+      
+            xhr.onload = function(){
+              if(this.status === 200) {
+                  var respuesta = JSON.parse(xhr.responseText);
+                  console.log(respuesta);
+                                       }         
+                                  }   
+            xhr.send(datos);
+            campo.remove();
+          }
+        })
       }
