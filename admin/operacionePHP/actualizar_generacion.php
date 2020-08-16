@@ -5,11 +5,8 @@
     $fecha2 = $_GET["fecha_f_f"];
     $estatus = $_GET["estatus"];
     $id = $_GET["id"];
-    echo 'hola';
     mysqli_query($link, "UPDATE `generaciones` SET `fecha_inicio`= '$fecha1',`fecha_fin`= '$fecha2',`estatus`= $estatus WHERE `id_generacion`= $id");
-?> 
 
-<?php
 
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2");
                 $n_generaciones = mysqli_num_rows($generaciones);

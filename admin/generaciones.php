@@ -86,7 +86,7 @@
       <div class="container-fluid">
         <div class="row">
             <!----------------GENERACIONES ACTUALES-------------->
-            <div class="col-md-10 mx-auto recarga_generaciones_a">
+            <div class="col-md-10 mx-auto" id="recarga_generaciones_a">
               <!--------------------GENERACIONES------------------>
               <?php
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 1");
@@ -128,7 +128,7 @@
                                       <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                       </div>
-                                      <input type="text" value="'.$generacion["fecha_inicio"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                      <input type="text" value="'.$generacion["fecha_inicio"].'" id="fecha_i_generacion_a'.$id_generacion.' " class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                     </div>
                                   </div>
                                   
@@ -139,7 +139,7 @@
                                       <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                       </div>
-                                      <input type="text" value="'.$generacion["fecha_fin"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                      <input type="text" value="'.$generacion["fecha_fin"].'" id="fecha_f_generacion_a'.$id_generacion.' " class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                     </div>
                                   </div>
                                   

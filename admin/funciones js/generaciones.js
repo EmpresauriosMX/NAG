@@ -47,7 +47,27 @@ function getXMLHTTPRequest(){
                 }
             }
         }
-
+    function actualizar_generacion_a(id){
+        var id;
+        var fecha_i_a = document.getElementById("fecha_i_generacion_a" +id).value;
+        var fecha_f_a = document.getElementById("fecha_f_generacion_a" +id).value;
+        var estatus_1 =document.getElementById("estado_generacion_a" + id).checked;
+        var estatus = 2;
+        if (estatus_1){
+            estatus = 1;
+        }
+        //alert("fecha_i_f= " + fecha_i_f +"&"+"fecha_f_f= "+fecha_f_f+"id "+id +" estatus= "+estatus);
+        var url = "./operacionePHP/actualizar_generacion.php?id="+id+"&fecha_i_f=" + fecha_i_f+"&"+"fecha_f_f="+fecha_f_f+"&estatus="+estatus;
+        generacion_f.open("GET", url, true);
+        generacion_f.onreadystatechange=respuesta_actualizar_generacion_f;
+        generacion_f.send(null);
+        setTimeout('respuesta_actualizar_generacion_f()', 1000);
+        var url2 = "./operacionePHP/generaciones_actuales.php";
+        generacion_a.open("GET", url2, true);
+        generacion_a.onreadystatechange=respuesta_actualizar_generacion_a;
+        generacion_a.send(null);
+        setTimeout('respuesta_actualizar_generacion_a()', 1000);
+    }
     function actualizar_generacion_f(id){
         var id;
         var fecha_i_f = document.getElementById("fecha_i_generacion_f" +id).value;
@@ -57,14 +77,14 @@ function getXMLHTTPRequest(){
         if (estatus_1){
             estatus = 1;
         }
-        alert("fecha_i_f= " + fecha_i_f +"&"+"fecha_f_f= "+fecha_f_f+"id "+id +" estatus= "+estatus);
+        //alert("fecha_i_f= " + fecha_i_f +"&"+"fecha_f_f= "+fecha_f_f+"id "+id +" estatus= "+estatus);
         var url = "./operacionePHP/actualizar_generacion.php?id="+id+"&fecha_i_f=" + fecha_i_f+"&"+"fecha_f_f="+fecha_f_f+"&estatus="+estatus;
         generacion_f.open("GET", url, true);
         generacion_f.onreadystatechange=respuesta_actualizar_generacion_f;
         generacion_f.send(null);
         setTimeout('respuesta_actualizar_generacion_f()', 1000);
-        var url = "./operacionePHP/generaciones_actuales.php";
-        generacion_a.open("GET", url, true);
+        var url2 = "./operacionePHP/generaciones_actuales.php";
+        generacion_a.open("GET", url2, true);
         generacion_a.onreadystatechange=respuesta_actualizar_generacion_a;
         generacion_a.send(null);
         setTimeout('respuesta_actualizar_generacion_a()', 1000);

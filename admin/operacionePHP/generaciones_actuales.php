@@ -1,4 +1,6 @@
 <?php
+include("../../inc/funciones/conexal.php");
+$link = Conectarse();
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 1");
                 $n_generaciones = mysqli_num_rows($generaciones);
                 //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
