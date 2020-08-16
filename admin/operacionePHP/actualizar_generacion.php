@@ -1,20 +1,16 @@
 <?php
     include("../../inc/funciones/conexal.php");
     $link = Conectarse();
-    $operacion = $_GET["operacion"];
-    switch($operacion){
-        case "nuevo":
-            $fecha1 = $_GET["fecha_i_n"];
-            $fecha2 = $_GET["fecha_f_n"];
-            mysqli_query($link, "INSERT INTO `generaciones` 
-                                (`id_generacion`, `fecha_inicio`, `fecha_fin`, `ciclos`, `estatus`) 
-                                VALUES (NULL, '$fecha1', '$fecha2', '0', '2')");
-            
-        break;
-    }
+    $fecha1 = $_GET["fecha_i_f"];
+    $fecha2 = $_GET["fecha_f_f"];
+    $estatus = $_GET["estatus"];
+    $id = $_GET["id"];
+    echo 'hola';
+    mysqli_query($link, "UPDATE `generaciones` SET `fecha_inicio`= '$fecha1',`fecha_fin`= '$fecha2',`estatus`= $estatus WHERE `id_generacion`= $id");
 ?> 
 
 <?php
+
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2");
                 $n_generaciones = mysqli_num_rows($generaciones);
                 //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
@@ -55,7 +51,7 @@
                                       <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                       </div>
-                                      <input type="text" value="'.$generacion["fecha_inicio"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                      <input type="text" value="'.$generacion["fecha_inicio"].'" id="fecha_i_generacion_f'.$id_generacion.'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                     </div>
                                   </div>
                                   
@@ -66,7 +62,7 @@
                                       <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                       </div>
-                                      <input type="text" value="'.$generacion["fecha_fin"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                      <input type="text" value="'.$generacion["fecha_fin"].'" id="fecha_f_generacion_f'.$id_generacion.'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                     </div>
                                   </div>
                                   
@@ -80,12 +76,9 @@
                                     licenciaturas, calificaciones y más
                                 </p>
                                 <div class="form-group">
-                                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                    <input type="checkbox" name="gen1" class="custom-control-input" id="customSwitch1">
-                                    <label class="custom-control-label" for="customSwitch1">Desactivado / Activado</label>
-                                    </div>
+                                <input type="checkbox" id="estado_generacion_f'.$id_generacion.'" name="my-checkbox"  data-bootstrap-switch data-off-color="danger" data-on-color="success">
                                 </div>
-                                <button type="submit" class="btn btn-success float-right">Guardar Cambios</button>
+                                <button type="button" onClick="actualizar_generacion_f('.$id_generacion.')" class="btn btn-success float-right">Guardar Cambios</button>
                               </div>
                             </div>
                               
@@ -188,3 +181,4 @@
                   ';
                 };
               ?>
+

@@ -1,28 +1,12 @@
 <?php
-    include("../../inc/funciones/conexal.php");
-    $link = Conectarse();
-    $operacion = $_GET["operacion"];
-    switch($operacion){
-        case "nuevo":
-            $fecha1 = $_GET["fecha_i_n"];
-            $fecha2 = $_GET["fecha_f_n"];
-            mysqli_query($link, "INSERT INTO `generaciones` 
-                                (`id_generacion`, `fecha_inicio`, `fecha_fin`, `ciclos`, `estatus`) 
-                                VALUES (NULL, '$fecha1', '$fecha2', '0', '2')");
-            
-        break;
-    }
-?> 
-
-<?php
-                $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2");
+                $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 1");
                 $n_generaciones = mysqli_num_rows($generaciones);
                 //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
                 //crea una carta de configuracion por cada generacion
                 while($row_generaciones = mysqli_fetch_array($generaciones)){
                   $id_generacion = $row_generaciones["id_generacion"];
                   //Datos de la generacion
-                  $result = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2 AND id_generacion = $id_generacion");
+                  $result = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 1 AND id_generacion = $id_generacion");
                   $hay_ciclo_activo = mysqli_num_rows($result);
                   $generacion=mysqli_fetch_array($result);
                   //CICLO ACTUAL
@@ -31,16 +15,15 @@
                   $ciclo_actual=mysqli_fetch_array($ciclos);
                   $cont_ciclos = 0;
                   echo'
-                    <div class="card card-info ">
+                    <div class="card card-warning ">
                       <div class="card-header">
-                        <h3 class="card-title">Configuración de generacion futura ID '.$id_generacion.'</h3>
+                        <h3 class="card-title">Configuración de la generación <strong> actual. ID '.$id_generacion.' </strong></h3>
                           <div class="card-tools">
                               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                   <i class="fas fa-minus"></i>
                               </button>
                           </div>
                       </div>
-                          
                       <!-- /.card-header -->
                       <!-- form start -->
                       
@@ -80,10 +63,9 @@
                                     licenciaturas, calificaciones y más
                                 </p>
                                 <div class="form-group">
-                                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                    <input type="checkbox" name="gen1" class="custom-control-input" id="customSwitch1">
-                                    <label class="custom-control-label" for="customSwitch1">Desactivado / Activado</label>
-                                    </div>
+                                    
+                                    <input type="checkbox" id="estado_generacion_a'.$id_generacion.'" name="my-checkbox" checked="true" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    
                                 </div>
                                 <button type="submit" class="btn btn-success float-right">Guardar Cambios</button>
                               </div>
@@ -187,4 +169,4 @@
                     </div>
                   ';
                 };
-              ?>
+              ?> 

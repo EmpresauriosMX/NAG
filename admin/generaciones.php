@@ -85,8 +85,8 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-            <!----------------GENERACIONES FUTURAS-------------->
-            <div class="col-md-10 mx-auto ">
+            <!----------------GENERACIONES ACTUALES-------------->
+            <div class="col-md-10 mx-auto recarga_generaciones_a">
               <!--------------------GENERACIONES------------------>
               <?php
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 1");
@@ -153,10 +153,9 @@
                                     licenciaturas, calificaciones y más
                                 </p>
                                 <div class="form-group">
-                                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                    <input type="checkbox" name="gen1" class="custom-control-input" id="customSwitch1">
-                                    <label class="custom-control-label" for="customSwitch1">Desactivado / Activado</label>
-                                    </div>
+                                    
+                                    <input type="checkbox" id="estado_generacion_a'.$id_generacion.'" name="my-checkbox" checked="true" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    
                                 </div>
                                 <button type="submit" class="btn btn-success float-right">Guardar Cambios</button>
                               </div>
@@ -352,7 +351,7 @@
                               <th>'.$ciclo_actual["ID_Ciclo"].'</th>
                               <td>Fecha inicio: <strong>'.$ciclo_actual["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$ciclo_actual["fecha_fin"].'</strong></h5></td>
                               <td>
-                              <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$ciclo_actual["ID_Ciclo"].'">Remover ciclo</button>
+                              <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$ciclo_actual["ID_Ciclo"].'">Agregar a una generación</button>
                               </td>
                               <td><span class="badge bg-danger">Actual</span></td>
                              </tr>
@@ -390,7 +389,7 @@
                                                 <th>'.$row_ciclos_futuros["ID_Ciclo"].'</th>
                                                 <td>Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></td>
                                                 <td>
-                                                  <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">Remover ciclo</button>
+                                                  <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">Agregar a una generación</button>
                                                 </td>
                                                 <td><span class="badge bg-primary">Futuro</span></td>
                                               </tr>
@@ -427,7 +426,7 @@
             </div>
         
             <!------------------GENERACIONES FUTURAS------------------>
-            <div class="col-md-10 mx-auto" id="recarga_generaciones_futuras">
+            <div class="col-md-10 mx-auto" id="recarga_generaciones_f">
               <?php
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2");
                 $n_generaciones = mysqli_num_rows($generaciones);
@@ -469,7 +468,7 @@
                                       <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                       </div>
-                                      <input type="text" value="'.$generacion["fecha_inicio"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                      <input type="text" value="'.$generacion["fecha_inicio"].'" id="fecha_i_generacion_f'.$id_generacion.'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                     </div>
                                   </div>
                                   
@@ -480,7 +479,7 @@
                                       <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                       </div>
-                                      <input type="text" value="'.$generacion["fecha_fin"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                      <input type="text" value="'.$generacion["fecha_fin"].'" id="fecha_f_generacion_f'.$id_generacion.'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                     </div>
                                   </div>
                                   
@@ -494,12 +493,9 @@
                                     licenciaturas, calificaciones y más
                                 </p>
                                 <div class="form-group">
-                                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                    <input type="checkbox" name="gen1" class="custom-control-input" id="customSwitch1">
-                                    <label class="custom-control-label" for="customSwitch1">Desactivado / Activado</label>
-                                    </div>
+                                <input type="checkbox" id="estado_generacion_f'.$id_generacion.'" name="my-checkbox"  data-bootstrap-switch data-off-color="danger" data-on-color="success">
                                 </div>
-                                <button type="submit" class="btn btn-success float-right">Guardar Cambios</button>
+                                <button type="button" onClick="actualizar_generacion_f('.$id_generacion.')" class="btn btn-success float-right">Guardar Cambios</button>
                               </div>
                             </div>
                               
