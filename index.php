@@ -25,10 +25,10 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form id="formulario" method="post">
+       <form action="php/ins.php" method="post">
         <div class="input-group mb-3">
             <!--obtener el correo -->
-          <input name="email" id="email" type="email" class="form-control" placeholder="correo o usuario">
+          <input type="text" class="form-control" placeholder="correo o usuario" id="us" name="us" required="required">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -37,13 +37,14 @@
         </div>
         <!--obtener la contraseña-->
         <div class="input-group mb-3">
-          <input name="contra" id="contra" type="password" class="form-control" placeholder="contraseña">
+          <input type="password" class="form-control" placeholder="contraseña" id="cont" name="cont" required="required">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+		  
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -55,8 +56,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-          <a href="#" name="enviar" id="enviar"><div class="btn btn-primary btn-block"> iniciar</div> </a>
-            
+            <button type="submit" class="btn btn-primary btn-block">Iniciar</button>
           </div>
           <!-- /.col -->
         </div>
