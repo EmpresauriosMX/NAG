@@ -5,7 +5,7 @@ eventListeners();
 
 function eventListeners(){
   document.querySelector('#formulario').addEventListener('click',AgregarLicenciatura);
- // document.querySelector('#materias').addEventListener('click',AgregarMateria);
+  document.querySelector('#formulario1').addEventListener('click',AgregarLicenciaturaActiva);
   }
 
 
@@ -37,11 +37,13 @@ function AgregarLicenciatura(e){ // si entra
              <tr>
              <td>${id}</td>
              <td>${nombre}</td>
+             <td>1</td>
+             <input type="hidden" id="obtener_nombre_lic${id}" value="${nombre}">
              <td>
              <div class="btn-group">
-                        <button type="button" class="btn btn-outline-primary btn-sm" onclick =Editar_licenciaturas(${id})>Editar</button>
-                        <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(${id})>Eliminar</button>
-                      </div>
+             <button type="button" class="btn btn-outline-primary btn-sm"onclick =Editar_licenciaturas(${id})>Editar</button>
+             <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(${id})>Eliminar</button>
+             </div>
              </td>
              </tr>
                     `;// url donde se envia//
@@ -88,6 +90,7 @@ function AgregarLicenciatura(e){ // si entra
      }   
      xhr.send(datos);
       }
+      /*Agregar materia */
       function AgregarNuevaMateria(id_Lic_Recibida){
         var Nueva_tarea = document.querySelector('#Nombre_Materia'+id_Lic_Recibida).value;
         operacion = 'agregar_nueva_materia';
@@ -106,13 +109,20 @@ function AgregarLicenciatura(e){ // si entra
            if(this.status === 200) {
                var respuesta = JSON.parse(xhr.responseText);
                console.log(respuesta);
+               id_tarea=respuesta.id_asignatura;
                var CampoMateria = document.querySelector('#tab_'+id_Lic_Recibida);
 
                var NuevoCampo_materia = document.createElement('div');
                NuevoCampo_materia.className = "tab-pane";
                NuevoCampo_materia.setAttribute("id","tab_"+id_Lic_Recibida);
                NuevoCampo_materia.innerHTML = `
-                 ${Nueva_tarea}
+                 <div id="campo-de-materia${id_tarea}" name="campo-de-materia${id_tarea}">
+                    ${Nueva_tarea}
+                              <div class="btn-group col-5">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(${id_tarea})>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(${id_tarea})>Eliminar</button>
+                              </div> <br>
+                          </div>
                       `;// url donde se envia//
                       CampoMateria.appendChild(NuevoCampo_materia)
                 console.log("correcto ingreso de datos");
@@ -123,62 +133,79 @@ function AgregarLicenciatura(e){ // si entra
   //************************* seccion de botones *********************************************************
         //editar licenciatura
       function Editar_licenciaturas(variable_recibida_editar){
-        
-        operacion = 'editar_licenciatura';
-        Swal
-        .fire({
-            title: "Tu nombre",
-            input: "text",
-            showCancelButton: true,
-            confirmButtonText: "Cambiar",
-            cancelButtonText: "Cancelar",
+        console.log(variable_recibida_editar); //pruebas de recepcion de datos
+        nombre=document.querySelector('#obtener_nombre_lic'+variable_recibida_editar).value;
+          console.log(nombre);
+          //mensaje emergente
+        swal({
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Actualizar!',
+          title: 'Editar datos de:',
+          html:
+            '<h2>Nombre</h2><input id="swal-input1" class="swal2-input">' +
+            '<h2>Periodos</h2><input id="swal-input2" class="swal2-input">',
+          preConfirm: function () {
+            return new Promise(function (resolve) {
+              resolve([
+                $('#swal-input1').val(),
+                $('#swal-input2').val()
+              ])
+            })
+          },
         })
-        .then(resultado => {
-            if (resultado.value) {
-                let nombre = resultado.value;
-                console.log("Hola, " + nombre);
-                  Swal.fire({
-                    icon: 'success',
-                    type: 'success',
-                    title: 'ha cambiado'+nombre,
-                    text: 'Something went wrong!'
-                  })
-                  var datos = new FormData();
-        datos.append('id_licenciatura',variable_recibida_editar);
-        datos.append('nombre',nombre);
-        datos.append('operacion',operacion);
-          console.log(operacion);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
-  
-        xhr.onload = function(){
-          if(this.status === 200) {
-              var respuesta = JSON.parse(xhr.responseText);
-              console.log(respuesta);
-                          //************************navegacion del submenu de licenciaturas***********************//
-            //agregar elementos a este submenu//
-            var NuevaLicenciatura = document.createElement('tr'); //se crea la lista dentro del html
-            NuevaLicenciatura.innerHTML = ` 
-             <tr>
-             <td>${variable_recibida_editar}</td>
-             <td>${nombre}</td>
-             <td>
-             <div class="btn-group">
-             <button type="button" class="btn btn-outline-primary btn-sm"onclick =Editar_licenciaturas(${variable_recibida_editar})>Editar</button>
-             <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(${variable_recibida_editar})>Eliminar</button>
-           </div>
-             </td>
-             </tr>
-                    `;// url donde se envia//
-                campo = document.querySelector('#campo_Licenciaturas'+variable_recibida_editar);
-               // ListaLicenciaturas.removeChild(campo); //agregar al innerHTML
-                ListaLicenciaturas.replaceChild(NuevaLicenciatura,campo);
-                                  //a donde se aplica, el nuevo contenido, el viejo contenido
-      }         
-        }   
-        xhr.send(datos);
-            }
-        });     
+        .then(function (result) {
+              //en caso de dar okey
+          if(result.value){
+            let Nuevo_nombre=$('#swal-input1').val();
+            let nuevo_periodo=$('#swal-input2').val();
+            console.log(Nuevo_nombre);
+            console.log(nuevo_periodo);
+            operacion = 'editar_licenciatura';
+            //envio de ajax
+            var datos = new FormData();
+            datos.append('id_licenciatura',variable_recibida_editar);
+            datos.append('nombre',Nuevo_nombre);
+            datos.append('periodos',nuevo_periodo);
+            datos.append('operacion',operacion);
+              console.log(operacion);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+    
+            xhr.onload = function(){
+              if(this.status === 200) {
+                  var respuesta = JSON.parse(xhr.responseText);
+                  console.log(respuesta);
+                              
+                  // creacion de la seccion acualizada en la tabla
+                var NuevaLicenciatura = document.createElement('tr'); //se crea la lista dentro del html
+                NuevaLicenciatura.setAttribute("id","campo_Licenciaturas"+variable_recibida_editar);
+                NuevaLicenciatura.setAttribute("name","campo_Licenciaturas"+variable_recibida_editar);
+                NuevaLicenciatura.innerHTML = ` 
+                 <tr>
+                 <td>${variable_recibida_editar}</td>
+                 <td>${Nuevo_nombre}</td>
+                 <td>${nuevo_periodo}</td>
+                 <input type="hidden" id="obtener_nombre_lic${variable_recibida_editar}" value="${Nuevo_nombre}">
+                 <td>
+                 <div class="btn-group">
+                 <button type="button" class="btn btn-outline-primary btn-sm"onclick =Editar_licenciaturas(${variable_recibida_editar})>Editar</button>
+                 <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(${variable_recibida_editar})>Eliminar</button>
+               </div>
+                 </td>
+                 </tr>
+                        `;// url donde se envia//
+                    campo = document.querySelector('#campo_Licenciaturas'+variable_recibida_editar);
+                    ListaLicenciaturas.replaceChild(NuevaLicenciatura,campo);
+                                      //a donde se aplica, el nuevo contenido, el viejo contenido
+          }         
+            }   
+            xhr.send(datos);
+
+          }
+        })
     }
       //eliminar licenciatura
       function Eliminar_licenciatura(variable_recibida_eliminar){
@@ -220,3 +247,113 @@ function AgregarLicenciatura(e){ // si entra
           }
         })
       }
+
+    //editar materias
+    function AgregarLicenciaturaActiva(){
+      
+    }
+
+    function ShowSelected()
+    {
+    /* Para obtener el valor */
+    var cod = document.getElementById("producto").value; 
+    /* Para obtener el texto */
+    var combo = document.getElementById("producto");
+    var selected = combo.options[combo.selectedIndex].text;
+    alert(selected);
+    }
+    // ------------------------------------------------------editar nombre de asignaturas
+    function editar_materias(id_recibido){
+        console.log(id_recibido);
+        {
+          operacion = 'editar_asignatura';
+          Swal
+          .fire({
+              title: "Nombre de la asignatura",
+              input: "text",
+              showCancelButton: true,
+              confirmButtonText: "Cambiar",
+              cancelButtonText: "Cancelar",
+          })
+          .then(resultado => {
+              if (resultado.value) {
+                  let nombre = resultado.value;
+                  console.log("Hola, " + nombre);
+                    Swal.fire({
+                      icon: 'success',
+                      type: 'success',
+                      title: 'ha cambiado'+nombre,
+                      text: 'Something went wrong!'
+                    })
+                    var datos = new FormData();
+          datos.append('id_asignatura',id_recibido);
+          datos.append('nombre',nombre);
+          datos.append('operacion',operacion);
+            console.log(operacion);
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+  
+          xhr.onload = function(){
+            if(this.status === 200) {
+                var respuesta = JSON.parse(xhr.responseText);
+                console.log(respuesta);
+                        var CampoMateria = document.querySelector('#tab_'+id_recibido);
+
+               var NuevoCampo_materia = document.createElement('div');
+               NuevoCampo_materia.className = "tab-pane";
+               NuevoCampo_materia.setAttribute("id","tab_"+id_Lic_Recibida);
+               NuevoCampo_materia.innerHTML = `
+                 <div id="campo-de-materia${id_tarea}" name="campo-de-materia${id_tarea}">
+                    ${Nueva_tarea}
+                              <div class="btn-group col-5">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =Editar_materias(${id_tarea})>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(${id_tarea})>Eliminar</button>
+                              </div> <br>
+                          </div>
+                      `;// url donde se envia//
+                      CampoMateria.appendChild(NuevoCampo_materia)
+        }         
+          }   
+          xhr.send(datos);
+              }
+          });     
+      }
+    }
+    //eliminar materias
+    function Eliminar_materias(id_recibido){
+      campo = document.querySelector('#campo-de-materia'+id_recibido);
+      Swal.fire({
+        title: 'Estas seguro?',
+        text: "Una vez enviado no se pueden cambiar",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, Eliminar!'
+      }).then((result) => {
+        if (result.value) {
+          Swal.fire(
+            'Eliminado!',
+            'ha sido eliminado la materia',
+            'success'
+          )
+          operacion = 'eliminar_materia';
+          var datos = new FormData();
+          datos.append('id_recibido',id_recibido);
+          datos.append('operacion',operacion);
+            console.log(operacion);
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+    
+          xhr.onload = function(){
+            if(this.status === 200) {
+                var respuesta = JSON.parse(xhr.responseText);
+                console.log(respuesta);
+                                     }         
+                                }   
+          xhr.send(datos);
+          campo.remove();
+        }
+      })
+    }

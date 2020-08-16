@@ -130,7 +130,14 @@
                             <?php
                           $asignaturas = Obtener_Asignaturas($generaciones['ID_LicActiva']);
                           foreach($asignaturas as $asignatura):?>
-                          <?php echo $asignatura['Nombre_Asignatura']?> <br>
+                          <div id="campo-de-materia<?php echo $asignatura['ID_Asignatura']?>" name="campo-de-materia<?php echo $asignatura['ID_Asignatura']?>">
+                              <?php echo $asignatura['ID_Asignatura'] ?>
+                              <?php echo $asignatura['Nombre_Asignatura']?>
+                              <div class="btn-group col-5">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(<?php echo $asignatura['ID_Asignatura']?>)>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(<?php echo $asignatura['ID_Asignatura']?>)>Eliminar</button>
+                              </div> <br>
+                          </div>
                           <?php endforeach; ?>
                       </div>
                     <?php endforeach; ?>

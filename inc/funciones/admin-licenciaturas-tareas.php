@@ -38,16 +38,17 @@ switch ($operacion) {
     case 'editar_licenciatura':
       $id_recibido = $_POST['id_licenciatura'];
       $NombreLicenciatura = $_POST['nombre'];
+      $periodos = $_POST['periodos'];
       include 'conexion.php';
       try{
-     $stmt = $conn->prepare("update licenciatura set NombreLic =? where ID_Lincenciatura=?");
-     $stmt->bind_param('si',$NombreLicenciatura,$id_recibido);
+     $stmt = $conn->prepare("update licenciatura set NombreLic=?,periodos=? where ID_Lincenciatura=?");
+     $stmt->bind_param('ssi',$NombreLicenciatura,$periodos,$id_recibido);
      $stmt->execute(); 
    
      if($stmt->affected_rows > 0){  
        $respuesta = array(   
          'como_respuesta' => 'editar_la_lic',
-         'id_asignatura' => $stmt->insert_id,
+         'numero' => $periodos,
          'Nombre_Asignatura' => $NombreLicenciatura
        );
      }else{
@@ -162,6 +163,68 @@ switch ($operacion) {
        }
        echo json_encode($respuesta);
           break;
+          /*--------------- Eliminar materias ---- */
+          case 'eliminar_materia':
+            $id_recibido = $_POST['id_recibido'];
+       include 'conexion.php';
+       try{
+         $stmt = $conn->prepare("delete from asignatura where ID_Asignatura=?");
+         $stmt->bind_param('i',$id_recibido);
+         $stmt->execute();     
+         if($stmt->affected_rows > 0){  
+           $respuesta = array(   
+             'estado' => 'se borro correctamente de asignatura',
+             'id_asignatura' => $id_recibido
+           );
+         }else{
+           $respuesta = array(
+             'respuesta' => 'error'
+           );
+         }   
+         $stmt->close(); 
+         $conn->close(); 
+
+       }catch(Exception $e){
+         $respuesta = array(
+           'error' => $e->getMessage()
+         );
+       }
+       echo json_encode($respuesta);
+          break;
+
+          //------------editar asignatura --------------------------------*
+      case 'editar_asignatura':
+        $id_recibido = $_POST['id_asignatura'];
+        $Nombre_asignatura = $_POST['nombre'];
+        include 'conexion.php';
+        try{
+       $stmt = $conn->prepare("update asignatura set Nombre_Asignatura=? where ID_Asignatura=?");
+       $stmt->bind_param('si',$Nombre_asignatura,$id_recibido);
+       $stmt->execute(); 
+     
+       if($stmt->affected_rows > 0){  
+         $respuesta = array(   
+           'como_respuesta' => 'editar_materias',
+           'id de asignatura' => $id_recibido,
+           'Nombre_Asignatura' => $Nombre_asignatura
+         );
+       }else{
+         $respuesta = array(
+           'respuesta' => 'error',
+           'valor' =>  'editar materias',
+            'nombre_asignatura' => $Nombre_asignatura
+         );
+       }   
+       $stmt->close(); 
+       $conn->close(); 
+  
+     }catch(Exception $e){
+       $respuesta = array(
+         'error' => $e->getMessage()
+       );
+     }
+     echo json_encode($respuesta);
+      break;
   default:
     console.log('inexistente');
 }
