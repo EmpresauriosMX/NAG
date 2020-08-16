@@ -62,6 +62,8 @@
   <!-- inicio --------------------- BARRA DE NAVEGACIÓN IZQUIERDA------------->
   <?php
     include 'plantilla_barra_izquierda.php';
+    include("../inc/funciones/conexal.php");
+    $link = Conectarse(); /*conexion a la bd*/
   ?>
   <!-- Fin --------------------- BARRA DE NAVEGACIÓN IZQUIERDA------------->
   <!-- Content Wrapper. Contains page content -->
@@ -71,7 +73,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido  _</h1>
+            <h1 class="m-0 text-dark">Generaciones</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
@@ -83,478 +85,227 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <div class="row">
         <!-- Main row -->
-             <!-- /.card -->
-            <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Configuración de la generación actual</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal">
-                <div class="card-body">
-                <h3>Generación actual 2017-2020.</h3>
-                <label for="ciclo">Periodo</label>
-                  <div class="form-group row acomodar-select">
-                        <label for="ciclo" class="col-sm-2 col-form-label">Inicio</label>
-                        
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Año</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Mes</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Día</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-                  </div>
-
-                  <div class="form-group row acomodar-select">
-                        <label for="ciclo" class="col-sm-2 col-form-label">Fin</label>
-                        
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Año</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Mes</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Día</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-                         </div>
-                    <h6>Cambiar a generación desactivada</h6>
-                    <div class="desactivar">   
-                        <p>Esta acción cambia toda la arquitectura de los alumnos, docentes,
-                            licenciaturas, calificaciones y más
-                        </p>
-                        <div class="form-group">
-                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                            <input type="checkbox" name="gen1" class="custom-control-input" id="customSwitch1">
-                            <label class="custom-control-label" for="customSwitch1">Desactivado / Activado</label>
-                            </div>
-                        </div>
-                    </div>  
-
-
+            <div class="col-md-10 mx-auto ">
+              <!--------------------GENERACIONES------------------>
+              <div class="card card-info ">
+                <div class="card-header">
+                  <h3 class="card-title">Configuración de la generación actual</h3>
                 </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <h5>Ciclos activos en la generación: </h5>
-                  <button type="submit" class="btn btn-default float-right">Guardar Cambios</button>
-                </div>
-                <!-- /.card-footer -->
-              </form>
-            </div>
-            <!-- /.card -->
-
-             <!-- /.card -->
-            <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Configuración de la generación actual</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal">
-                <div class="card-body">
-                <h3>Generación actual 2018-2021.</h3>
-                <label for="ciclo">Periodo</label>
-                  <div class="form-group row acomodar-select">
-                        <label for="ciclo" class="col-sm-2 col-form-label">Inicio</label>
-                        
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Año</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="card-body">
+                  <?php
+                    $result = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 1");
+                    $hay_ciclo_activo = mysqli_num_rows($result);
+                    $generacion=mysqli_fetch_array($result);
+                    echo'
+                    <h3>Generación inicio <strong>'.$generacion["fecha_inicio"].' </strong> fin <strong> '.$generacion["fecha_fin"].' </strong></h3>
+                    <label for="ciclo">Periodo</label>
+                    <div class="row">
+                        <div class="col-md-3">
+                          <!-- Fecha 1 -->
+                          <label >Inicio</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Mes</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Día</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-
-                                </select>
-                            </div>
-                  </div>
-
-                          <div class="form-group row acomodar-select">
-                            <label for="ciclo" class="col-sm-2 col-form-label">Fin</label>
-                        
-                            <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Año</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                              <!-- select -->
-                              <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Mes</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                              </div>
-
-                              <!-- select -->
-                              <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Día</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                              </div>
+                            <input type="text" value="'.$generacion["fecha_inicio"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                           </div>
-                    <h6>Cambiar a generación desactivada</h6>
-                        <div class="desactivar">   
+                        </div>
+                        
+                        <div class="col-md-3">
+                          <!-- Fecha 1 -->
+                          <label >Fin</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="text" value="'.$generacion["fecha_fin"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                          </div>
+                        </div>
+                    </div>
+                    ';
+                  ?>
+                  
+                      <h6 style="color:red;">Cambiar a generación desactivada</h6>
+                      <div class="desactivar">   
                           <p>Esta acción cambia toda la arquitectura de los alumnos, docentes,
-                            licenciaturas, calificaciones y más
+                              licenciaturas, calificaciones y más
                           </p>
                           <div class="form-group">
-                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                              <input type="checkbox" name="gen2" class="custom-control-input" id="customSwitch2">
-                              <label class="custom-control-label" for="customSwitch2">Desactivado / Activado</label>
-                            </div>
-                          </div>
-                        </div>  
-
-
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <h5>Ciclos activos en la generación: </h5>
-                  <button type="submit" class="btn btn-default float-right">Guardar Cambios</button>
-                </div>
-                </div>
-                <!-- /.card-footer -->
-              </form>
-            </div>
-            <!-- /.card -->
-
-             <!-- /.card -->
-            <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Configuración de la generación actual</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal">
-                <div class="card-body">
-                <h3>Generación actual 2019-2022.</h3>
-                <label for="ciclo">Periodo</label>
-                  <div class="form-group row acomodar-select">
-                        <label for="ciclo" class="col-sm-2 col-form-label">Inicio</label>
-                        
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Año</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Mes</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Día</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-                  </div>
-
-                  <div class="form-group row acomodar-select">
-                        <label for="ciclo" class="col-sm-2 col-form-label">Fin</label>
-                        
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Año</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Mes</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Día</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-                         </div>
-                    <h6>Cambiar a generación desactivada</h6>
-                    <div class="desactivar">   
-                        <p>Esta acción cambia toda la arquitectura de los alumnos, docentes,
-                            licenciaturas, calificaciones y más
-                        </p>
-                        <div class="form-group">
-                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                            <input type="checkbox" name="gen3" class="custom-control-input" id="customSwitch3">
-                            <label class="custom-control-label" for="customSwitch3">Desactivado / Activado</label>
-                            </div>
-                        </div>
-                    </div>  
-
-
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <h5>Ciclos activos en la generación: </h5>
-                  <button type="submit" class="btn btn-default float-right">Guardar Cambios</button>
-                </div>
-                <!-- /.card-footer -->
-              </form>
-            </div>
-            <!-- /.card -->
-
-            
-             <!-- /.card -->
-            <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Agregar una nueva generación</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal">
-                <div class="card-body">
-                  <label for="ciclo">Periodo</label>
-                    <div class="form-group row acomodar-select">
-                        <label for="ciclo" class="col-sm-2 col-form-label">Inicio</label>
-                        
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Año</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Mes</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Día</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-                      </div>
-
-                      <div class="form-group row acomodar-select">
-                        <label for="ciclo" class="col-sm-2 col-form-label">Fin</label>
-                        
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Año</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Mes</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-
-                        <!-- select -->
-                            <div class="form-group acomodar-select">
-                                <select class="form-control" id="ciclo">
-                                <option value="#" disabled selected>Día</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
-                                </select>
-                            </div>
-                         </div>
-                          <label for="">Ciclos de la generación</label>
-                            <div class="form-group">
-                              <div class="acomodarcheck">
-
-                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox">
-                                  <label class="form-check-label">Agregar</label>
-                                </div>
-
-                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox">
-                                  <label class="form-check-label">Agregar</label>
-                                </div>
-
-                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox">
-                                  <label class="form-check-label">Agregar</label>
-                                </div>
-
-                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox">
-                                  <label class="form-check-label">Agregar</label>
-                                </div>
-
-                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox">
-                                  <label class="form-check-label">Agregar</label>
-                                </div>
-
-                                <h5>Cuatrimestre III, VI y IX. Junio- Agosto</h5>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox">
-                                  <label class="form-check-label">Agregar</label>
-                                </div>
-
+                              <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                              <input type="checkbox" name="gen1" class="custom-control-input" id="customSwitch1">
+                              <label class="custom-control-label" for="customSwitch1">Desactivado / Activado</label>
                               </div>
-                            </div>
-                            
-  
+                          </div>
+                      </div>  
+                      <div class="card-body p-0">
+                      <h4>Ciclos de la generación</h6>
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th style="width: 10px">#</th>
+                                <th style="width: 10px">ID </th>
+                                <th>Periodo</th>
+                                <th>Acción</th>
+                                <th>Estado</th  >
+                              </tr>
+                            </thead>
+                            <tbody>
+                          <?php             //CICLO ACTUAL
+                            $result = mysqli_query($link, "SELECT `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = 1 and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'activo'");
+                            $hay_ciclo_activo = mysqli_num_rows($result);
+                            $ciclo_actual=mysqli_fetch_array($result);
+                                $cont_ciclos = 0;
+                                //Si existe un ciclo actual en la tabla de los ciclos se crea el primer elemento que es el ese ciclo
+                                //en este se agrega el boton para encender o apagar el ciclo
+                                if($hay_ciclo_activo){
+                                  $cont_ciclos += 1;
+                                  echo'
+                                    <tr>
+                                      <td>'.$cont_ciclos.'</td>
+                                      <th>'.$ciclo_actual["ID_Ciclo"].'</th>
+                                      <td>Fecha inicio: <strong>'.$ciclo_actual["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$ciclo_actual["fecha_fin"].'</strong></h5></td>
+                                      <td>
+                                      <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$ciclo_actual["ID_Ciclo"].'">Remover ciclo</button>
+                                      </td>
+                                      <td><span class="badge bg-danger">Actual</span></td>
+                                    </tr>
+                                    <!-------------------MODAL DE REMOVER CICLO DE LA GENERACION--------->
+                                    <div class="modal fade" id="modal-default'.$ciclo_actual["ID_Ciclo"].'">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h4 class="modal-title">Ciclo Fecha inicio: <strong>'.$ciclo_actual["fecha_inicio"].'</strong> Fecha fin: <strong>'.$ciclo_actual["fecha_fin"].'</strong></h5> </h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <p>¿Desea eliminar este ciclo?</p>
+                                          </div>
+                                          <div class="modal-footer justify-content-between">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=remover_ciclo('.$ciclo_actual["ID_Ciclo"].')>Eliminar</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ';
+                                }
+                                //----CICLOS FUTUROS
+                                $ciclos_futuros = mysqli_query($link, "SELECT `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = 1 and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'futuro'");
+                                $n_ciclos_futuros = mysqli_num_rows($ciclos_futuros);
+                                //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
+                                while($row_ciclos_futuros = mysqli_fetch_array($ciclos_futuros)){
+                                  $cont_ciclos += 1;
+                                  echo'
+                                    <tr>
+                                      <td>'.$cont_ciclos.'</td>
+                                      <th>'.$row_ciclos_futuros["ID_Ciclo"].'</th>
+                                      <td>Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></td>
+                                      <td>
+                                        <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">Remover ciclo</button>
+                                      </td>
+                                      <td><span class="badge bg-primary">Futuro</span></td>
+                                    </tr>
+                                    <!-----------------------------MODAL PARA ELIMINAR LOS CICLOS-------->
+                                    <div class="modal fade" id="modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h4 class="modal-title">Ciclo Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong> Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></h5> </h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <p>¿Desea eliminar este ciclo?</p>
+                                          </div>
+                                          <div class="modal-footer justify-content-between">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=remover_ciclo('.$row_ciclos_futuros["ID_Ciclo"].')>Eliminar</button>
+                                          </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                      </div>
+                                      <!-- /.modal-dialog -->
+                                    </div>
 
-                      </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <h5>Ciclos activos en la generación: </h5>
-                  <button type="submit" class="btn btn-default float-right">Guardar Cambios</button>
-                </div>
-                <!-- /.card-footer -->
-              </form>
+                                  ';
+                                }
+                          ?>
+                            </tbody>
+                          </table>
+                        </div>
+
+
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <h5>Ciclos en la generación: </h5>
+                    <button type="submit" class="btn btn-default float-right">Guardar Cambios</button>
+                  </div>
+                  <!-- /.card-footer -->
+                </form>
+              </div>
+              <!-- /.------FIN DE GENERACIONES-------------------->
             </div>
-            <!-- /.card -->
+
+            <!--------------AGREGAR UNA GENERACIOON NUEVO--------->
+            <div class="col-md-10 mx-auto ">
+              <div class="card card-danger">
+                <div class="card-header">
+                  <h3 class="card-title">Agregar una nueva generación</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="card-body">
+                    <label for="ciclo">Periodo</label>
+                    <div class="row">
+                        <div class="col-md-3">
+                          <!-- Fecha 1 -->
+                          <label >Inicio</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="text" value="" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                          <!-- Fecha 1 -->
+                          <label >Fin</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="text" value="" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                          </div>
+                        </div>
+                    </div>
+    
+
+                        </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <h5>Ciclos activos en la generación: </h5>
+                    <button type="submit" class="btn btn-default float-right">Guardar Cambios</button>
+                  </div>
+                  <!-- /.card-footer -->
+                </form>
+              </div>
+              <!--------------------FIN DE  AGREGAR GENERACION------>
+            </div>
+            
         <!-- /.row (main row) -->
+        </div>
+        
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -576,52 +327,58 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- OPTIONAL SCRIPTS -->
-<script src="../dist/js/demo.js"></script>
 
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
 <!-- Bootstrap 4 -->
 <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="../plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="../plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
 <script src="../plugins/moment/moment.min.js"></script>
+<script src="../plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
 <script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="../plugins/summernote/summernote-bs4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+<!--SCRIPT DE ENVIO DE DATOS -->
+<script src="../admin/funciones js/ciclos.js"> </script>
 <!-- overlayScrollbars -->
 <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../dist/js/pages/dashboard.js"></script>
+<script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 
-<!-- jQuery Mapael -->
-<script src="../plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="../plugins/raphael/raphael.min.js"></script>
-<script src="../plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="../plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="../plugins/chart.js/Chart.min.js"></script>
-<!-- PAGE SCRIPTS -->
-<script src="../dist/js/pages/dashboard2.js"></script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd-mm-yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm-dd-yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()  
+       
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+  })
+</script>
 </body>
 </html>
