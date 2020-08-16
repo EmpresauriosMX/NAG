@@ -57,7 +57,7 @@ function getXMLHTTPRequest(){
         estado_c = "futuro";
       }
       
-      //alert("fecha inicio ciclo A= " + fecha_i_ciclo_a + " fecha fin= " + fecha_f_ciclo_a + " estado ciclo a= " + estado_c + " operacion= actualizar " +"id "+id );
+      alert("fecha inicio ciclo A= " + fecha_i_ciclo_a + " fecha fin= " + fecha_f_ciclo_a + " estado ciclo a= " + estado_c + " operacion= actualizar " +"id "+id );
       var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_a=" + fecha_i_ciclo_a +"&"+"fecha_f_a="+fecha_f_ciclo_a+"&"+"estado_a="+estado_c+"&"+"operacion=actual"+"&"+"id="+id;
       miPeticion.open("GET", url, true);
       miPeticion.onreadystatechange=respuestaAjax;
@@ -77,8 +77,8 @@ function getXMLHTTPRequest(){
       else{
         estado_c = "futuro";
       }
-      //alert("fecha inicio ciclo A= " + fecha_i_ciclo_a + " fecha fin= " + fecha_f_ciclo_a + " estado ciclo a= " + estado_c + " operacion= actualizar " +"id "+id );
-      var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_a=" + fecha_i_ciclo_a +"&"+"fecha_f_a="+fecha_i_ciclo_a+"&"+"estado_a="+estado_c+"&"+"operacion=actual"+"&"+"id="+id;
+      alert("fecha inicio ciclo A= " + fecha_i_ciclo_a + " fecha fin= " + fecha_f_ciclo_a + " estado ciclo a= " + estado_c + " operacion= actualizar " +"id "+id );
+      var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_a=" + fecha_i_ciclo_a +"&"+"fecha_f_a="+fecha_f_ciclo_a+"&"+"estado_a="+estado_c+"&"+"operacion=actual"+"&"+"id="+id;
       miPeticion.open("GET", url, true);
       miPeticion.onreadystatechange=respuestaAjax;
       miPeticion.send(null);
