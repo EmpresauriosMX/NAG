@@ -1,3 +1,15 @@
+<?php
+include("../php/conexion.php");
+$link=conectarse();
+session_start();
+$us=$_SESSION["user"];
+$qry = mysqli_query($link,"select * from usuarios where ID_Usuario = '$us'")
+or die("Failed to query database".mysql_error());
+$row = mysqli_fetch_array($qry);
+$qry2 = mysqli_query($link,"select * from maestros where ID_Profesor = '$us'")
+or die("Failed to query database".mysql_error());
+$row2 = mysqli_fetch_array($qry2);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -277,7 +289,8 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido  _</h1>
+          <h1 class="m-0 text-dark">Editar datos de docente</h1>
+
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
@@ -294,126 +307,99 @@
         <div class="col-md-12">
         <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Agregar Usuario</h3>
+                <h3 class="card-title">Datos Personales</h3>
               </div>
 
-              <form action="../php/agg.php" method="post">
+              <?php
+     echo         '<form action="../php/eddocente.php" method="post">
                 
-                <div class="card-body">
-                     <!-- select 
-                <div class="col-sm-3">
-
-                      <div class="form-group">
-                        <label>Acción</label>
-                        <select class="form-control">
-                          <option value="N">Nuevo usuario</option>
-                          <option value="E">Editar Usuario</option>
-                        </select>
-                      </div>
-                    </div>
--->
-				<div class="col-sm-3">
-                      <!-- select -->
-                      <div class="form-group">
-                        <label>Tipo de cuenta</label>
-                        <select class="form-control" id="tc" name="tc" required="required">
-  						<option value="D">Administrador</option>
-						<option value="M">Maestro</option>
-  						<option value="A">Alumno</option>
-                        </select>
-                      </div>
-                 </div>
-
-                 <!--- <div class="form-group">
-                    <label for="exampleInputEmail1">ID del Usuario</label>
-                    <input type="text" class="form-control" id="idusuario" name="" placeholder="Escribe el ID del Usuario">
+                 <div class="card-body">       
+					<div class="form-group">
+                    <label for="exampleInputPassword1">Nombre de Usuario</label>
+                    <input readonly type="text" value="'.$row['ID_Usuario'].'" class="form-control" placeholder="Escribe el Nombre del usuario">
                   </div>
-				--->
+				  
+				  <div class="form-group">
+                    <label for="exampleInputPassword1">Nueva contraseña</label>
+                    <input type="password" class="form-control" id="contr" name="contr" required="required" placeholder="Escribe la nueva contraseña">
+                  </div>
+				
+				<div class="form-group">
+                    <label for="exampleInputPassword1">Numero de contrato</label>
+                    <input readonly type="text" class="form-control" value="'.$row2['Num_Contrato'].'" required="required" placeholder="Matricula">
+                  </div>
+						
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Nombre</label>
-                    <input type="text" class="form-control" id="nom" name="nom" required="required" placeholder="Escribe el Nombre">
+                    <label for="exampleInputPassword1">Nombres</label>
+                    <input readonly type="text" class="form-control" value="'.$row['Nombre'].'" required="required" placeholder="Escribe el Nombre">
                   </div>
                  
                   <div class="form-group">
                     <label for="ap">Apellido Paterno</label>
-                    <input type="text" class="form-control" id="ap" name="ap" required="required" placeholder="Escribe el Apellido Paterno">
+                    <input readonly type="text" class="form-control" value="'.$row['ApellidoPat'].'" required="required" placeholder="Escribe el Apellido Paterno">
                   </div>
-
+				  	 
                   <div class="form-group">
                     <label for="ap">Apellido Materno</label>
-                    <input type="text" class="form-control" id="am" name="am" required="required" placeholder="Escribe el Apellido Materno">
+                    <input readonly type="text" class="form-control" value="'.$row['ApellidoMat'].'" required="required" placeholder="Escribe el Apellido Materno">
                   </div>
-					
+				  
+				  <div class="form-group">
+                    <label for="exampleInputPassword1">Genero</label>
+                    <input readonly type="text" class="form-control" value="'.$row['Genero'].'" required="required" placeholder="Escribe el Nombre del usuario">
+                  </div>
+				  
+					<div class="form-group">
+                    <label for="ap">Especialidad</label>
+                    <input readonly type="text" class="form-control" value="'.$row2['Especialidad'].'" required="required" id="esp" name="esp" placeholder="Ingresar especialidad">
+                  </div>
+				  
+				   <div class="form-group">
+                    <label for="ap">Grado de estudio</label>
+                    <input type="text" class="form-control" value="'.$row2['Grado_Estudio'].'" id="ge" name="ge" required="required" placeholder="Ingresar grado de estudio">
+                  </div>
+	
+				  <div class="form-group">
+                    <label for="ap">Titulo</label>
+                    <input type="text" class="form-control" value="'.$row2['Titulo'].'" required="required" id="tit" name="tit" placeholder="Escribe el Apellido Materno">
+                  </div>
+				  
                   <div class="form-group">
-                    <label for="ap">Dirección</label>
-                    <input type="text" class="form-control" id="dir" name="dir" required="required" placeholder="Escribe tu direccion">
+                    <label for="exampleInputPassword1">Dirección</label>
+                    <input type="text" class="form-control" value="'.$row['Direccion'].'" id="dir" name="dir" required="required" placeholder="Ingresar direccion">
                   </div>
-					
-                <!--  <div class="form-group">
-                    <label for="exampleInputPassword1">Nombre de Usuario</label>
-                    <input type="text" class="form-control" id="nombreusuario" placeholder="Escribe el Nombre del usuario">
-                  </div>
-
+                  
                   <label for="exampleInputPassword1">Correo</label>
                   <div class="col-md-12">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                     </div>
-                    <input type="email" id="correo" class="form-control" placeholder="Escribe el Correo" data-mask>
+                    <input type="email" value="'.$row['correo'].'" id="cor" name="cor" required="required" class="form-control" placeholder="Escribe el Correo" data-mask>
                   </div>
                   </div>
-				-->	
+
                   <label for="exampleInputPassword1">Telefono</label>
                   <div class="col-md-4">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-phone"></i></span>
                     </div>
-                    <input type="text" id="tel" name="tel" required="required" class="form-control" data-inputmask='"mask": "(999) 999-9999"'  data-mask>
+                    <input type="text" id="tel" name="tel" required="required" value="'.$row['Telefono'].'" class="form-control" data-inputmask="mask": "(999) 999-9999"  data-mask>
                   </div>
                   </div>
+                  
+					<div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+              </form>';
+?>
 
-                  <div class="col-sm-3">
-                      <!-- select -->
-                 <div class="form-group">
-                        <label>Genero</label>
-                        <select class="form-control" id="gen" name="gen" required="required">
-  						<option value="Masculino">Masculino</option>
-  						<option value="Femenino">Femenino</option>
-                        </select>
-               		 </div>
-                </div>
-				 <div class="col-sm-3">
-                      <!-- select -->
-                      <div class="form-group">
-                        <label>Estatus de cuenta</label>
-                        <select class="form-control" id="act" name="act" required="required">
-  						<option value="Activo">Activa</option>
- 						<option value="Inactivo">Inactiva</option>
-                        </select>
-                      </div>
-                    </div>
-                </div>
-                <!-- /.card-body -->
+             
 
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Agregar</button>
-                </div>
-              </form>
             </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
 
 
       </div>

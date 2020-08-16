@@ -3,6 +3,15 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
+<?php
+include("../php/conexion.php");
+$link=conectarse();
+session_start();
+$us=$_SESSION["user"];
+$qry = mysqli_query($link,"select * from usuarios where ID_Usuario = '$us'")
+or die("Failed to query database".mysql_error());
+$row = mysqli_fetch_array($qry);
+?>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -115,14 +124,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
 
-  <?php
-  /*CONEXION A BD*/ 
-  include("../inc/funciones/conexal.php");
-  $link=Conectarse();
-  ?>
-
-
-
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -138,11 +139,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <?php
         
-        $result=mysqli_query($link,"select Nombre,ApellidoPat,ApellidoMat from usuarios where ID_Usuario='JRABM02'");
+        $result=mysqli_query($link,"select usuarios.Nombre,usuarios.ApellidoPat,usuarios.ApellidoMat,usuarios.ID_Usuario, alumnos.Matricula from usuarios,alumnos where usuarios.ID_Usuario=alumnos.ID_Usuario");
         $total = mysqli_num_rows($result);
         while($row=mysqli_fetch_array($result)){
           echo'
-          <h3>Bienvenido: "'.$row["Nombre"].'  :)"</h3>
+          <h3>Bienvenido: "'.$row["ID_Usuario"].'  :)"</h3>
         
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <!--Perfil de Usuario-->
@@ -154,7 +155,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- Add the bg color to the header using any of the bg-* classes -->
                   <div class="widget-user-header bg-info">
                     <h3 class="widget-user-username">Alumno: "'.$row["Nombre"].' '.$row["ApellidoPat"].' '.$row["ApellidoMat"].'"</h3>
-                    <h5 class="widget-user-desc">Matricula: #####</h5>
+                    <h5 class="widget-user-desc">Matricula: '.$row["Matricula"].'</h5>
                   </div>
                   <div class="widget-user-image">
                     <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">

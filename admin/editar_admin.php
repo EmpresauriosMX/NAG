@@ -379,7 +379,7 @@ $row2 = mysqli_fetch_array($qry2);
                     </div>
 
 					<div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Agregar</button>
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
                 </div>
               </form>';
 ?>

@@ -1,10 +1,18 @@
+<?php
+include("../php/conexion.php");
+$link=conectarse();
+session_start();
+$us=$_SESSION["user"];
+$qry = mysqli_query($link,"select * from usuarios where ID_Usuario = '$us'")
+or die("Failed to query database".mysql_error());
+$row = mysqli_fetch_array($qry);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Adminstrador | Dashboard</title>
-
+  <title>AdminLTE 3 | Dashboard</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -69,7 +77,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido  _</h1>
+			  <?PHP
+			   echo '<h1 class="m-0 text-dark">Bienvenido  '.$row['Nombre'].'</h1>';
+			  ?>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
@@ -92,7 +102,7 @@
                 <p>Alumnos</p>
               </div>
               <div class="icon">
-                <i class="fas fa-user-graduate"></i>
+                <i class="ion ion-bag"></i>
               </div>
               <a href="#" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -107,7 +117,7 @@
                 <p>Grupos</p>
               </div>
               <div class="icon">
-                <i class="fas fa-book-reader"></i>
+                <i class="ion ion-stats-bars"></i>
               </div>
               <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -122,7 +132,7 @@
                 <p>licenciaturas</p>
               </div>
               <div class="icon">
-                <i class="fas fa-graduation-cap"></i>
+                <i class="ion ion-person-add"></i>
               </div>
               <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -137,26 +147,25 @@
                 <p>Docentes</p>
               </div>
               <div class="icon">
-                <i class="fas fa-chalkboard-teacher"></i>
+                <i class="ion ion-pie-graph"></i>
               </div>
               <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
         </div>
-
-
+        <!-- /.row -->
+        <!-- Main row -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <!--ALUMNOS LICENCIATURA-->
                 <div class="chart">
                 <!-- Sales Chart Canvas -->
                     <canvas id="salesChart" height="180" style="height: 180px; display: none;"></canvas>
                 </div>
-                
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Cantidad de Alumnos por licenciaturas</h3>
+                        <h3 class="card-title">Alumnos por licenciaturas</h3>
 
                         <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -177,12 +186,11 @@
                         <div class="col-md-4">
                             <ul class="chart-legend clearfix">
                             <li><i class="far fa-circle text-danger"></i> Enfermeria</li>
-                            <li><i class="far fa-circle text-success"></i> Sistemas</li>
-                            <li><i class="far fa-circle text-warning"></i> Odontología</li>
-                            <li><i class="far fa-circle text-info"></i> Derecho</li>
-                            <li><i class="far fa-circle text-primary"></i> Criminalistica</li>
-                            <li><i class="far fa-circle text-secondary"></i> Diseño</li>
-                            <li><i class="far fa-circle text-danger"></i>Administración</li>
+                            <li><i class="far fa-circle text-success"></i> sistemas</li>
+                            <li><i class="far fa-circle text-warning"></i> odontologia</li>
+                            <li><i class="far fa-circle text-info"></i> derecho</li>
+                            <li><i class="far fa-circle text-primary"></i> criminalistica</li>
+                            <li><i class="far fa-circle text-secondary"></i> diseño</li>
                             </ul>
                         </div>
                         <!-- /.col -->
@@ -200,89 +208,235 @@
                 
             </div>
 
+            <div class="col-md-6">
+                <!-- TO DO List -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                        <i class="ion ion-clipboard mr-1"></i>
+                        To Do List
+                        </h3>
+
+                        
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <ul class="todo-list" data-widget="todo-list">
+                        <li>
+                            <!-- drag handle -->
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <!-- checkbox -->
+                            <div  class="icheck-primary d-inline ml-2">
+                            <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                            <label for="todoCheck1"></label>
+                            </div>
+                            <!-- todo text -->
+                            <span class="text">Design a nice theme</span>
+                            <!-- Emphasis label -->
+                            <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
+                            <!-- General tools such as edit or delete-->
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <div  class="icheck-primary d-inline ml-2">
+                            <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
+                            <label for="todoCheck2"></label>
+                            </div>
+                            <span class="text">Make the theme responsive</span>
+                            <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <div  class="icheck-primary d-inline ml-2">
+                            <input type="checkbox" value="" name="todo3" id="todoCheck3">
+                            <label for="todoCheck3"></label>
+                            </div>
+                            <span class="text">Let theme shine like a star</span>
+                            <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <div  class="icheck-primary d-inline ml-2">
+                            <input type="checkbox" value="" name="todo4" id="todoCheck4">
+                            <label for="todoCheck4"></label>
+                            </div>
+                            <span class="text">Let theme shine like a star</span>
+                            <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <div  class="icheck-primary d-inline ml-2">
+                            <input type="checkbox" value="" name="todo5" id="todoCheck5">
+                            <label for="todoCheck5"></label>
+                            </div>
+                            <span class="text">Check your messages and notifications</span>
+                            <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <div  class="icheck-primary d-inline ml-2">
+                            <input type="checkbox" value="" name="todo6" id="todoCheck6">
+                            <label for="todoCheck6"></label>
+                            </div>
+                            <span class="text">Let theme shine like a star</span>
+                            <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add item</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-  <!--Inicio Row de botones-->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col-sm-3">
-                <div align="center" class="form-group">
-                  <label>Licenciatura</label>
-                  <select class="form-control">
-                    <option>Sistemas Computacionales</option>
-                    <option>Enfermeria</option>
-                  </select>
-                </div>
-            </div>
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-5 connectedSortable">
+           
+            
+            
+            <!-- /.card -->
+          </section>
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-5 connectedSortable">
 
-            <div class="col-sm-3">
-                <div align="center" class="form-group">
-                  <label>Cuatrimestre</label>
-                  <select class="form-control">
-                    <option>1er Cuatrimestre</option>
-                    <option>2do Cuatrimestre</option>
-                  </select>
+            <!-- Map card -->
+            <div class="card bg-gradient-primary">
+              <div class="card-header border-0">
+                <h3 class="card-title">
+                  <i class="fas fa-map-marker-alt mr-1"></i>
+                  Visitors
+                </h3>
+                <!-- card tools -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
+                    <i class="far fa-calendar-alt"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
                 </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div align="center" class="form-group">
-                  <label>Grupo</label>
-                  <select class="form-control">
-                    <option>A</option>
-                    <option>B</option>
-                  </select>
+                <!-- /.card-tools -->
+              </div>
+              <div class="card-body">
+                <div id="world-map" style="height: 250px; width: 100%;"></div>
+              </div>
+              <!-- /.card-body-->
+              <div class="card-footer bg-transparent">
+                <div class="row">
+                  <div class="col-4 text-center">
+                    <div id="sparkline-1"></div>
+                    <div class="text-white">Visitors</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <div id="sparkline-2"></div>
+                    <div class="text-white">Online</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-4 text-center">
+                    <div id="sparkline-3"></div>
+                    <div class="text-white">Sales</div>
+                  </div>
+                  <!-- ./col -->
                 </div>
-            </div>
-
-            <div class="col-md-3">
-              <div align="center" class="form-group">
-                <label>Mostrar Todos</label>
-                  <button type="button" class="btn btn-block btn-success">Todos</button>
+                <!-- /.row -->
               </div>
             </div>
+            <!-- /.card -->
 
+            <!-- solid sales graph -->
+            
+            <!-- /.card -->
 
-          </div>
+            <!-- Calendar -->
+            <div class="card bg-gradient-success">
+              <div class="card-header border-0">
+
+                <h3 class="card-title">
+                  <i class="far fa-calendar-alt"></i>
+                  Calendar
+                </h3>
+                <!-- tools card -->
+                <div class="card-tools">
+                  <!-- button with a dropdown -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                      <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                      <a href="#" class="dropdown-item">Add new event</a>
+                      <a href="#" class="dropdown-item">Clear events</a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">View calendar</a>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /. tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body pt-0">
+                <!--The calendar -->
+                <div id="calendar" style="width: 100%"></div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
         </div>
-          
-      
-
-        <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
-              <thead>
-              <tr>
-                <th>Alumnos</th>
-                <th>Licenciatura</th>
-                <th>Promedio General</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>El Buen Florentino</td>
-                <td>Sistemas Computacionales</td>
-                <td>99.99%</td>
-              </tr>
-              
-              <tr>
-                <td>El Tio Alan</td>
-                <td>Sistemas Computacionales</td>
-                <td>95%</td>
-              </tr>
-              </tbody>
-              
-            </table>
-        </div>
-      </div>
-
-    </div>  
-  </div>
-  <!--Fin Row de Botones -->
-
-     
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>

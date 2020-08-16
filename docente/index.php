@@ -1,6 +1,12 @@
 <?php
 include '../inc/templates/header.php';
-
+include("../php/conexion.php");
+$link=conectarse();
+session_start();
+$us=$_SESSION["user"];
+$qry = mysqli_query($link,"select * from usuarios where ID_Usuario = '$us'")
+or die("Failed to query database".mysql_error());
+$row = mysqli_fetch_array($qry);
 ?>
 <!-- se agrega el header-->
 
@@ -19,6 +25,8 @@ include '../inc/templates/header.php';
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->        
+
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -93,9 +101,9 @@ include '../inc/templates/header.php';
                 <div class="text-center">
                   <img src="../img/julio_profe.png" height="150px" width="150px"    class="img-circle elevation-2" alt="User Image">
                 </div>
-
-                <h3 class="profile-username text-center">Julio Alberto Ríos Gallegos</h3>
-
+				<?php 
+                echo '<h3 class="profile-username text-center"> '.$row['Nombre'].'</h3>';
+				?>
                 <p class="text-muted text-center">(JulioProfe)</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
