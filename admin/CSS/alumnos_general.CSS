@@ -1,0 +1,24 @@
+.busqueda {
+    display: flex;
+    justify-content: space-between;
+}
+
+.busqueda-gen-select {
+    display: flex;
+    flex-basis: calc(60% - 1rem);
+}
+
+.busqueda-especifica {
+    flex-basis: calc(40% - 1rem);
+    align-items: center;
+}
+
+.listas {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.columna-lista {
+    flex-basis: calc(50% - 1rem);
+}
