@@ -265,20 +265,18 @@
             </div>
 
             <!--------------AGREGAR UNA GENERACION NUEVA--------->
-            <div class="col-md-10 mx-auto ">
+            <div class="col-md-10 mx-auto">
               <div class="card card-danger">
                 <div class="card-header">
                   <h3 class="card-title">Agregar una nueva generación</h3>
                   <div class="card-tools">
-                              <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                  <i class="fas fa-minus"></i>
-                              </button>
-                          </div>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
                 </div>
-                
                 <!-- /.card-header -->
                 <!-- form start -->
-                
                   <div class="card-body">
                     <label for="ciclo">Periodo</label>
                     <div class="row">
@@ -289,7 +287,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
-                            <input type="text" value="" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                            <input type="text" value="" id="fecha_i_generacion_n" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                           </div>
                         </div>
                         
@@ -300,16 +298,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
-                            <input type="text" value="" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                            <input type="text" value="" id="fecha_f_generacion_n" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                           </div>
                         </div>
                     </div>
-    
-
-                        </div>
+                  </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-danger float-right">Guardar Cambios</button>
+                    <button type="button" onClick="nueva_generacion()" class="btn btn-danger float-right">Guardar Cambios</button>
                   </div>
                   <!-- /.card-footer -->
                 
@@ -431,7 +427,7 @@
             </div>
         
             <!------------------GENERACIONES FUTURAS------------------>
-            <div class="col-md-10 mx-auto">
+            <div class="col-md-10 mx-auto" id="recarga_generaciones_futuras">
               <?php
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2");
                 $n_generaciones = mysqli_num_rows($generaciones);
@@ -654,7 +650,7 @@
 <script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 
 <!--SCRIPT DE ENVIO DE DATOS -->
-<script src="../admin/funciones js/ciclos.js"> </script>
+<script src="../admin/funciones js/generaciones.js"> </script>
 <!-- overlayScrollbars -->
 <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
