@@ -218,9 +218,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fab fa-ello"></i>
-              <p>~~~~~~~~~~</p>
+            <a href="guiadeseguridad.php" class="nav-link">
+              <i class="nav-icon fas fa-lock"></i>
+              <p>Guía de Seguridad</p>
             </a>
           </li>
         </ul>
