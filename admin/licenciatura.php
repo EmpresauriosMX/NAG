@@ -92,23 +92,22 @@
           </div>
     </div>
 <br>
-    <div class="row">
+<div class="row">
         <div class="col-2"></div>
         <div class="col-3">Numero de periodos</div>
         <div class="col-3">
 
-        <div class="btn-group" >
-                    <button type="button" class="btn btn-default">periodo</button>
-                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false"></button>
-                    <div class="dropdown-menu" role="menu" style="">
-                      <a class="dropdown-item" href="#">1</a>
-                      <a class="dropdown-item" href="#">2 </a>
-                      <a class="dropdown-item" href="#">3  </a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">4 </a>
+        <div class="col-sm-3">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Genero</label>
+                        <select class="form-control">
+                          <option>Femenino</option>
+                          <option>Masculino</option>
+                          <option>Indefinido</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
-
         </div>
 
       </div>
@@ -154,6 +153,7 @@
           <!-- /.col -->
         </div>
                           <!-- inicio tablas -->
+                          <!-- Agregar licenciaturas-->
         <div class="container-fluid">
   <h1>Licenciaturas</h1>
   <div class="row" style="background-color:white;">
@@ -180,19 +180,19 @@
               </form>
             </div>
     </div>
-
-    
+                            <!-- tabla de todas las licenciaturas-->
     <div class="col-xs-12 col-sm-6 col-lg-6">
      <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Tabla de Licenciaturas</h3>
               </div>
               <div class="card-body">
-                <table id="example1" class="table">
+              <table id="example1" class="table">
                   <thead>
                   <tr>
                     <th>#</th>
                     <th>licenciatura</th>
+                    <th>periodos </th>
                     <th>opciones</th>
                   </tr>
                   </thead>
@@ -202,7 +202,9 @@
                       foreach ($proyecto as $proyectos): ?>
                       <tr name="campo_Licenciaturas<?php echo $proyectos['ID_Lincenciatura']?>" id="campo_Licenciaturas<?php echo $proyectos['ID_Lincenciatura']?>">
                       <td><?php echo $proyectos['ID_Lincenciatura'] ?></td>
-                      <td><?php echo $proyectos['NombreLic'] ?></td>
+                      <td><?php echo $proyectos['NombreLic']?></td>
+                      <td><?php echo $proyectos['periodos'] ?></td>
+                      <input type="hidden" id="obtener_nombre_lic<?php echo $proyectos['ID_Lincenciatura'] ?>" value="<?php echo $proyectos['NombreLic']?>">
                       <td>
                       <div class="btn-group">
                         <button type="button" class="btn btn-outline-primary btn-sm" onclick =Editar_licenciaturas(<?php echo $proyectos['ID_Lincenciatura']?>)>Editar</button>
@@ -236,29 +238,26 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre licenciatura</label>
-                    
                     <input class="form-control" placeholder="Ingrese un nombre" name="NombreLic" id="NombreLic">
-                   
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-flat">Action</button>
-                    <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                      <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu" role="menu">
-                    <?php
+                    <div class="col-sm-5">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Genero</label>
+                        <select class="form-control" id="producto" name="producto" onchange="ShowSelected();">
+                        <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
-                       <a class="dropdown-item" onclick =LicenciaturaActiva(<?php echo $proyectos['ID_Lincenciatura']?>)><?php echo $proyectos['NombreLic'] ?></a>
+                      <option value="<?php echo $proyectos['ID_Licenciatura']?>"> <?php echo $proyectos['ID_Licenciatura'] ?> </option>
                     <?php endforeach; ?>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Separated link</a>
+                        </select>
+                      </div>
                     </div>
-                  </div>
+                    
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                <div id="formulario">
+                <div id="formulario1">
     <button type="button" class="btn btn-primary">Agregar</button>
     </div>
                 </div>
