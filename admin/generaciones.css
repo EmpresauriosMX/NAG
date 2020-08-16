@@ -21,13 +21,7 @@
     color: black;
     background-color: mediumspringgreen;
 }
-
-.card-footer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 40rem;
-}
-
+ 
 .acomodarcheck {
     display: grid;
     grid-template-columns: 3fr 1fr;
