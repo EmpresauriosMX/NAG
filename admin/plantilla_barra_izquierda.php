@@ -212,7 +212,7 @@
           </li>
            <li class="nav-header">INFO. NAG</li>
            <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="Preguntas-Frecuentes" class="nav-link">
               <i class="nav-icon fas fa-book-reader"></i>
               <p>Guía de Usuario</p>
             </a>
