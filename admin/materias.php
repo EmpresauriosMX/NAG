@@ -125,12 +125,15 @@
                    foreach($generacion as $generaciones):?>
 
                       <div class="tab-pane" id="tab_<?php echo $generaciones['ID_LicActiva'] ?>">
+                      <br>
                       <input name="Nombre_materia<?php echo $generaciones['ID_LicActiva']?>" id="Nombre_Materia<?php echo $generaciones['ID_LicActiva']?>">
+                            <br>
                             <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(<?php echo $generaciones['ID_LicActiva']?>)>Agregar materia</button>
                             <?php
                           $asignaturas = Obtener_Asignaturas($generaciones['ID_LicActiva']);
                           foreach($asignaturas as $asignatura):?>
                           <div id="campo-de-materia<?php echo $asignatura['ID_Asignatura']?>" name="campo-de-materia<?php echo $asignatura['ID_Asignatura']?>">
+                              <br>
                               <?php echo $asignatura['ID_Asignatura'] ?>
                               <?php echo $asignatura['Nombre_Asignatura']?>
                               <div class="btn-group col-5">
