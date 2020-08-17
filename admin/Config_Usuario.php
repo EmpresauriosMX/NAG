@@ -74,6 +74,7 @@ $row = mysqli_fetch_array($qry);
       <span class="brand-text font-weight-light">Administrador</span>
     </a>
     <!-- Sidebar -->
+<<<<<<< HEAD
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -278,6 +279,11 @@ $row = mysqli_fetch_array($qry);
       </nav>
       <!-- /.sidebar-menu -->
     </div>
+=======
+    <?php
+      include 'plantilla_barra_izquierda.php';
+    ?>
+>>>>>>> e5278cd3bb292f89c671a0d51a6640448edb2cb7
     <!-- /.sidebar -->
   </aside>
 
