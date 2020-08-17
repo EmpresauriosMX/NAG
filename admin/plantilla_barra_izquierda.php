@@ -37,20 +37,6 @@
                   <p>General</p>
                 </a>
               </li>
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Estudiantes</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Docentes</p>
-                </a>
-              </li>
-  
             </ul>
           </li>
           

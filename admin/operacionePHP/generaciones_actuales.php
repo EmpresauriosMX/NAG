@@ -40,18 +40,18 @@ $link = Conectarse();
                                       <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                       </div>
-                                      <input type="text" value="'.$generacion["fecha_inicio"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                      <input type="text" value="'.$generacion["fecha_inicio"].'" id="Ifechageneracion_a'.$id_generacion.'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                     </div>
                                   </div>
                                   
                                   <div class="col-md-3">
-                                    <!-- Fecha 1 -->
+                                    <!-- Fecha 2 -->
                                     <label >Fin</label>
                                     <div class="input-group">
                                       <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                       </div>
-                                      <input type="text" value="'.$generacion["fecha_fin"].'" id="fecha_i_ciclo_a" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                      <input type="text" value="'.$generacion["fecha_fin"].'" id="Ffechageneracion_a'.$id_generacion.'" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                     </div>
                                   </div>
                                   
@@ -69,7 +69,7 @@ $link = Conectarse();
                                     <input type="checkbox" id="estado_generacion_a'.$id_generacion.'" name="my-checkbox" checked="true" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
                                     
                                 </div>
-                                <button type="submit" class="btn btn-success float-right">Guardar Cambios</button>
+                                <button type="button" onClick="actualizar_generacion_a('.$id_generacion.')"  class="btn btn-success float-right">Guardar Cambios</button>
                               </div>
                             </div>
                               
