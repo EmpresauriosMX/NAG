@@ -413,7 +413,6 @@ function editar_licenciatura_activa(variable_recibida_editar){
     /* Para obtener el texto */
     var combo = document.getElementById("producto");
     var selected = combo.options[combo.selectedIndex].text;
-    alert(selected);
     texto_check =cod;
     texto_nombre=selected;
     }
@@ -424,7 +423,6 @@ function editar_licenciatura_activa(variable_recibida_editar){
     /* Para obtener el texto */
     var combo = document.getElementById("producto1");
     var selected = combo.options[combo.selectedIndex].text;
-    alert(selected);
     texto_check1 =cod;
     }
     // ------------------------------------------------------editar nombre de asignaturas
