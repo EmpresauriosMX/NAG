@@ -1,6 +1,6 @@
 <?php
 function conectarse(){
-	if(!($link=mysqli_connect("localhost", "root","adminadmin")))
+	if(!($link=mysqli_connect("localhost", "root","roottoor")))
 	{
 		echo "Error conectando a la base de datos";
 		exit();
