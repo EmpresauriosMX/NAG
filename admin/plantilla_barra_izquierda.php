@@ -131,6 +131,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="tabla.php" class="nav-link">
+              <i class="nav-icon fas fa-book-open"></i>
+              <p>
+                Ver Usuarios
+              </p>
+            </a>
+          </li>
           
           <li class="nav-header">ESTE CICLO</li>
           <li class="nav-item">
