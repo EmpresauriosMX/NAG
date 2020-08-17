@@ -200,7 +200,7 @@
 
                     <button type="button" class="btn btn-block bg-gradient-danger btn-lg">Eliminar</button>
                     
-                    <button type="button" class="btn btn-block bg-gradient-info btn-lg">Editar</button>
+                    <button type="button" class="btn btn-block bg-gradient-info btn-lg">Cambiar Estatus</button>
 
                 </div>
             
