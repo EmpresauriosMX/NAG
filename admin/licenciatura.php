@@ -70,86 +70,10 @@
   <!-- inicio seccion de edicion-->
 
   <div class="content-wrapper">
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Licenciatura y Materias</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
 
-    <section class="content">
-      <div class="container-fluid">
-    <div class="row">
-        <div class="col-2">  </div>
-        <div class="col-3">Nombre</div>
-        <div class="col-md-5">
-          <input type="text" class="form-control" id="nombres" placeholder="Escribe el Nombre">
-          </div>
-    </div>
-<br>
-<div class="row">
-        <div class="col-2"></div>
-        <div class="col-3">Numero de periodos</div>
-        <div class="col-3">
-
-        <div class="col-sm-3">
-                      <!-- select -->
-                      <div class="form-group">
-                        <label>Genero</label>
-                        <select class="form-control">
-                          <option>Femenino</option>
-                          <option>Masculino</option>
-                          <option>Indefinido</option>
-                        </select>
-                      </div>
-                    </div>
-        </div>
-
-      </div>
-    </section>
 
     <div class="container-fluid"> 
-    <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header d-flex p-0">
-                <ul class="nav nav-pills ml-auto p-2" id = "submenu" name = "submenu">
-                 <?php
-                    $proyecto = obtenerProyectos();
-                      foreach ($proyecto as $proyectos): ?>
-                        <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $proyectos['ID_Lincenciatura'] ?>" data-toggle="tab"><?php echo $proyectos['NombreLic'] ?></a></li>  
-                    <?php endforeach; ?>
-                </ul>
-              </div>
-              <div class="card-body">
-                <div class="tab-content" id="contenedor_licenciaturas" name="contenedor_licenciaturas">
-                  <?php
-                    $proyecto = obtenerProyectos();
-                      foreach ($proyecto as $proyectos): ?>
-
-                      <div class="tab-pane" id="tab_<?php echo $proyectos['ID_Lincenciatura'] ?>">
-                        <?php echo $proyectos['NombreLic']; 
-                              echo $proyectos['NombreLic'];
-                              echo $proyectos['NombreLic'];   
-                        ?>
-                      <div id="materias" name="materias">
-                      <input name="Nombre_materia<?php echo $proyectos['ID_Lincenciatura']?>" id="Nombre_Materia<?php echo $proyectos['ID_Lincenciatura']?>">
-                      <input type="hidden" id="id_lic" value="otro">
-                            <button type="button" class="btn btn-block btn-info" onclick =AgregarMateria(<?php echo $proyectos['ID_Lincenciatura']?>)>Agregar materia</button>
-                      </div>
-                      </div>
-                    <?php endforeach; ?>
-                </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
-            </div>
-            <!-- ./card -->
-          </div>
+       
           <!-- /.col -->
         </div>
                           <!-- inicio tablas -->
@@ -170,6 +94,8 @@
                     <label for="exampleInputEmail1">Nombre licenciatura</label>
                     <input class="form-control" placeholder="Ingrese un nombre" name="NombreLic" id="NombreLic">
                   </div>
+                  <label for="exampleInputEmail1">Numero De Periodos</label>
+                    <input class="form-control" placeholder="Ingrese cantidad de periodos" name="periodo" id="periodo">
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -237,22 +163,34 @@
               <form>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre licenciatura</label>
-                    <input class="form-control" placeholder="Ingrese un nombre" name="NombreLic" id="NombreLic">
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                       <!-- select -->
                       <div class="form-group">
-                        <label>Genero</label>
+                        <label> licenciatura</label>
                         <select class="form-control" id="producto" name="producto" onchange="ShowSelected();">
+                        <option>--seleccionar licenciatura--</option>
                         <?php
                     $proyecto = obtenerProyectos();
                       foreach ($proyecto as $proyectos): ?>
-                      <option value="<?php echo $proyectos['ID_Licenciatura']?>"> <?php echo $proyectos['ID_Licenciatura'] ?> </option>
+                      <option value="<?php echo $proyectos['ID_Lincenciatura']?>"> <?php echo $proyectos['NombreLic'] ?> </option>
                     <?php endforeach; ?>
                         </select>
                       </div>
                     </div>
-                    
+                  <!--segundo select -->
+                  <div class="form-group">
+                        <label>Periodo</label>
+                        <select class="form-control" id="producto1" name="producto1" onchange="ShowSelected1();">
+                        <option>---Asignar periodo---</option>
+                        <?php
+                        for ($i = 1; $i <= 12; $i++) { //funcion de acierdo a las licenciaturas
+                          ?>
+                          <option><?php echo $i ?></option>
+                          <?php
+                      }
+                           ?>
+                        </select>
+                      </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -276,6 +214,7 @@
                   <tr>
                     <th>#</th>
                     <th>licenciatura</th>
+                    <th>Periodos </th>
                     <th>opciones</th>
                   </tr>
                   </thead>
@@ -283,13 +222,14 @@
                   <?php
                     $LicActiva = obtenerLicActiva();
                       foreach ($LicActiva as $LicActiva_S): ?>
-                      <tr>
+                      <tr name="campo_Licenciaturas_activas<?php echo $LicActiva_S['ID_LicActiva']?>" id="campo_Licenciaturas_activas<?php echo $LicActiva_S['ID_LicActiva']?>">
                       <td><?php echo $LicActiva_S['ID_LicActiva'] ?> </td>
                       <td><?php echo $LicActiva_S['NombreLic']?> <?php echo $LicActiva_S['ID_LicActiva']?></td>
+                      <td><?php echo $LicActiva_S['id_periodo'] ?> </td>
                       <td>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-outline-primary btn-sm">Editar</button>
-                        <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_licenciatura_activa(<?php echo $LicActiva_S['ID_LicActiva']?>)>Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick =EliminarLic_activa(<?php echo $LicActiva_S['ID_LicActiva']?>)>Eliminar</button>
                       </div>
                       </td>
                       </tr>

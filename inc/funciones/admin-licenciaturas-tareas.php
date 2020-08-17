@@ -5,18 +5,20 @@ switch ($operacion) {
   //*********************agregar licenciatura en el case************************
   case 'AgregarLicenciatura':
     $NombreLicenciatura = $_POST['NombreLicenciatura'];
+    $periodo = $_POST['periodo'];
     include 'conexion.php';
     try{
 
-      $stmt = $conn->prepare("INSERT INTO licenciatura (NombreLic) VALUES(?)");
-      $stmt->bind_param('s',$NombreLicenciatura);
+      $stmt = $conn->prepare("INSERT INTO licenciatura (NombreLic,periodos) VALUES(?,?)");
+      $stmt->bind_param('si',$NombreLicenciatura,$periodo);
       $stmt->execute(); 
     
       if($stmt->affected_rows > 0){
         $respuesta = array( 
-          'respuesta' => 'correcto',
+          'respuesta' => 'correcto_si',
           'id_licenciatura' => $stmt->insert_id,
-          'Nombre_lic' => $NombreLicenciatura
+          'Nombre_lic' => $NombreLicenciatura,
+          'periodos' => $periodo
         );
       }else{
         $respuesta = array(
@@ -101,12 +103,13 @@ switch ($operacion) {
       case 'agregar_materia':
         $id_recibido = $_POST['id_licenciatura'];
         $ciclo = $_POST['ciclo'];
+        $periodo = $_POST['periodo'];
     
     include 'conexion.php';
     try{
     
-      $stmt = $conn->prepare("INSERT INTO licenciatura_activa (ID_Lincenciatura,ID_Ciclo) VALUES(?,?)");
-      $stmt->bind_param('ii',$id_recibido,$ciclo);
+      $stmt = $conn->prepare("INSERT INTO licenciatura_activa (ID_Lincenciatura,ID_Ciclo,id_periodo) VALUES(?,?,?)");
+      $stmt->bind_param('iii',$id_recibido,$ciclo,$periodo);
       $stmt->execute(); 
     
       if($stmt->affected_rows > 0){  
@@ -130,6 +133,71 @@ switch ($operacion) {
       );
     }
     echo json_encode($respuesta);
+  break;
+    // **********************     editar_licenciatura activa   ***************************
+    case 'editar_licenciatura_activa':
+      $id_recibido = $_POST['id_licenciatura'];
+      $NombreLicenciatura = $_POST['nombre'];
+      $periodos = $_POST['periodos'];
+      include 'conexion.php';
+      try{
+     $stmt = $conn->prepare("update licenciatura_activa set ID_Lincenciatura=?,id_periodo=? where ID_LicActiva=?");
+     $stmt->bind_param('ssi',$NombreLicenciatura,$periodos,$id_recibido);
+     $stmt->execute(); 
+   
+     if($stmt->affected_rows > 0){  
+       $respuesta = array(   
+         'como_respuesta' => 'editar_la_lic',
+         'numero' => $periodos,
+         'Nombre_Asignatura' => $NombreLicenciatura
+       );
+     }else{
+       $respuesta = array(
+         'respuesta' => 'error',
+         'id_recibido' => $id_recibido,
+          'nombre_asignatura' => $NombreLicenciatura
+       );
+     }   
+     $stmt->close(); 
+     $conn->close(); 
+
+   }catch(Exception $e){
+     $respuesta = array(
+       'error' => $e->getMessage()
+     );
+   }
+      echo json_encode($respuesta);
+    break;
+        break;
+        // *****************  eliminar licenciatura activa     *******************
+        case 'Eliminar_licenciatura_activa':
+          $id_recibido = $_POST['id_licenciatura_activa'];
+      include 'conexion.php';
+      try{
+     $stmt = $conn->prepare(" delete from licenciatura_activa where ID_LicActiva=?");
+     $stmt->bind_param('i',$id_recibido);
+     $stmt->execute(); 
+   
+     if($stmt->affected_rows > 0){  
+       $respuesta = array(   
+         'como_respuesta' => 'borrado',
+         'id_asignatura_activa' => $id_recibido
+       );
+     }else{
+       $respuesta = array(
+         'respuesta' => 'error',
+          'id_asignatura_activa' => $id_recibido
+       );
+     }   
+     $stmt->close(); 
+     $conn->close(); 
+
+   }catch(Exception $e){
+     $respuesta = array(
+       'error' => $e->getMessage()
+     );
+   }
+   echo json_encode($respuesta);
         break;
         //********** */  FUNCION AGREGAR NUEVA METERIA ******************
         case 'agregar_nueva_materia':

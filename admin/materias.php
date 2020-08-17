@@ -105,7 +105,7 @@
                       foreach ($LicActiva as $LicActiva_S): ?>
                         <div class="tab-pane fade" id="vert-tabs-<?php echo $LicActiva_S['ID_LicActiva']?>" role="tabpanel" aria-labelledby="vert-tabs-<?php echo $LicActiva_S['ID_LicActiva']?>-tab">
 
-                            <!----------------------INICIO GENERACION----------------------------------------------------->
+                            <!----------------------INICIO periodos----------------------------------------------------->
                             <div class="card">
               <div class="card-header d-flex p-0">
                 <ul class="nav nav-pills ml-auto p-2" id = "submenu" name = "submenu">
@@ -113,7 +113,7 @@
                   <?php
                     $generacion = Obtener_Generaciones($LicActiva_S['ID_Lincenciatura']);
                       foreach($generacion as $generaciones):?>
-                        <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $generaciones['ID_LicActiva'] ?>" data-toggle="tab"><?php echo $LicActiva_S['NombreLic'] ?> <?php echo $generaciones['ID_LicActiva']?></a></li>  
+                        <li class="nav-item"><a class="nav-link" href="#tab_<?php echo $generaciones['ID_LicActiva'] ?>" data-toggle="tab"><?php echo $LicActiva_S['NombreLic'] ?> <?php echo $generaciones['id_periodo']?></a></li>  
                   <?php endforeach; ?>
 
                 </ul>
@@ -134,6 +134,7 @@
                               <?php echo $asignatura['ID_Asignatura'] ?>
                               <?php echo $asignatura['Nombre_Asignatura']?>
                               <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura<?php echo $asignatura['ID_Asignatura']?>" value="<?php echo $generaciones['ID_Lincenciatura'] ?>">
                               <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(<?php echo $asignatura['ID_Asignatura']?>)>Editar</button>
                               <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(<?php echo $asignatura['ID_Asignatura']?>)>Eliminar</button>
                               </div> <br>
