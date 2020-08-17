@@ -1,3 +1,12 @@
+<?php
+include("../php/conexion.php");
+$link=conectarse();
+session_start();
+$us=$_SESSION["user"];
+$qry = mysqli_query($link,"select * from usuarios where ID_Usuario = '$us'")
+or die("Failed to query database".mysql_error());
+$row = mysqli_fetch_array($qry);
+?>
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -13,7 +22,9 @@
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nombre apellido</a>
+        <?php echo
+          '<a href="#" class="d-block"> '.$row['Nombre']. " " .$row['ApellidoPat'].'</a>';
+          ?>
         </div>
       </div>
 

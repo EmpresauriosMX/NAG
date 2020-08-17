@@ -16,7 +16,9 @@ $row = mysqli_fetch_array($qry);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido _</h1>
+            			  <?PHP
+			   echo '<h1 class="m-0 text-dark">Bienvenido  '.$row['Nombre'].'</h1>';
+			  ?>
           </div><!-- /.col -->
           <div class="col-sm-6">
             
@@ -103,8 +105,10 @@ $row = mysqli_fetch_array($qry);
                 </div>
 				<?php 
                 echo '<h3 class="profile-username text-center"> '.$row['Nombre'].'</h3>';
-				?>
-                <p class="text-muted text-center">(JulioProfe)</p>
+        ?>
+                          <?php echo
+          '<p class="text-muted text-center">'."(".$row['ID_Usuario'].")".'</p>';
+          ?>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">

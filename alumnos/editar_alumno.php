@@ -84,7 +84,9 @@ $row2 = mysqli_fetch_array($qry2);
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nombre apellido</a>
+        <?php echo
+          '<a href="#" class="d-block"> '.$row['Nombre']. " " .$row['ApellidoPat'].'</a>';
+          ?>
         </div>
       </div>
 

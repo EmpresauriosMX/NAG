@@ -108,9 +108,9 @@ $row = mysqli_fetch_array($qry);
           <li class="nav-item">
           <a href="#">
             <img src="../dist/img/avatar4.png"  class="brand-image img-circle" style="opacity: .8">
-           
-            <span class="brand-text">Alumno:</span>
-          
+            <?php echo
+          '<span class="brand-text"> '."Alumno: ".$row['Nombre']. " " .$row['ApellidoPat'].'</span>';
+          ?>
           </a>
           </li>
           <!--Fin imagen usuario-->

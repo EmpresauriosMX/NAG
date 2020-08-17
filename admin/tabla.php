@@ -1,3 +1,12 @@
+<?php
+include("../php/conexion.php");
+$link=conectarse();
+session_start();
+$us=$_SESSION["user"];
+$qry = mysqli_query($link,"select * from usuarios where ID_Usuario = '$us'")
+or die("Failed to query database".mysql_error());
+$row = mysqli_fetch_array($qry);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +84,9 @@
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nombre apellido</a>
+        <?php echo
+          '<a href="#" class="d-block"> '.$row['Nombre']. " " .$row['ApellidoPat'].'</a>';
+          ?>
         </div>
       </div>
 
@@ -280,7 +291,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido  _</h1>
+          <?php echo
+          '<h1 class="m-0 text-dark"> '."Bienvenido " .$row['Nombre']. " " .$row['ApellidoPat'].'</h1>';
+          ?>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
@@ -318,9 +331,7 @@
                 </tr>
 		</thead>    
 <?php
-	include("../php/conexion.php");
-	$link=conectarse();
-			
+		
 	$qry = mysqli_query($link,"select * from usuarios");
 	
 	while($row = mysqli_fetch_array($qry)){

@@ -1,12 +1,3 @@
-<?php
-include("../php/conexion.php");
-$link=conectarse();
-session_start();
-$us=$_SESSION["user"];
-$qry = mysqli_query($link,"select * from usuarios where ID_Usuario = '$us'")
-or die("Failed to query database".mysql_error());
-$row = mysqli_fetch_array($qry);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
