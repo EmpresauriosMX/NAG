@@ -37,9 +37,6 @@
                   <p>General</p>
                 </a>
               </li>
-
-              
-  
             </ul>
           </li>
           

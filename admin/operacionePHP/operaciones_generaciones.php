@@ -6,10 +6,11 @@
         case "nuevo":
             $fecha1 = $_GET["fecha_i_n"];
             $fecha2 = $_GET["fecha_f_n"];
+            echo $fecha1;
+            echo $fecha2;
             mysqli_query($link, "INSERT INTO `generaciones` 
-                                (`id_generacion`, `fecha_inicio`, `fecha_fin`, `ciclos`, `estatus`) 
-                                VALUES (NULL, '$fecha1', '$fecha2', '0', '2')");
-            
+                                (`id_generacion`, `fecha_inicio`, `fecha_fin`, `ciclos`, `estatus`,`ID_Lincenciatura` ) 
+                                VALUES (NULL, '$fecha1', '$fecha2', '0', '2', 0)");
         break;
     }
 ?> 

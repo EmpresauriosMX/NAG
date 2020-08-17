@@ -34,14 +34,16 @@ function getXMLHTTPRequest(){
       generacion_n.send(null);
       setTimeout('respuesta_generacion_f()', 1000);
     }
+
+    //-------------------ACTUALIZA GENERACION FUTURA--------------------
         function respuesta_generacion_f() {
         if(generacion_n.readyState == 1) {
-            document.getElementById("recarga_generaciones_futuras").innerHTML="<center>Loading...</center>";
+            document.getElementById("recarga_generaciones_f").innerHTML="<center>Loading...</center>";
         }
         else if(generacion_n.readyState == 4) {
         if(generacion_n.status == 200) {
          var mitexto=generacion_n.responseText;
-         document.getElementById("recarga_generaciones_futuras").innerHTML=mitexto;
+         document.getElementById("recarga_generaciones_f").innerHTML=mitexto;
                 } else {
                 alert("Ha ocurrido un error: " + generacion_n.statusText);
                 }
@@ -51,15 +53,16 @@ function getXMLHTTPRequest(){
     //----------------ACTUALIZA LA GENERACION ACTUAL----------------------------
     function actualizar_generacion_a(id){
         var id;
-        var fecha_i_a = document.getElementById("fecha_i_generacion_a" +id).value;
-        var fecha_f_a = document.getElementById("fecha_f_generacion_a" +id).value;
-        var estatus_1 =document.getElementById("estado_generacion_a" + id).checked;
+        alert (id);
+        var fecha_i_a = document.getElementById("Ifechageneracion_a" +id).value;
+        var fecha_f_a = document.getElementById("Ffechageneracion_a" +id).value;
+        var estatus_1 = document.getElementById("estado_generacion_a" + id).checked;
         var estatus = 2;
         if (estatus_1){
             estatus = 1;
         }
-        //alert("fecha_i_f= " + fecha_i_f +"&"+"fecha_f_f= "+fecha_f_f+"id "+id +" estatus= "+estatus);
-        var url = "./operacionePHP/actualizar_generacion.php?id="+id+"&fecha_i_f=" + fecha_i_f+"&"+"fecha_f_f="+fecha_f_f+"&estatus="+estatus;
+       //alert("fecha_i_f= " + fecha_i_f +"&"+"fecha_f_f= "+fecha_f_f+"id "+id +" estatus= "+estatus);
+        var url = "./operacionePHP/actualizar_generacion.php?id="+id+"&fecha_i_f=" + fecha_i_a+"&"+"fecha_f_f="+fecha_f_a+"&estatus="+estatus;
         generacion_f.open("GET", url, true);
         generacion_f.onreadystatechange=respuesta_actualizar_generacion_f;
         generacion_f.send(null);
@@ -70,6 +73,7 @@ function getXMLHTTPRequest(){
         generacion_a.send(null);
         setTimeout('respuesta_actualizar_generacion_a()', 1000);
     }
+    //---------------------ACTUALIZA LA GENERACION FUTURA-----------------------
     function actualizar_generacion_f(id){
         var id;
         var fecha_i_f = document.getElementById("fecha_i_generacion_f" +id).value;
