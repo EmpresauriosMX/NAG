@@ -120,7 +120,10 @@ switch ($operacion) {
         );
       }else{
         $respuesta = array(
-          'respuesta' => 'error'
+          'respuesta' => 'error al agregar licenciatura activa',
+          'id_licenciatura' => $id_recibido,
+          'ciclo' => $ciclo,
+          'periodo' => $periodo
         );
       }
     
