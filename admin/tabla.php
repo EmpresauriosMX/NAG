@@ -95,7 +95,7 @@ $row = mysqli_fetch_array($qry);
     <div class="container-fluid">
       
       <div class="row">
-        <div class="col-md-12">
+        <div class=".col-xs-12 .col-md-8">
         <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Agregar Usuario</h3>
@@ -108,13 +108,13 @@ $row = mysqli_fetch_array($qry);
                     <th scope="col">Nombre/s</th>
                     <th scope="col">Apellido paterno</th>
 					<th scope="col">Apellido materno</th>
-					<th scope="col">Direccion</th>
+					<th scope="col">Dirección</th>
 					<th scope="col">Telefono</th>
 					<th scope="col">Genero</th>
 					<th scope="col">Estatus</th>
                     <th scope="col">Correo Electrónico</th>
 					<th scope="col">Tipo de cuenta</th>
-					<th scope="col">Funcion</th>
+					<th scope="col">Función</th>
 					
                 </tr>
 		</thead>    
@@ -144,7 +144,7 @@ $row = mysqli_fetch_array($qry);
                   <td><?php echo $row['status'];?></td>
 				  <td><?php echo $row['correo'];?></td>
 				  <td><?php echo $tc;?></td>
-				  <td><?php echo '<button type="button" class="fa fa-remove" id="button" data-toggle="modal" data-target=".bs-example-modal-sm4'.$row["ID_Usuario"].'">Editar</button>'; ?></td>
+				  <td><?php echo '<button type="button" class="btn btn-block btn-success" id="button" data-toggle="modal" data-target=".bs-example-modal-sm4'.$row["ID_Usuario"].'">Editar</button>'; ?></td>
                 </tr>
 		<?php
 		echo '

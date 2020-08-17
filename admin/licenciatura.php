@@ -235,13 +235,6 @@
                       </tr>
                     <?php endforeach; ?>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>#</th>
-                    <th>licenciaturas</th>
-                    <th>opciones</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->

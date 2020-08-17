@@ -32,7 +32,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="index.php" class="nav-link active">
                   <i class="fas fa-poll"></i>
                   <p>General</p>
                 </a>

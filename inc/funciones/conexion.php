@@ -1,2 +1,2 @@
 <?php
-  $conn = new mysqli('localhost','root','roottoor','escuela');
+  $conn = new mysqli('localhost','root','adminadmin','bd_nag');
