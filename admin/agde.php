@@ -13,8 +13,15 @@
     $correo=$_GET["correoinst"];
 
     //Verifico si hay datos en la BD o no
-    $res=mysqli_query($link,"SELECT * from instituto");
-    $result=mysqli_query($link,"SELECT COUNT(id_instituto) AS Total from instituto");
+    if ($resultado = mysqli_query($link, "SELECT id_instituto FROM instituto where id_instituto=1")) {
+        echo(mysqli_num_rows($resultado));
+        $valor =mysqli_num_rows($resultado);
+            if($valor == 0){
+                echo 'no hay datos';
+            }else{
+                echo 'si hay datos';
+            }
+    }
     
  /*   echo"ANTES DEL WHILE";
     while($row=mysqli_fetch_array($res)){
