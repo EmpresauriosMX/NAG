@@ -1,12 +1,3 @@
-<?php
-include("../php/conexion.php");
-$link=conectarse();
-session_start();
-$us=$_SESSION["user"];
-$qry = mysqli_query($link,"select * from usuarios where ID_Usuario = '$us'")
-or die("Failed to query database".mysql_error());
-$row = mysqli_fetch_array($qry);
-?>
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -22,9 +13,7 @@ $row = mysqli_fetch_array($qry);
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-        <?php echo
-          '<a href="#" class="d-block"> '.$row['Nombre']. " " .$row['ApellidoPat'].'</a>';
-          ?>
+          <a href="#" class="d-block">Bienvenido</a>
         </div>
       </div>
 
@@ -49,8 +38,6 @@ $row = mysqli_fetch_array($qry);
                 </a>
               </li>
 
-<?php
-/*
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -63,9 +50,7 @@ $row = mysqli_fetch_array($qry);
                   <p>Docentes</p>
                 </a>
               </li>
-              */
-?>
-
+  
             </ul>
           </li>
           

@@ -47,6 +47,8 @@ function getXMLHTTPRequest(){
                 }
             }
         }
+
+    //----------------ACTUALIZA LA GENERACION ACTUAL----------------------------
     function actualizar_generacion_a(id){
         var id;
         var fecha_i_a = document.getElementById("fecha_i_generacion_a" +id).value;

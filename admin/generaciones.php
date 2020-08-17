@@ -60,9 +60,9 @@
 
   <!-- inicio --------------------- BARRA DE NAVEGACIÓN IZQUIERDA------------->
   <?php
-    include 'plantilla_barra_izquierda.php';
+    
     include("../inc/funciones/conexal.php");
-    $link = Conectarse(); /*conexion a la bd*/
+    $link = Conectarse(); /*conexion a la bd*/include 'plantilla_barra_izquierda.php';
   ?>
   <!-- Fin --------------------- BARRA DE NAVEGACIÓN IZQUIERDA------------->
   <!-- Content Wrapper. Contains page content -->
