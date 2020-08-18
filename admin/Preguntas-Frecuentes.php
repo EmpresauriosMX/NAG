@@ -104,26 +104,6 @@
       </div>
     </div>
 
-    <div class="accordion-item">
-      <div class="accordion-item-header">
-        ¿Cómo insertar nuevos ciclos?        
-      </div>
-      <div class="accordion-item-body">
-        <div class="accordion-item-body-content">
-        <ol class="listado">
-          <li>Se dirigirá en general.</li>
-          <img src="../img/22/1.PNG" class="img-modify"></img>
-          <li>Buscará ciclos nuevos.</li>
-          <li>Ingresara en el primer recuadro el inicio del ciclo y en el segundo el término del ciclo.</li>
-          <img src="../img/22/1.1.PNG" class="img-modify"></img>
-          <li>Presione guardar cambios.</li>
-          <img src="../img/22/1.2.PNG" class="img-modify"></img>
-          <li>En la parte inferior podrá ver los ciclos guardados.</li>
-        </ol>
-        </div>  
-      </div>
-    </div>
-
      <div class="accordion-item">
       <div class="accordion-item-header">
         ¿Cómo ingresar nuevos usuarios?        
@@ -131,7 +111,7 @@
       <div class="accordion-item-body">
         <div class="accordion-item-body-content">
         <ol class="listado">
-          <li>Se dirigirá en general.</li>
+          <li>Se dirigirá en "Configuracion de usuario".</li>
           <img src="../img/22/3.PNG" class="img-modify"></img>
           <li>Donde buscará registros de Usuario y le dará clic (Nuevo Usuario).</li>
           <img src="../img/22/3.1.PNG" class="img-modify"></img>
@@ -144,6 +124,24 @@
           </div>
         </div>
 
+
+     <div class="accordion-item">
+          <div class="accordion-item-header">
+            ¿Cómo Insertar los datos de la institución? 
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+            <ol class="listado">
+              <li>Se dirigirá en el apartado de Institucion y se desplaza hasta buscar "Datos de la institucion"</li>
+              <img src="../img/6.PNG" class="img-modify"></img>
+              <li>Llenar los cuadros de datos solicitados y obligatorios.</li>
+              <li>Para guardar los datos darle clic en SUMIT.</li>
+              <img src="../img/6.1.PNG" class="img-modify"></img>
+            </ol>
+            </div>  
+          </div>
+        </div>
+
         <div class="accordion-item">
           <div class="accordion-item-header">
             ¿Cómo añadir una nueva generación?    
@@ -151,9 +149,9 @@
           <div class="accordion-item-body">
             <div class="accordion-item-body-content">
             <ol class="listado">
-              <li>Se dirigirá en general.</li>
+              <li>Se dirigirá en "Generaciones".</li>
               <img src="../img/22/5.PNG" class="img-modify"></img>
-              <li>Donde se desplazara hasta bajo y buscará (Agregar una nueva generación).</li>
+              <li>Donde se desplazara hasta bajo y buscará "Agregar una nueva generación".</li>
               <img src="../img/22/6.PNG" class="img-modify"></img>
               <li>Se indicara el inicio y debajo de él, el final.</li>
               <img src="../img/22/6.1.PNG" class="img-modify"></img>
@@ -165,22 +163,33 @@
           </div>
         </div>
 
-        <div class="accordion-item">
-          <div class="accordion-item-header">
-            ¿Cómo Insertar los datos de la institución? 
-          </div>
-          <div class="accordion-item-body">
-            <div class="accordion-item-body-content">
-            <ol class="listado">
-              <li>Se dirigirá en insertar datos de la institución.</li>
-              <img src="../img/6.PNG" class="img-modify"></img>
-              <li>Llenar los cuadros de datos solicitados y obligatorios.</li>
-              <li>Para guardar los datos darle clic en SUMIT.</li>
-              <img src="../img/6.1.PNG" class="img-modify"></img>
-            </ol>
-            </div>  
-          </div>
-        </div>
+
+
+
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        ¿Cómo insertar nuevos ciclos?        
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+        <ol class="listado">
+          <li>Se dirigirá en el apartado de "Ciclos" y se busca el apartado de "Agregar un ciclo nuevo".</li>
+          <img src="../img/22/1.PNG" class="img-modify"></img>
+          <li>Buscará ciclos nuevos.</li>
+          <li>Ingresara en el primer recuadro el inicio del ciclo y en el segundo el término del ciclo.</li>
+          <img src="../img/22/1.1.PNG" class="img-modify"></img>
+          <li>Presione guardar cambios.</li>
+          <img src="../img/22/1.2.PNG" class="img-modify"></img>
+          <li>En la parte inferior podrá ver los ciclos guardados.</li>
+        </ol>
+        </div>  
+      </div>
+    </div>
+
+    
+        
+
+       
 
   <div class="accordion-item">
           <div class="accordion-item-header">
@@ -189,7 +198,7 @@
           <div class="accordion-item-body">
             <div class="accordion-item-body-content">
             <ol class="listado">
-              <li>Se dirigirá en la parte de agregar licenciaturas.</li>
+              <li>Se dirigirá en la parte de agregar licenciaturas y se buscara "Agregar licenciatura".</li>
               <img src="../img/33/1.PNG" class="img-modify"></img>
               <li>Insertará el nombre de la licenciatura.</li>
               <img src="../img/33/1.1.PNG" class="img-modify"></img>
