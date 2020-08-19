@@ -1,13 +1,10 @@
 <?php
     include("../../inc/funciones/conexal.php");
     $link = Conectarse();
-    $id_ciclo = $_GET["id_ciclo"];
-    $id_generacion = $_GET["id_generacion"];
-
-    mysqli_query($link, "INSERT INTO `generaciones-ciclos`(`ID_Ciclo`, `id_generacion`) VALUES ($id_ciclo, $id_generacion)");
+    $id_generacion_ciclo = $_GET["id_generacion_ciclo"];
+    mysqli_query($link, "DELETE FROM `generaciones-ciclos` WHERE `generaciones-ciclos`.`id_generacion_ciclo` = $id_generacion_ciclo");
 ?>
-
-<?php
+            <?php
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2");
                 $n_generaciones = mysqli_num_rows($generaciones);
                 //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
@@ -177,4 +174,4 @@
                     </div>
                   ';
                 };
-              ?>
+            ?>

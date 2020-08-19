@@ -90,7 +90,20 @@ function getXMLHTTPRequest(){
         generacion_a.onreadystatechange=respuesta_actualizar_generacion_a;
         generacion_a.send(null);
         setTimeout('respuesta_actualizar_generacion_a()', 1000);
-        
+    }
+
+    function remover_ciclo(id_generacion_ciclo){
+        alert ("id generacion ciclo  "+ id_generacion_ciclo);
+        var url = "./operacionePHP/remover_ciclo_de_generacion.php?id_generacion_ciclo="+id_generacion_ciclo;
+        generacion_f.open("GET", url, true);
+        generacion_f.onreadystatechange=respuesta_actualizar_generacion_f;
+        generacion_f.send(null);
+        setTimeout('respuesta_actualizar_generacion_f()', 1000);
+        var url2 = "./operacionePHP/generaciones_actuales.php";
+        generacion_a.open("GET", url2, true);
+        generacion_a.onreadystatechange=respuesta_actualizar_generacion_a;
+        generacion_a.send(null);
+        setTimeout('respuesta_actualizar_generacion_a()', 1000);
     }
     //---------------------ACTUALIZA LA GENERACION FUTURA-----------------------
     function actualizar_generacion_f(id){
