@@ -38,13 +38,7 @@
             echo"Entro al ELSE :/";
        }
 }*/
-
-$un='1';
-$cer='0';
-
-$var=2;
-
-if($var == $result){
+if($valor == 0){
     //echo"Entro al IF";
     //Insersion de datos a la tabla "instituto" en la BD
         mysqli_query($link,"INSERT INTO instituto (id_instituto,nombre,clave,tipo_de_institucion,descripcion,direccion,telefono,correo) 
@@ -52,16 +46,13 @@ if($var == $result){
         echo"Se insertaron datos por primera vez en la tabla";
         echo "<meta http-equiv='REFRESH'content='5;URL=institucion.php'>";
         
-}elseif($var == $result){
-     //echo"Entro al ELSE :/";
+}else{
+        //echo"Entro al ELSE :/";
      //echo"Ya existe una institución";
         //echo"Se actualizaran Datos";
         //Actualiza datos de la tabla "instituto" en la BD
         mysqli_query($link,"UPDATE instituto SET nombre='$nominst',clave='$clave',tipo_de_institucion='$tipo',descripcion='$desc'
         ,direccion='$direc',telefono='$tel',correo='$correo' WHERE id_instituto=1");
         echo "<meta http-equiv='REFRESH'content='5;URL=institucion.php'>";
-}else{
-    echo"OCURRIO UN PROBLEMA EN EL IF";
 }
-
 ?>
