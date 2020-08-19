@@ -2,7 +2,60 @@
 $operacion = $_POST['operacion'];
 
 switch ($operacion) {
-  //*********************agregar licenciatura en el case************************
+  //*********************e************************
+  case 'obtener_periodo':
+    include 'conexion.php';
+   $variable = $_POST['variable'];
+   try {
+    $stmt = $conn->prepare("SELECT periodos FROM licenciatura WHERE ID_Lincenciatura = ?");
+    $stmt->bind_param('s', $variable);
+    $stmt->execute();
+    // Loguear el usuario
+    $stmt->bind_result($periodo);
+    $stmt->fetch();
+
+      $respuesta = array ( //en caso de que este el correo
+        'respuesta' => 'existe el valor',
+        'valor_periodo' => $periodo,
+        'valor_del_id' => $variable
+      );
+
+    $stmt->close();
+    $conn->close();
+}catch(Exception $e){
+$respuesta = array(
+  'pass' => $e->getMessage()
+);
+}
+
+echo json_encode($respuesta);
+  break;
+
+  //ejemplo************************
+  case 'poner':
+    include 'conexion.php';
+$query = "select * from licenciatura";
+
+  $result = mysqli_query($conn,$query);
+
+  $rows = array();
+  /*
+  while($r = mysqli_fetch_array($result)) {
+    $rows[] = $r;
+  }*/
+
+  while ($fila = $result->fetch_assoc()) {
+    //agregar una fila mas al array
+    array_push($rows,array(
+    "ID_Lincenciatura"=>$fila["ID_Lincenciatura"],
+    "nombre"=>$fila["NombreLic"],
+    "total_periodos"=>$fila["periodos"]));
+}
+
+  echo json_encode($rows);
+  break;
+
+  //*/////////////////agregar licenciatura**********************
   case 'AgregarLicenciatura':
     $NombreLicenciatura = $_POST['NombreLicenciatura'];
     $periodo = $_POST['periodo'];

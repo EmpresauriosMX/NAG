@@ -4,6 +4,9 @@ var ListaLicenciaturasActivas = document.querySelector('tbody#tabla_lic_activa')
 var texto_check="";
 var texto_check1="";
 var texto_nombre="";
+var USAME ="";
+var arreglo_json ="";
+var cadena_periodo ="";
 eventListeners();
 
 function eventListeners(){
@@ -255,6 +258,7 @@ function AgregarLicenciatura(e){ // si entra
       }
       //editar licenciatura_activa
 function editar_licenciatura_activa(variable_recibida_editar){
+  ppruebas();
   console.log(variable_recibida_editar); //pruebas de recepcion de datos
     //mensaje emergente
   swal({
@@ -415,6 +419,7 @@ function editar_licenciatura_activa(variable_recibida_editar){
     var selected = combo.options[combo.selectedIndex].text;
     texto_check =cod;
     texto_nombre=selected;
+    La_obtencion_de_periodos();
     }
     function ShowSelected1() //segundo select
     {
@@ -523,4 +528,121 @@ function editar_licenciatura_activa(variable_recibida_editar){
           campo.remove();
         }
       })
+    }
+    //obtener los periodos
+    function La_obtencion_de_periodos(){
+      operacion = 'obtener_periodo';
+      var datos = new FormData();
+      datos.append('variable',texto_check);
+      datos.append('operacion',operacion);
+        console.log(operacion);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+
+      xhr.onload = function(){
+        if(this.status === 200) {
+          var respuesta = JSON.parse(xhr.responseText);
+          console.log(respuesta);
+          cadena="";
+          var NuevoSelect = document.createElement('select'); //se crea la lista dentro del html
+          NuevoSelect.setAttribute("id","producto1");
+          NuevoSelect.setAttribute("class","form-control")
+          NuevoSelect.setAttribute("name","producto1");
+          NuevoSelect.setAttribute("onchange","ShowSelected1();");
+
+          cadena += "<option> --seleccionar un periodo </option>"
+          for (i=1; i<respuesta.valor_periodo+1; i++) {
+            cadena += "<option>"+ i +"</option> ";
+           // console.log(cadena);
+            };
+
+          NuevoSelect.innerHTML = cadena;
+        
+          campo_periodo=document.querySelector('#contenedor_periodo');
+          campo = document.querySelector('#producto1');
+          campo_periodo.replaceChild(NuevoSelect,campo);
+         // campo_periodo.appendChild(NuevoSelect)
+
+        }
+                            }                                    
+      xhr.send(datos);
+    }
+
+      //select dentro de editar
+    function ppruebas(){
+      operacion = 'poner';
+      var datos = new FormData();
+      datos.append('operacion',operacion);
+        console.log(operacion);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+
+      xhr.onload = function(){
+        if(this.status === 200){
+          var respuesta = JSON.parse(xhr.responseText);
+
+          console.log(respuesta);
+          
+          arreglo_json= respuesta;
+          
+          //se obtiene la nueva licenciatura en la seccion de edicion 
+          cadena ="";
+          cadena += "<option> --seleccionar una nueva licenciatura </option>";
+          for(var i=0;i<respuesta.length;i++){
+            cadena+="<option>"+ respuesta[i].nombre+"</option>";
+          //  console.log(cadena);
+          }
+          (async () => {
+
+            const { value: formValues } = await Swal.fire({
+              title: 'Multiple inputs',
+              html:
+                '<select class="form-control" id="swal-select" onchange =periodo_seleccion()>' + cadena+ '</select>'+
+                '<select class="form-control" id="swal-select_periodo"' + cadena_periodo + '</select>',
+              focusConfirm: false,
+              preConfirm: () => {
+                return [
+                  pasable = document.getElementById('swal-select').value,
+                  no_pasable = document.getElementById('swal-select_periodo').value
+                ]
+              }
+            })
+            
+            if (formValues) {
+              let Nuevo_nombre=$('#swal-select').val();
+              let nombre_input=$('swal-select_periodo').val();
+              console.log("Nombre de cambio"+ pasable);
+              console.log("periodo de cambio" +no_pasable);
+            }            
+            })()
+
+        }
+      }
+
+      xhr.send(datos);
+      
+
+    }
+    //cambia el periodo en la seleccion
+    function periodo_seleccion(respuesta){
+      cadena_periodo ="";
+        cadena_periodo += "<option> --seleccionar un nuevo periodo </option>";
+     // console.log(arreglo_json);
+       let Nuevo_nombre=$('#swal-select').val();
+      // console.log(Nuevo_nombre);
+       for(var i=0;i<arreglo_json.length;i++){
+
+        if(arreglo_json[i].nombre ===Nuevo_nombre){
+
+             var periodo= arreglo_json[i].total_periodos;
+         //    console.log(periodo);
+        //     console.log("valor total del cambio");
+        }
+      }
+      for (var q=1; q<periodo; q++) {
+
+        cadena_periodo += "<option>"+ q +"</option> ";
+        };
+      //  console.log(cadena_periodo);
+        ppruebas();
     }
