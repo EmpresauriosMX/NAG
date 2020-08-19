@@ -15,7 +15,7 @@
     }
 ?> 
 
-<?php
+              <?php
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2");
                 $n_generaciones = mysqli_num_rows($generaciones);
                 //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
@@ -38,6 +38,12 @@
                           <div class="card-tools">
                               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                   <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
+                              <button type="button" onclick="eliminar_generacion('.$id_generacion.')" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-trash"></i>
                               </button>
                           </div>
                       </div>

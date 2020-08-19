@@ -60,7 +60,6 @@
 
   <!-- inicio --------------------- BARRA DE NAVEGACIÓN IZQUIERDA------------->
   <?php
-    
     include("../inc/funciones/conexal.php");
     $link = Conectarse(); /*conexion a la bd*/include 'plantilla_barra_izquierda.php';
   ?>
@@ -165,6 +164,12 @@
                           <div class="card-tools">
                               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                   <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
+                              <button type="button" onclick="eliminar_generacion('.$id_generacion.')" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-trash"></i>
                               </button>
                           </div>
                       </div>
@@ -342,6 +347,12 @@
                           <div class="card-tools">
                               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                   <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
+                              <button type="button" onclick="eliminar_generacion('.$id_generacion.')" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-trash"></i>
                               </button>
                           </div>
                       </div>
