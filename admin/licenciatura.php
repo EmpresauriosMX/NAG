@@ -226,7 +226,7 @@
                       foreach ($LicActiva as $LicActiva_S): ?>
                       <tr name="campo_Licenciaturas_activas<?php echo $LicActiva_S['ID_LicActiva']?>" id="campo_Licenciaturas_activas<?php echo $LicActiva_S['ID_LicActiva']?>">
                       <td><?php echo $LicActiva_S['ID_LicActiva'] ?> </td>
-                      <td><?php echo $LicActiva_S['NombreLic']?> <?php echo $LicActiva_S['ID_LicActiva']?></td>
+                      <td><?php echo $LicActiva_S['NombreLic']?></td>
                       <td><?php echo $LicActiva_S['id_periodo'] ?> </td>
                       <td>
                       <div class="btn-group">
