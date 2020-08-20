@@ -73,7 +73,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido  _</h1>
+            <h1 class="m-0 text-dark">Seccion de Materias</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
@@ -138,6 +138,8 @@
                               <?php echo $asignatura['Nombre_Asignatura']?>
                               <div class="btn-group col-5">
                               <input type="hidden" id="valor_de_licenciatura<?php echo $asignatura['ID_Asignatura']?>" value="<?php echo $generaciones['ID_Lincenciatura'] ?>">
+                              <input type="hidden" id="valor_de_licenciatura_activa<?php echo $asignatura['ID_Asignatura']?>" value="<?php echo $generaciones['ID_LicActiva'] ?>">
+                              <input type="hidden" id="valor_de_licenciatura_activa_otro<?php echo $generaciones['ID_LicActiva']?>" value="<?php echo $generaciones['ID_LicActiva'] ?>">
                               <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(<?php echo $asignatura['ID_Asignatura']?>)>Editar</button>
                               <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(<?php echo $asignatura['ID_Asignatura']?>)>Eliminar</button>
                               </div> <br>
