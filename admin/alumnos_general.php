@@ -88,7 +88,7 @@
                 
                 <div class="busqueda-general">
                     <div class="titulo-busgen">
-                        <h3>General</h3>
+                        <h3>Busqueda de Alumnos</h3>
                     </div>
                     <div class="busqueda-gen-select">
                         <div class="col-sm-6">
@@ -136,7 +136,7 @@
         
                 </div>
                 <div class="busqueda-especifica">
-                    <h3>Específica</h3>
+                    <h4>Alumno Específico</h4>
                     <!-- SEARCH FORM -->
                     <form class="form-inline ml-3">
                     <div class="input-group input-group-sm">

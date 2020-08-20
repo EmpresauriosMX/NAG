@@ -38,12 +38,12 @@ $row = mysqli_fetch_array($qry);
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>90</h3>
+                  <h3>48</h3>
   
                   <p>Alumnos</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="fas fa-user-graduate"></i>
                 </div>
                 
               </div>
@@ -53,12 +53,12 @@ $row = mysqli_fetch_array($qry);
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>5<sup style="font-size: 20px"></sup></h3>
+                  <h3>2<sup style="font-size: 20px"></sup></h3>
   
                   <p>grupos</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="fas fa-book-reader"></i>
                 </div>
                 
               </div>
@@ -70,10 +70,10 @@ $row = mysqli_fetch_array($qry);
                 <div class="inner">
                   <h3>44</h3>
   
-                  <p>User Registrations</p>
+                  <p>Estadisticas</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="fas fa-chart-bar"></i>
                 </div>
               </div>
             </div>
@@ -84,10 +84,10 @@ $row = mysqli_fetch_array($qry);
                 <div class="inner">
                   <h3>65</h3>
   
-                  <p>Unique Visitors</p>
+                  <p>Materias</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fas fa-pen-alt"></i>
                 </div>
               </div>
             </div>
@@ -101,22 +101,28 @@ $row = mysqli_fetch_array($qry);
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img src="../img/julio_profe.png" height="150px" width="150px"    class="img-circle elevation-2" alt="User Image">
+                  <img src="../dist/img/user1-128x128.jpg" height="150px" width="150px"    class="img-circle elevation-2" alt="User Image">
                 </div>
+                <h3 class="profile-username text-center"> Docente: Miguel Angel Grrido Be</h3>
 				<?php 
-                echo '<h3 class="profile-username text-center"> '.$row['Nombre'].'</h3>';
+               /* echo '<h3 class="profile-username text-center"> '.$row['Nombre'].'</h3>';*/
         ?>
-                          <?php echo
-          '<p class="text-muted text-center">'."(".$row['ID_Usuario'].")".'</p>';
+        <?php /* echo
+          '<p class="text-muted text-center">'."(".$row['ID_Usuario'].")".'</p>';*/
           ?>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Impartiendo</b> <a class="float-right">musica</a>
+                    <b>Impartiendo</b> <a class="float-right">Taller de Base de Datos II</a>
+                  </li>
+                </ul>
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Impartiendo</b> <a class="float-right">Fundamentos de la Contabilidad IV</a>
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>facebook</b></a>
+                <!--<a href="#" class="btn btn-primary btn-block"><b>facebook</b></a>-->
               </div>
               <!-- /.card-body -->
             </div> 

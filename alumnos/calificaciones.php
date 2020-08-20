@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
       <div class="container">
-        <a href="Index_alumnos.html" class="navbar-brand">
+        <a href="Index_alumnos.php" class="navbar-brand">
           <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
           <span class="brand-text font-weight-light">New Academic Generation</span>
         </a>
@@ -34,7 +34,7 @@
               <a  class="nav-link">|</a>
             </li>
             <li class="nav-item">
-              <a href="asignaturas.html" class="nav-link">Asignaturas</a>
+              <a href="asignaturas.php" class="nav-link">Asignaturas</a>
             </li>
             <li class="nav-item">
               <a  class="nav-link">|</a>
@@ -46,13 +46,13 @@
               <a  class="nav-link">|</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Horarios</a>
+              <a href="Horario.php" class="nav-link">Horarios</a>
             </li>
             <li class="nav-item">
               <a  class="nav-link">|</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Perfil</a>
+              <a href="cambiar_contra.php" class="nav-link">Perfil</a>
             </li>
             <li class="nav-item">
               <a  class="nav-link">|</a>
@@ -77,7 +77,7 @@
             <!--Imagen de usuario y nombre usuario-->
             <li class="nav-item">
             <a href="#">
-              <img src="../dist/img/avatar4.png"  class="brand-image img-circle" style="opacity: .8">
+              <img src="../dist/img/user1-128x128.jpg"  class="brand-image img-circle" style="opacity: .8">
               <span class="brand-text">Alumno: ID_74</span>
             </a>
             </li>

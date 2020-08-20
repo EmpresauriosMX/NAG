@@ -22,29 +22,9 @@
                 echo 'si hay datos';
             }
     }
-    
- /*   echo"ANTES DEL WHILE";
-    while($row=mysqli_fetch_array($res)){
+ 
 
-       echo"resultado de la consulta es : $row[id_instituto]";
-       echo'La variable row es:  '.$row[id_instituto].'';
-       echo"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-       echo "La variable res: $result";
-       echo"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-
-       if(0 == $row[id_instituto]){
-           echo"Entro al IF";
-       }else{
-            echo"Entro al ELSE :/";
-       }
-}*/
-
-$un='1';
-$cer='0';
-
-$var=2;
-
-if($var == $result){
+if($valor == 0){
     //echo"Entro al IF";
     //Insersion de datos a la tabla "instituto" en la BD
         mysqli_query($link,"INSERT INTO instituto (id_instituto,nombre,clave,tipo_de_institucion,descripcion,direccion,telefono,correo) 
@@ -52,7 +32,7 @@ if($var == $result){
         echo"Se insertaron datos por primera vez en la tabla";
         echo "<meta http-equiv='REFRESH'content='5;URL=institucion.php'>";
         
-}elseif($var == $result){
+}elseif($valor == 1){
      //echo"Entro al ELSE :/";
      //echo"Ya existe una institución";
         //echo"Se actualizaran Datos";

@@ -23,7 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="#" class="navbar-brand">
+      <a href="Index_alumnos.php" class="navbar-brand">
         <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
         <span class="brand-text font-weight-light">New Academic Generation</span>
       </a>
@@ -51,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Horarios</a>
+            <a href="Horario.php" class="nav-link">Horarios</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>
@@ -77,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!--Imagen de usuario y nombre usuario-->
           <li class="nav-item">
           <a href="#">
-            <img src="../dist/img/avatar4.png"  class="brand-image img-circle" style="opacity: .8">
+            <img src="../dist/img/user1-128x128.jpg"  class="brand-image img-circle" style="opacity: .8">
             <span class="brand-text">Alumno: ID_74</span>
           </a>
           </li>
@@ -105,9 +105,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-sm-6">
                 <!-- select -->
                 <div class="form-group">
-                <label>Cuatrimestre</label>
+                <label>Selección de Cuatrimestre</label>
                 <select class="form-control">
-
+                  
                 </select>
                 </div>
             </div>
@@ -128,7 +128,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <div class="card card-primary card-outline asignaturas">
                     <div class="card-body">
-                        <h1>Cuatrimestre #</h1>
+                        <h1>Cuatrimestre 6</h1>
 
                         <div class="card card-solid">
                             <div class="card-body pb-0">
@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                           <p class="text-muted text-sm"><b>Materia: </b> Programación en Sistemas Distribuidos </p>
                                         </div>
                                         <div class="col-5 text-center">
-                                          <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                          <img src="../dist/img/user.png" alt="user-avatar" class="img-circle img-fluid">
                                         </div>
                                       </div>
                                     </div>
@@ -169,7 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Fundamentos de Desarrollo de Sistemas </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user.png" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -193,7 +193,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Simulación </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user.png" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -217,7 +217,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Redes de Computadora </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user.png" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -241,7 +241,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Taller de Base de Datos </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user.png" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -265,7 +265,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Taller de Base de Datos </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user.png" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>
@@ -289,7 +289,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="text-muted text-sm"><b>Materia: </b> Taller de Responsabilidad Social VI </p>
                                           </div>
                                           <div class="col-5 text-center">
-                                            <img src="../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                                            <img src="../dist/img/user.png" alt="user-avatar" class="img-circle img-fluid">
                                           </div>
                                         </div>
                                       </div>

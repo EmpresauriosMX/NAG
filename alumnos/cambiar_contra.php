@@ -23,7 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="#" class="navbar-brand">
+      <a href="Index_alumnos.php" class="navbar-brand">
         <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
         <span class="brand-text font-weight-light">New Academic Generation</span>
       </a>
@@ -39,19 +39,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Asignaturas</a>
+            <a href="asignaturas.php" class="nav-link">Asignaturas</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Calificaciones</a>
+            <a href="calificaciones.php" class="nav-link">Calificaciones</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Horarios</a>
+            <a href="Horario.php" class="nav-link">Horarios</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link">|</a>
@@ -77,8 +77,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!--Imagen de usuario y nombre usuario-->
           <li class="nav-item">
           <a href="#">
-            <img src="../dist/img/avatar4.png"  class="brand-image img-circle" style="opacity: .8">
-            <span class="brand-text">Alumno: ID_74</span>
+            <img src="../dist/img/user1-128x128.jpg"  class="brand-image img-circle" style="opacity: .8">
+            <span class="brand-text">Alumno: Daniel</span>
           </a>
           </li>
           <!--Fin imagen usuario-->
@@ -113,14 +113,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="card-body box-profile">
                     <div class="text-center">
                         <img class="profile-user-img img-fluid img-circle"
-                        src="../dist/img/user4-128x128.jpg"
+                        src="../dist/img/user1-128x128.jpg"
                         alt="User profile picture">
                         </div>
         
-                        <h3 class="profile-username text-center">Nina Quedé</h3>
+                        <h3 class="profile-username text-center">Daniel Gonzalez Mejia</h3>
         
-                        <p class="text-muted text-center">JUCE000118HQRRSMA1</p>
-                        <p class="text-muted text-center">Software Engineer</p>
+                        <p class="text-muted text-center">Matricula: 8508500651</p>
+                        <p class="text-muted text-center">Sistemas Computacionales</p>
         
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
@@ -133,10 +133,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <b>Teléfono</b> <a class="float-right">9871153301</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Género</b> <a class="float-right">F</a>
+                                <b>Género</b> <a class="float-right">M</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Teléfono</b> <a class="float-right">quedé@hotmail.com</a>
+                                <b>Teléfono</b> <a class="float-right">mailfake@hotmail.com</a>
                             </li>
                         </ul>
         

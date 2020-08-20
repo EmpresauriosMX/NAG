@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
       <div class="container">
-        <a href="Index_alumnos.html" class="navbar-brand">
+        <a href="Index_alumnos.php" class="navbar-brand">
           <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
           <span class="brand-text font-weight-light">New Academic Generation</span>
         </a>
@@ -34,25 +34,25 @@
               <a  class="nav-link">|</a>
             </li>
             <li class="nav-item">
-              <a href="asignaturas.html" class="nav-link">Asignaturas</a>
+              <a href="asignaturas.php" class="nav-link">Asignaturas</a>
             </li>
             <li class="nav-item">
               <a  class="nav-link">|</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Calificaciones</a>
+              <a href="calificaciones.php" class="nav-link">Calificaciones</a>
             </li>
             <li class="nav-item">
               <a  class="nav-link">|</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Horarios</a>
+              <a href="Horario.php" class="nav-link">Horarios</a>
             </li>
             <li class="nav-item">
               <a  class="nav-link">|</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Perfil</a>
+              <a href="cambiar_contra.php" class="nav-link">Perfil</a>
             </li>
             <li class="nav-item">
               <a  class="nav-link">|</a>
@@ -73,8 +73,8 @@
             <!--Imagen de usuario y nombre usuario-->
             <li class="nav-item">
             <a href="#">
-              <img src="../dist/img/avatar4.png"  class="brand-image img-circle" style="opacity: .8">
-              <span class="brand-text">Alumno: ID_74</span>
+              <img src="../dist/img/user1-128x128.jpg"  class="brand-image img-circle" style="opacity: .8">
+              <span class="brand-text">Alumno: Daniel</span>
             </a>
             </li>
             <!--Fin imagen usuario-->
@@ -128,7 +128,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">Horario del Cuatrimestre: xx, Parcial: xx</h3>
+                      <h3 class="card-title">Horario del Cuatrimestre: 6, Parcial: 3</h3>
                     </div>
                     <div class="card-body">
                       <table class="table table-bordered">
@@ -146,28 +146,84 @@
                         </thead>
 
                         <tbody>
-                          <tr align="center">
-                            <td style="width: 90px">2:00-3:00</td>
-                            <td>Programacion de Sisteas</td>
-                            <td>Fundamentos de Desarrollo de Sistemas</td>
-                            <td>Fundamentos de Desarrollo de Sistemas</td>
-                            <td>Fundamentos de Desarrollo de Sistemas</td>
-                            <td>Taller de Responsabilidad Social</td>
-                            <td>~~~~~~</td>
-                            <td>~~~~~~</td>
-                          </tr>
+                                  <tr align="center">
+                                    <td style="width: 90px">2:00-3:00</td>
+                                    <td>Programacion de Sisteas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Taller de Responsabilidad Social</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
+        
+                                  <tr align="center">
+                                    <td style="width: 90px">3:00-4:00</td>
+                                    <td>Programacion de Sisteas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Fundamentos de Desarrollo de Sistemas</td>
+                                    <td>Taller de Responsabilidad Social</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
 
-                          <tr align="center">
-                            <td style="width: 90px">3:00-4:00</td>
-                            <td>Programacion de Sisteas</td>
-                            <td>Fundamentos de Desarrollo de Sistemas</td>
-                            <td>Fundamentos de Desarrollo de Sistemas</td>
-                            <td>Fundamentos de Desarrollo de Sistemas</td>
-                            <td>Taller de Responsabilidad Social</td>
-                            <td>~~~~~~</td>
-                            <td>~~~~~~</td>
-                          </tr>
-                        </tbody>
+                                  <tr align="center">
+                                    <td style="width: 90px">4:00-5:00</td>
+                                    <td>Interfaces</td>
+                                    <td>Intercaces</td>
+                                    <td>Programacion de Desarrollo de Sistemas</td>
+                                    <td>Simulación</td>
+                                    <td>Taller de Base de Datos</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
+
+                                  <tr align="center">
+                                    <td style="width: 90px">5:30-6:30</td>
+                                    <td>Interfaces</td>
+                                    <td>Intercaces</td>
+                                    <td>Simulación</td>
+                                    <td>Simulación</td>
+                                    <td>Taller de Base de Datos</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
+
+                                  <tr align="center">
+                                    <td style="width: 90px">6:30-7:30</td>
+                                    <td>Redes de Computadoras</td>
+                                    <td>Taller de Base de Datos</td>
+                                    <td>Simulación</td>
+                                    <td>Redes de Computadoras</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
+
+                                  <tr align="center">
+                                    <td style="width: 90px">7:30-8:30</td>
+                                    <td>Redes de Computadoras</td>
+                                    <td>Taller de Base de Datos</td>
+                                    <td>Simulación</td>
+                                    <td>Redes de Computadoras</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
+
+                                  <tr align="center">
+                                    <td style="width: 90px">8:30-9:30</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                    <td>~~~~~~</td>
+                                  </tr>
+                                </tbody>
+
                       </table>
                     </div>
                   </div>

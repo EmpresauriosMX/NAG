@@ -17,7 +17,7 @@ include '../inc/funciones/funciones.php';
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>calificando al "x" del "x" por el "x"</h1>
+          <h1>Calificando al grupo A de la Licenciatura Sistemas Computacionales 6°</h1>
         </div>
       </div>
     </div> <!-- /.container-fluid -->
@@ -85,69 +85,44 @@ include '../inc/funciones/funciones.php';
                   <td> <input type="text" name="calificacion_prueba" id="calificacion" class="calificaciones" placeholder="calificacion"  required disabled></td>
                 </tr>
                 <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
+                    <td>Juan</td>
+                    <td>Ramirez</td>
                     <td> <input type="text" name="calificacion1" id="calificacion1" class="calificaciones" placeholder="calificacion"  required disabled></td>
                 </tr>
-                </tr>
                 <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
+                    <td>Jose</td>
+                    <td>Jimenez</td>
                     <td> <input type="text" name="calificacion2" id="calificacion2" placeholder="calificacion"  required disabled></td>
                 </tr>
-                </tr>
                 <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
+                    <td>Pablo</td>
+                    <td>Escobar</td>
                     <td> <input type="text" name="calificacion3" id="calificacion3" placeholder="calificacion"  required disabled></td>
                 </tr>
-                </tr>
                 <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
+                    <td>Fernando</td>
+                    <td>Pedraza</td>
                     <td> <input type="text" name="calificacion4" id="calificacion4" placeholder="calificacion"  required disabled></td>
                 </tr>
-                </tr>
                 <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
+                    <td>Abigail</td>
+                    <td>Gonzalez</td>
                     <td> <input type="text" name="calificacion5" id="calificacion5" placeholder="calificacion"  required disabled></td>
                 </tr>
-                </tr>
                 <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
+                    <td>Diana</td>
+                    <td>Garcia</td>
                     <td> <input type="text" name="calificacion6" id="calificacion6" placeholder="calificacion"  required disabled></td>
                 </tr>
-                </tr>
                 <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
+                    <td>Victor</td>
+                    <td>Cruz</td>
                     <td> <input type="text" name="calificacion7" id="calificacion7" placeholder="calificacion"  required disabled></td>
                 </tr>
-                </tr>
                 <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
-                    <td> <input type="text" name="calificacion8" id="calificacion8" placeholder="calificacion"  required disabled></td>
-                </tr>
-                </tr>
-                <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
-                    <td> <input type="text" name="calificacion9" id="calificacion9" placeholder="calificacion"  required disabled></td>
-                </tr>
-                </tr>
-                <tr>
-                    <td>Maria</td>
-                    <td>Perez</td>
+                    <td>Promedio</td>
+                    <td>General</td>
                     <td> <input type="text" name="calificacion0" id="calificacion0" placeholder="calificacion"  required disabled></td>
-                </tr>
-                </tr>
-                <tr>
-                    <td>sdsd</td>
-                    <td>promedio</td>
-                    <td>si</td>
                 </tr>
                 </tbody>
               </table>
