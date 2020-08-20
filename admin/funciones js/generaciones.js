@@ -27,7 +27,7 @@ function getXMLHTTPRequest(){
     function nueva_generacion(){
       var fecha_i_n = document.getElementById("fecha_i_generacion_n").value;
       var fecha_f_n = document.getElementById("fecha_f_generacion_n").value;
-      alert("fecha_i_n=" + fecha_i_n +"&"+"fecha_f_n="+fecha_f_n+"&operacion=nuevo");
+      //alert("fecha_i_n=" + fecha_i_n +"&"+"fecha_f_n="+fecha_f_n+"&operacion=nuevo");
       var url = "./operacionePHP/operaciones_generaciones.php?fecha_i_n=" + fecha_i_n +"&"+"fecha_f_n="+fecha_f_n+"&operacion=nuevo";
       generacion_n.open("GET", url, true);
       generacion_n.onreadystatechange=respuesta_generacion_f;
@@ -51,7 +51,7 @@ function getXMLHTTPRequest(){
     //----------------ACTUALIZA LA GENERACION ACTUAL----------------------------
     function actualizar_generacion_a(id){
         var id;
-        alert (id);
+        //alert (id);
         var fecha_i_a = document.getElementById("Ifechageneracion_a" +id).value;
         var fecha_f_a = document.getElementById("Ffechageneracion_a" +id).value;
         var estatus_1 = document.getElementById("estado_generacion_a" + id).checked;
