@@ -22,7 +22,7 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="../../docente/index.php" class="navbar-brand">
+      <a href="../docente/index.php" class="navbar-brand">
         <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image">
        <!-- <span class="brand-text font-weight-light">AdminLTE 3</span> texto de la imagen-->
       </a>
