@@ -180,17 +180,19 @@
                   <!--segundo select -->
                   <div class="form-group">
                         <label>Periodo</label>
-                        <select class="form-control" id="producto1" name="producto1" onchange="ShowSelected1();">
-                        <option>---Asignar periodo---</option>
-                        <?php
-                        for ($i = 1; $i <= 12; $i++) { //funcion de acierdo a las licenciaturas
-                          ?>
-                          <option><?php echo $i ?></option>
+                        <div id="contenedor_periodo" name="contenedor_periodo">
+                          <select class="form-control" id="producto1" name="producto1" onchange="ShowSelected1();">
+                          <option>---Asignar periodo---</option>
                           <?php
-                      }
-                           ?>
-                        </select>
-                      </div>
+                          for ($i = 0; $i <= 12; $i++) { //funcion de acierdo a las licenciaturas
+                            ?>
+                            <option><?php echo $i ?></option>
+                            <?php
+                        }
+                            ?>
+                          </select>
+                          </div>
+                        </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -224,7 +226,7 @@
                       foreach ($LicActiva as $LicActiva_S): ?>
                       <tr name="campo_Licenciaturas_activas<?php echo $LicActiva_S['ID_LicActiva']?>" id="campo_Licenciaturas_activas<?php echo $LicActiva_S['ID_LicActiva']?>">
                       <td><?php echo $LicActiva_S['ID_LicActiva'] ?> </td>
-                      <td><?php echo $LicActiva_S['NombreLic']?> <?php echo $LicActiva_S['ID_LicActiva']?></td>
+                      <td><?php echo $LicActiva_S['NombreLic']?></td>
                       <td><?php echo $LicActiva_S['id_periodo'] ?> </td>
                       <td>
                       <div class="btn-group">
@@ -241,7 +243,7 @@
             </div>
   </div>
 </div>
-
+    <button type="button" class="btn btn-primary" onclick =las_pruebas()>prueba igual:v</button>
  <!--fin seccion de edicion --> 
   <!-- /.content-wrapper -->
   <footer class="main-footer">

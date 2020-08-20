@@ -1,11 +1,8 @@
 <?php
     include("../../inc/funciones/conexal.php");
     $link = Conectarse();
-    $fecha1 = $_GET["fecha_i_f"];
-    $fecha2 = $_GET["fecha_f_f"];
-    $estatus = $_GET["estatus"];
-    $id = $_GET["id"];
-    mysqli_query($link, "UPDATE `generaciones` SET `fecha_inicio`= '$fecha1',`fecha_fin`= '$fecha2',`estatus`= $estatus WHERE `id_generacion`= $id");
+    $id_generacion_ciclo = $_GET["id_generacion_ciclo"];
+    mysqli_query($link, "DELETE FROM `generaciones-ciclos` WHERE `generaciones-ciclos`.`id_generacion_ciclo` = $id_generacion_ciclo");
 ?>
               <?php
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 2");
@@ -184,5 +181,3 @@
                   ';
                 };
               ?>
-              
-

@@ -1,10 +1,10 @@
 <?php
 function Conectarse(){
-	if (!($link=mysqli_connect("localhost","root","adminadmin"))){
+	if (!($link=mysqli_connect("localhost","root","roottoor"))){
 		echo "Error conectando a la base de datos.";
 		exit();
 	}
-	if(!mysqli_select_db($link,"bd_nag")){
+	if(!mysqli_select_db($link,"escuela")){
 		echo "Error seleccionando la base de datos.";
 		exit();
 	}

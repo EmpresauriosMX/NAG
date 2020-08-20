@@ -4,6 +4,9 @@ var ListaLicenciaturasActivas = document.querySelector('tbody#tabla_lic_activa')
 var texto_check="";
 var texto_check1="";
 var texto_nombre="";
+var USAME ="";
+var arreglo_json ="";
+var cadena_periodo ="";
 eventListeners();
 
 function eventListeners(){
@@ -254,7 +257,8 @@ function AgregarLicenciatura(e){ // si entra
         })
       }
       //editar licenciatura_activa
-function editar_licenciatura_activa(variable_recibida_editar){
+function editar_licenciatura_dactiva(variable_recibida_editar){
+  ppruebas();
   console.log(variable_recibida_editar); //pruebas de recepcion de datos
     //mensaje emergente
   swal({
@@ -415,6 +419,7 @@ function editar_licenciatura_activa(variable_recibida_editar){
     var selected = combo.options[combo.selectedIndex].text;
     texto_check =cod;
     texto_nombre=selected;
+    La_obtencion_de_periodos();
     }
     function ShowSelected1() //segundo select
     {
@@ -523,4 +528,173 @@ function editar_licenciatura_activa(variable_recibida_editar){
           campo.remove();
         }
       })
+    }
+    //obtener los periodos
+    function La_obtencion_de_periodos(){
+      operacion = 'obtener_periodo';
+      var datos = new FormData();
+      datos.append('variable',texto_check);
+      datos.append('operacion',operacion);
+        console.log(operacion);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+
+      xhr.onload = function(){
+        if(this.status === 200) {
+          var respuesta = JSON.parse(xhr.responseText);
+          console.log(respuesta);
+          cadena="";
+          var NuevoSelect = document.createElement('select'); //se crea la lista dentro del html
+          NuevoSelect.setAttribute("id","producto1");
+          NuevoSelect.setAttribute("class","form-control")
+          NuevoSelect.setAttribute("name","producto1");
+          NuevoSelect.setAttribute("onchange","ShowSelected1();");
+
+          cadena += "<option> --seleccionar un periodo </option>"
+          for (i=1; i<respuesta.valor_periodo+1; i++) {
+            cadena += "<option>"+ i +"</option> ";
+           // console.log(cadena);
+            };
+
+          NuevoSelect.innerHTML = cadena;
+        
+          campo_periodo=document.querySelector('#contenedor_periodo');
+          campo = document.querySelector('#producto1');
+          campo_periodo.replaceChild(NuevoSelect,campo);
+         // campo_periodo.appendChild(NuevoSelect)
+
+        }
+                            }                                    
+      xhr.send(datos);
+    }
+
+      //select dentro de editar
+    function editar_licenciatura_activa(variable_recibida_editar){
+      console.log(variable_recibida_editar)
+      operacion = 'poner';
+      var datos = new FormData();
+      datos.append('operacion',operacion);
+        console.log(operacion);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+
+      xhr.onload = function(){
+        if(this.status === 200){
+          var respuesta = JSON.parse(xhr.responseText);
+
+          console.log(respuesta);
+          
+          arreglo_json= respuesta;
+          
+          //se obtiene la nueva licenciatura en la seccion de edicion 
+          cadena ="";
+          cadena += "<option> --seleccionar una nueva licenciatura </option>";
+          for(var i=0;i<respuesta.length;i++){
+            cadena+="<option>"+ respuesta[i].nombre+"</option>";
+          //  console.log(cadena);
+          }
+          (async () => {
+
+            const { value: formValues } = await Swal.fire({
+              title: 'Editar Licenciatura activa',
+              html:
+  
+                '<div id="contenido-select"> <select class="form-control" id="swal-select" onchange =periodo_seleccion()>' + cadena+ '</select>'+
+                '<select class="form-control" id="swal-select_periodo"' + cadena_periodo + '</select> </div>',
+              focusConfirm: false,
+              preConfirm: () => {
+                return [
+                  Nuevo_nombre = document.getElementById('swal-select').value,
+                  nuevo_periodo = document.getElementById('swal-select_periodo').value
+                ]
+              }
+            })
+            
+            if (formValues) {
+              let Nuevo_nombre=$('#swal-select').val();
+              let nombre_input=$('swal-select_periodo').val();
+              console.log(Nuevo_nombre); //obtener el nuevo nombre
+              console.log(nuevo_periodo); //obtener el nuevo periodo
+              enviar_cambios(Nuevo_nombre,nuevo_periodo,variable_recibida_editar);
+            }            
+            })()
+
+        }
+      }
+
+      xhr.send(datos);
+      
+    }
+    //cambia el periodo en la seleccion
+    function periodo_seleccion(respuesta){
+      cadena_periodo ="";
+        cadena_periodo += "<option> --seleccionar un nuevo periodo </option>";
+     // console.log(arreglo_json);
+       let Nuevo_nombre=$('#swal-select').val();
+      // console.log(Nuevo_nombre);
+       for(var i=0;i<arreglo_json.length;i++){
+
+        if(arreglo_json[i].nombre ===Nuevo_nombre){
+
+             var periodo= arreglo_json[i].total_periodos;
+         //    console.log(periodo);
+        //     console.log("valor total del cambio");
+        }
+      }
+      for (var q=0; q<periodo; q++) {
+
+        cadena_periodo += "<option>"+ q +"</option> ";
+        };
+      //  console.log(cadena_periodo);
+
+        var NuevoSelect = document.createElement('select'); //se crea la lista dentro del html
+          NuevoSelect.setAttribute("id","swal-select_periodo");
+          NuevoSelect.setAttribute("class","form-control")
+        NuevoSelect.innerHTML = cadena_periodo;
+        
+        campo_periodo=document.querySelector('#contenido-select');
+        campo = document.querySelector('#swal-select_periodo');
+        campo_periodo.replaceChild(NuevoSelect,campo);
+    }
+    //enviar cambios de licenciatura activa
+    function enviar_cambios(nombre,periodo,id_cambio,){
+
+      operacion = 'editar_licenciatura_activa';
+
+      var datos = new FormData();
+      datos.append('id_licenciatura',id_cambio);
+      datos.append('nombre',nombre);
+      datos.append('periodos',periodo);
+      datos.append('operacion',operacion);
+        console.log(operacion);
+        console.log(id_cambio +" "+nombre +"" + periodo +""+operacion)
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
+
+      xhr.onload = function(){
+        if(this.status === 200) {
+            var respuesta = JSON.parse(xhr.responseText);
+            console.log(respuesta);                     
+            // creacion de la seccion acualizada en la tabla
+          var NuevaLicenciatura = document.createElement('tr'); //se crea la lista dentro del html
+          NuevaLicenciatura.setAttribute("id","campo_Licenciaturas_activas"+id_cambio);
+          NuevaLicenciatura.setAttribute("name","campo_Licenciaturas_activas"+id_cambio);
+          NuevaLicenciatura.innerHTML = ` 
+           <td>${id_cambio}</td>
+           <td>${nombre}</td>
+           <td>${periodo}</td>
+           <td>
+           <div class="btn-group">
+           <button type="button" class="btn btn-outline-primary btn-sm"onclick =editar_licenciatura_activa(${id_cambio})>Editar</button>
+           <button type="button" class="btn btn-outline-danger btn-sm" onclick =EliminarLic_activa(${id_cambio})>Eliminar</button>
+         </div>
+           </td>
+                  `;// url donde se envia//
+              campo = document.querySelector('#campo_Licenciaturas_activas'+id_cambio);
+              ListaLicenciaturasActivas.replaceChild(NuevaLicenciatura,campo);
+                                //a donde se aplica, el nuevo contenido, el viejo contenido
+    }         
+      }   
+      xhr.send(datos);
+
     }

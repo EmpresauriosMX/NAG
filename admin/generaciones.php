@@ -60,7 +60,6 @@
 
   <!-- inicio --------------------- BARRA DE NAVEGACIÓN IZQUIERDA------------->
   <?php
-    
     include("../inc/funciones/conexal.php");
     $link = Conectarse(); /*conexion a la bd*/include 'plantilla_barra_izquierda.php';
   ?>
@@ -145,16 +144,16 @@
               <?php
                 $generaciones = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 1");
                 $n_generaciones = mysqli_num_rows($generaciones);
-                //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
                 //crea una carta de configuracion por cada generacion
                 while($row_generaciones = mysqli_fetch_array($generaciones)){
+                  //Obtiene el id de la generacion
                   $id_generacion = $row_generaciones["id_generacion"];
                   //Datos de la generacion
                   $result = mysqli_query($link, "SELECT * FROM `generaciones` WHERE estatus = 1 AND id_generacion = $id_generacion");
                   $hay_ciclo_activo = mysqli_num_rows($result);
                   $generacion=mysqli_fetch_array($result);
                   //CICLO ACTUAL
-                  $ciclos= mysqli_query($link, "SELECT `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = $id_generacion and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'activo'");
+                  $ciclos = mysqli_query($link, "SELECT id_generacion_ciclo ,`ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = $id_generacion and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'activo'");
                   $hay_ciclo_activo = mysqli_num_rows($ciclos);
                   $ciclo_actual=mysqli_fetch_array($ciclos);
                   $cont_ciclos = 0;
@@ -165,6 +164,12 @@
                           <div class="card-tools">
                               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                   <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
+                              <button type="button" onclick="eliminar_generacion('.$id_generacion.')" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-trash"></i>
                               </button>
                           </div>
                       </div>
@@ -214,7 +219,7 @@
                                 <button type="button" onClick="actualizar_generacion_a('.$id_generacion.')"  class="btn btn-success float-right">Guardar Cambios</button>
                               </div>
                             </div>
-                              
+                            <!--------------------------TABLA DE CICLOS EN LA GENERACION------------------------------->
                             <h4>Ciclos de la generación</h4>
                                     <table class="table">
                                       <thead>
@@ -253,11 +258,11 @@
                                                       </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                      <p>¿Desea eliminar este ciclo?</p>
+                                                      <p>¿Desea eliminar este ciclo de la generación inicio <strong>'.$generacion["fecha_inicio"].' </strong> fin <strong> '.$generacion["fecha_fin"].' </strong>?</p>
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=remover_ciclo('.$ciclo_actual["ID_Ciclo"].')>Eliminar</button>
+                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="remover_ciclo('.$ciclo_actual["id_generacion_ciclo"].')">Eliminar</button>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -265,7 +270,7 @@
                                             ';
                                           }
                                           //----CICLOS FUTUROS
-                                          $ciclos_futuros = mysqli_query($link, "SELECT `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = $id_generacion and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'futuro'");
+                                          $ciclos_futuros = mysqli_query($link, "SELECT id_generacion_ciclo, `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = $id_generacion and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'futuro'");
                                           $n_ciclos_futuros = mysqli_num_rows($ciclos_futuros);
                                           //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
                                           while($row_ciclos_futuros = mysqli_fetch_array($ciclos_futuros)){
@@ -291,11 +296,11 @@
                                                       </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                      <p>¿Desea eliminar este ciclo?</p>
+                                                      <p>¿Desea eliminar este ciclo de la generación inicio <strong>'.$generacion["fecha_inicio"].' </strong> fin <strong> '.$generacion["fecha_fin"].' </strong>?</p>
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=remover_ciclo('.$row_ciclos_futuros["ID_Ciclo"].')>Eliminar</button>
+                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="remover_ciclo('.$row_ciclos_futuros["id_generacion_ciclo"].')">Eliminar</button>
                                                     </div>
                                                   </div>
                                                   <!-- /.modal-content -->
@@ -331,7 +336,7 @@
                   $hay_ciclo_activo = mysqli_num_rows($result);
                   $generacion=mysqli_fetch_array($result);
                   //CICLO ACTUAL
-                  $ciclos= mysqli_query($link, "SELECT `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = $id_generacion and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'activo'");
+                  $ciclos= mysqli_query($link, "SELECT id_generacion_ciclo ,`ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = $id_generacion and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'activo'");
                   $hay_ciclo_activo = mysqli_num_rows($ciclos);
                   $ciclo_actual=mysqli_fetch_array($ciclos);
                   $cont_ciclos = 0;
@@ -342,6 +347,12 @@
                           <div class="card-tools">
                               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                   <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
+                              <button type="button" onclick="eliminar_generacion('.$id_generacion.')" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-trash"></i>
                               </button>
                           </div>
                       </div>
@@ -429,11 +440,11 @@
                                                       </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                      <p>¿Desea eliminar este ciclo?</p>
+                                                      <p>¿Desea eliminar este ciclo de la generación inicio <strong>'.$generacion["fecha_inicio"].' </strong> fin <strong> '.$generacion["fecha_fin"].' </strong>?</p>
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=remover_ciclo('.$ciclo_actual["ID_Ciclo"].')>Eliminar</button>
+                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="remover_ciclo('.$ciclo_actual["id_generacion_ciclo"].')">Eliminar</button>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -441,7 +452,7 @@
                                             ';
                                           }
                                           //----CICLOS FUTUROS
-                                          $ciclos_futuros = mysqli_query($link, "SELECT `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = $id_generacion and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'futuro'");
+                                          $ciclos_futuros = mysqli_query($link, "SELECT id_generacion_ciclo ,`ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `generaciones-ciclos`,`ciclo` WHERE `generaciones-ciclos`.`id_generacion` = $id_generacion and `ciclo`.`ID_Ciclo`= `generaciones-ciclos`.`ID_Ciclo` and `ciclo`.`estatus`= 'futuro'");
                                           $n_ciclos_futuros = mysqli_num_rows($ciclos_futuros);
                                           //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
                                           while($row_ciclos_futuros = mysqli_fetch_array($ciclos_futuros)){
@@ -467,11 +478,11 @@
                                                       </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                      <p>¿Desea eliminar este ciclo?</p>
+                                                      <p>¿Desea eliminar este ciclo de la generación inicio <strong>'.$generacion["fecha_inicio"].' </strong> fin <strong> '.$generacion["fecha_fin"].' </strong>?</p>
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=remover_ciclo('.$row_ciclos_futuros["ID_Ciclo"].')>Eliminar</button>
+                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="remover_ciclo('.$row_ciclos_futuros["id_generacion_ciclo"].')">Eliminar</button>
                                                     </div>
                                                   </div>
                                                   <!-- /.modal-content -->
@@ -517,89 +528,75 @@
                       </thead>
                       <tbody>
                       <?php
-                        $ciclos= mysqli_query($link, "SELECT `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `ciclo`");
-                        $hay_ciclo_activo = mysqli_num_rows($ciclos);
-                        $ciclo_actual=mysqli_fetch_array($ciclos);
-                        $cont_ciclos = 0;                                                 
+                        //Ciclos
+                        $ciclosT= mysqli_query($link, "SELECT * FROM `ciclo` WHERE estatus = 'activo'");
+                        $hay_ciclo_activoT = mysqli_num_rows($ciclosT);
+                        $cont_ciclosT = 0;
+                        $todos_los_ciclos = mysqli_query($link, "SELECT * FROM `ciclo`");
+                        $numero_de_ciclos = mysqli_num_rows($todos_los_ciclos);                                               
                         //Si existe un ciclo actual en la tabla de los ciclos se crea el primer elemento que es el ese ciclo
                         //en este se agrega el boton para encender o apagar el ciclo
-                        if($hay_ciclo_activo){
-                          $cont_ciclos += 1;
+                        //----CICLOS
+                        while($row_ciclos_futurosT = mysqli_fetch_array($todos_los_ciclos)){
+                          $cont_ciclosT += 1;
                           echo'
                             <tr>
-                              <td>'.$cont_ciclos.'</td>
-                              <th>'.$ciclo_actual["ID_Ciclo"].'</th>
-                              <td>Fecha inicio: <strong>'.$ciclo_actual["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$ciclo_actual["fecha_fin"].'</strong></h5></td>
+                              <td>'.$cont_ciclosT.'</td>
+                              <th>'.$row_ciclos_futurosT["ID_Ciclo"].'</th>
+                              <td>Fecha inicio: <strong>'.$row_ciclos_futurosT["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$row_ciclos_futurosT["fecha_fin"].'</strong></td>
                               <td>
-                              <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$ciclo_actual["ID_Ciclo"].'">Agregar a una generación</button>
+                                <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default-agregar'.$row_ciclos_futurosT["ID_Ciclo"].'">Agregar a una generación</button>
                               </td>
-                              <td><span class="badge bg-danger">Actual</span></td>
-                             </tr>
-                             <!-------------------MODAL DE REMOVER CICLO DE LA GENERACION--------->
-                             <div class="modal fade" id="modal-default'.$ciclo_actual["ID_Ciclo"].'">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h4 class="modal-title">Ciclo Fecha inicio: <strong>'.$ciclo_actual["fecha_inicio"].'</strong> Fecha fin: <strong>'.$ciclo_actual["fecha_fin"].'</strong></h5> </h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
+                              ';
+                              if($row_ciclos_futurosT["estatus"] == 'activo'){
+                                echo '<td><span class="badge bg-danger">Actual</span></td>';
+                              }
+                              else{
+                                echo '<td><span class="badge bg-primary">Futuro</span></td>';
+                              }
+                         echo '
+                            </tr>
+                                  <!-----------------------------MODAL PARA ELIMINAR LOS CICLOS-------->
+                                  <div class="modal fade" id="modal-default-agregar'.$row_ciclos_futurosT["ID_Ciclo"].'">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Ciclo futuro Fecha inicio: <strong>'.$row_ciclos_futurosT["fecha_inicio"].'</strong> Fecha fin: <strong>'.$row_ciclos_futurosT["fecha_fin"].'</strong></h5> </h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Generacion en la cual generación estará este ciclo</p>
+                                          <!-- select -->
+                                          <div class="form-group">
+                                            <label>Generaciones</label>
+                                            <select id="select'.$row_ciclos_futurosT["ID_Ciclo"].'" class="form-control">
+                                              ';
+                                              //Generaciones
+                                              $generacionesT = mysqli_query($link, "SELECT * FROM `generaciones`");
+                                              while($row_generacionesT = mysqli_fetch_array($generacionesT)){
+                                                echo'
+                                                  <option value="'.$row_generacionesT["id_generacion"].'" >Generación inicio <strong>'.$row_generacionesT["fecha_inicio"].' </strong> fin <strong> '.$row_generacionesT["fecha_fin"].' </strong></option>
+                                                ';
+                                              }
+                                              echo '
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=agregar_ciclo_a_generacion('.$row_ciclos_futurosT["ID_Ciclo"].')>agregar</button>
+                                        </div>
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
                                   </div>
-                                  <div class="modal-body">
-                                    <p>¿Desea eliminar este ciclo?</p>
-                                  </div>
-                                  <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=remover_ciclo('.$ciclo_actual["ID_Ciclo"].')>Eliminar</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                                            ';
-                                          }
-                                          //----CICLOS FUTUROS
-                                          $ciclos_futuros = mysqli_query($link, "SELECT `ciclo`.ID_Ciclo, ciclo.fecha_inicio , ciclo.fecha_fin FROM `ciclo`");
-                                          $n_ciclos_futuros = mysqli_num_rows($ciclos_futuros);
-                                          //$ciclos_futuros = mysqli_fetch_array($ciclos_futuros);
-                                          while($row_ciclos_futuros = mysqli_fetch_array($ciclos_futuros)){
-                                            $cont_ciclos += 1;
-                                            echo'
-                                              <tr>
-                                                <td>'.$cont_ciclos.'</td>
-                                                <th>'.$row_ciclos_futuros["ID_Ciclo"].'</th>
-                                                <td>Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong>    Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></td>
-                                                <td>
-                                                  <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">Agregar a una generación</button>
-                                                </td>
-                                                <td><span class="badge bg-primary">Futuro</span></td>
-                                              </tr>
-                                              <!-----------------------------MODAL PARA ELIMINAR LOS CICLOS-------->
-                                              <div class="modal fade" id="modal-default'.$row_ciclos_futuros["ID_Ciclo"].'">
-                                                <div class="modal-dialog">
-                                                  <div class="modal-content">
-                                                    <div class="modal-header">
-                                                      <h4 class="modal-title">Ciclo Fecha inicio: <strong>'.$row_ciclos_futuros["fecha_inicio"].'</strong> Fecha fin: <strong>'.$row_ciclos_futuros["fecha_fin"].'</strong></h5> </h4>
-                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                      </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                      <p>¿Desea eliminar este ciclo?</p>
-                                                    </div>
-                                                    <div class="modal-footer justify-content-between">
-                                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=remover_ciclo('.$row_ciclos_futuros["ID_Ciclo"].')>Eliminar</button>
-                                                    </div>
-                                                  </div>
-                                                  <!-- /.modal-content -->
-                                                </div>
-                                                <!-- /.modal-dialog -->
-                                              </div>
-
-                                            ';
-                                          }
-                                      ?>
-                                      </tbody>
+                          ';
+                        }
+                      ?>
+                      </tbody>
                     </table>   
                   </div>
               </div>
