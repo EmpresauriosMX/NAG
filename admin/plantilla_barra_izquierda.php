@@ -169,6 +169,7 @@
               </p>
             </a>
           </li>
+          <?php /*
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-friends"></i>
@@ -176,8 +177,8 @@
                 Grupos
               </p>
             </a>
-          </li>
-          
+          </li>*/
+          ?>
           <!--li class="nav-header">MISCELLANEOUS</li-->
           <li class="nav-item">
             <a href="licenciatura.php" class="nav-link">
