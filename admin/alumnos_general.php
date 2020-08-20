@@ -96,11 +96,12 @@
                         <div class="form-group">
                             <label>Licenciatura</label>
                             <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                            <option disabled selected>- Elige una opción -</option>
+                            <option>Sistemas Computacionales</option>
+                            <option>Enfermería</option>
+                            <option>Arquitectura</option>
+                            <option>Contaduría y Finanzas</option>
+                            <option>Psicología</option>
                             </select>
                         </div>
                         </div>
@@ -110,11 +111,12 @@
                         <div class="form-group">
                             <label>Cuatrimestre</label>
                             <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                            <option disabled selected>- Elige una opción -</option>                                
+                            <option>Primero</option>
+                            <option>Segundo</option>
+                            <option>Tercero</option>
+                            <option>Cuarto</option>
+                            <option>Quinto</option>
                             </select>
                         </div>
                         </div>
@@ -124,11 +126,12 @@
                         <div class="form-group">
                             <label>Grupo</label>
                             <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                            <option disabled selected>- Elige una opción -</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>E</option>
                             </select>
                         </div>
                         </div>
@@ -164,15 +167,15 @@
                             <thead>
                                 <tr>
                                 <th style="width: 10px">#</th>
-                                <th>Task</th>
-                                <th>Progress</th>
-                                <th style="width: 40px">Label</th>
+                                <th>Nombre completo</th>
+                                <th>Progreso escolar</th>
+                                <th style="width: 40px">Beca</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                 <td>1.</td>
-                                <td>Update software</td>
+                                <td>Acosta Renzo Julian</td>
                                 <td>
                                     <div class="progress progress-xs">
                                     <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -182,7 +185,7 @@
                                 </tr>
                                 <tr>
                                 <td>2.</td>
-                                <td>Clean database</td>
+                                <td>Rodolfo Alvarado Bacab</td>
                                 <td>
                                     <div class="progress progress-xs">
                                     <div class="progress-bar bg-warning" style="width: 70%"></div>
@@ -192,7 +195,7 @@
                                 </tr>
                                 <tr>
                                 <td>3.</td>
-                                <td>Cron job running</td>
+                                <td>Luis Antonio Chuc Santos</td>
                                 <td>
                                     <div class="progress progress-xs progress-striped active">
                                     <div class="progress-bar bg-primary" style="width: 30%"></div>
@@ -202,7 +205,7 @@
                                 </tr>
                                 <tr>
                                 <td>4.</td>
-                                <td>Fix and squish bugs</td>
+                                <td>Saúl Santiago Góngora Kú</td>
                                 <td>
                                     <div class="progress progress-xs progress-striped active">
                                     <div class="progress-bar bg-success" style="width: 90%"></div>
@@ -227,15 +230,15 @@
                             <thead>
                                 <tr>
                                 <th style="width: 10px">#</th>
-                                <th>Task</th>
-                                <th>Progress</th>
-                                <th style="width: 40px">Label</th>
+                                <th>Nombre Completo</th>
+                                <th>Progreso escolar</th>
+                                <th style="width: 40px">Beca</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                 <td>1.</td>
-                                <td>Update software</td>
+                                <td>González Megía Daniel</td>
                                 <td>
                                     <div class="progress progress-xs">
                                     <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -245,7 +248,7 @@
                                 </tr>
                                 <tr>
                                 <td>2.</td>
-                                <td>Clean database</td>
+                                <td>Juárez Castro Emiliano</td>
                                 <td>
                                     <div class="progress progress-xs">
                                     <div class="progress-bar bg-warning" style="width: 70%"></div>
@@ -255,7 +258,7 @@
                                 </tr>
                                 <tr>
                                 <td>3.</td>
-                                <td>Cron job running</td>
+                                <td>Kú Caamal Jorge Geovani</td>
                                 <td>
                                     <div class="progress progress-xs progress-striped active">
                                     <div class="progress-bar bg-primary" style="width: 30%"></div>
@@ -265,7 +268,7 @@
                                 </tr>
                                 <tr>
                                 <td>4.</td>
-                                <td>Fix and squish bugs</td>
+                                <td>Lara Pech David</td>
                                 <td>
                                     <div class="progress progress-xs progress-striped active">
                                     <div class="progress-bar bg-success" style="width: 90%"></div>
@@ -291,15 +294,15 @@
                         <thead>
                             <tr>
                             <th style="width: 10px">#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th style="width: 40px">Label</th>
+                            <th>Nombre completo</th>
+                            <th>Progreso escolar</th>
+                            <th style="width: 40px">Beca</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                             <td>1.</td>
-                            <td>Update software</td>
+                            <td>Montejo Cime José Alberto</td>
                             <td>
                                 <div class="progress progress-xs">
                                 <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -309,7 +312,7 @@
                             </tr>
                             <tr>
                             <td>2.</td>
-                            <td>Clean database</td>
+                            <td>Muñoz Berzunza Julio Andre</td>
                             <td>
                                 <div class="progress progress-xs">
                                 <div class="progress-bar bg-warning" style="width: 70%"></div>
@@ -319,7 +322,7 @@
                             </tr>
                             <tr>
                             <td>3.</td>
-                            <td>Cron job running</td>
+                            <td>Nahuat Tun Rodrigo Alberto</td>
                             <td>
                                 <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar bg-primary" style="width: 30%"></div>
@@ -329,7 +332,7 @@
                             </tr>
                             <tr>
                             <td>4.</td>
-                            <td>Fix and squish bugs</td>
+                            <td>Cristian Abimair Pinzón Cruz</td>
                             <td>
                                 <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar bg-success" style="width: 90%"></div>
@@ -355,15 +358,15 @@
                         <thead>
                             <tr>
                             <th style="width: 10px">#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th style="width: 40px">Label</th>
+                            <th>Nombre completo</th>
+                            <th>Progreso escolar</th>
+                            <th style="width: 40px">Beca</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                             <td>1.</td>
-                            <td>Update software</td>
+                            <td>Rodríguez Segovía Osly Donovan</td>
                             <td>
                                 <div class="progress progress-xs">
                                 <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -373,7 +376,7 @@
                             </tr>
                             <tr>
                             <td>2.</td>
-                            <td>Clean database</td>
+                            <td>Tamay Puc Martha Patricia</td>
                             <td>
                                 <div class="progress progress-xs">
                                 <div class="progress-bar bg-warning" style="width: 70%"></div>
@@ -383,7 +386,7 @@
                             </tr>
                             <tr>
                             <td>3.</td>
-                            <td>Cron job running</td>
+                            <td>Tzun Guzman Luis Alberto</td>
                             <td>
                                 <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar bg-primary" style="width: 30%"></div>
@@ -393,7 +396,7 @@
                             </tr>
                             <tr>
                             <td>4.</td>
-                            <td>Fix and squish bugs</td>
+                            <td>Mac Dzul Darwin Mac</td>
                             <td>
                                 <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar bg-success" style="width: 90%"></div>

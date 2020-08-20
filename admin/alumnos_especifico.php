@@ -96,11 +96,13 @@
                         <div class="form-group">
                             <label>Licenciatura</label>
                             <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                            <option disabled selected>- Elige una opción -</option>
+                            <option disabled selected>- Elige una opción -</option>
+                            <option>Sistemas Computacionales</option>
+                            <option>Enfermería</option>
+                            <option>Arquitectura</option>
+                            <option>Contaduría y Finanzas</option>
+                            <option>Psicología</option>
                             </select>
                         </div>
                         </div>
@@ -110,11 +112,12 @@
                         <div class="form-group">
                             <label>Cuatrimestre</label>
                             <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                            <option disabled selected>- Elige una opción -</option>                                
+                            <option>Primero</option>
+                            <option>Segundo</option>
+                            <option>Tercero</option>
+                            <option>Cuarto</option>
+                            <option>Quinto</option>
                             </select>
                         </div>
                         </div>
@@ -124,11 +127,12 @@
                         <div class="form-group">
                             <label>Grupo</label>
                             <select class="form-control">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                            <option disabled selected>- Elige una opción -</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>E</option>
                             </select>
                         </div>
                         </div>

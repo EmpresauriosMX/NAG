@@ -10,7 +10,7 @@ select {
 
 .busqueda-gen-select {
     display: flex;
-    flex-basis: calc(60% - 1rem);
+    flex-basis: calc(70% - 1rem);
 }
 
 .busqueda-gen-select select {
@@ -18,7 +18,7 @@ select {
 }
 
 .busqueda-especifica {
-    flex-basis: calc(40% - 1rem);
+    flex-basis: calc(30% - 1rem);
 }
 
 .busqueda-especifica button {
