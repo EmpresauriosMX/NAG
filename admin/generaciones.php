@@ -504,7 +504,7 @@
             </div>
             
             <!--TABLA DE CICLOS PARA AGREGARLOS A LAS GENERACIONES--->
-            <div class="col-md-10 mx-auto">
+            <div class="col-md-10 mx-auto"> 
               <div class="card card-danger">
                   <div class="card-header">
                     <h3 class="card-title">Agregar ciclos a las generaciones</h3>
@@ -577,7 +577,7 @@
                                               $generacionesT = mysqli_query($link, "SELECT * FROM `generaciones`");
                                               while($row_generacionesT = mysqli_fetch_array($generacionesT)){
                                                 echo'
-                                                  <option value="'.$row_generacionesT["id_generacion"].'" >Generación inicio <strong>'.$row_generacionesT["fecha_inicio"].' </strong> fin <strong> '.$row_generacionesT["fecha_fin"].' </strong></option>
+                                                  <option value="'.$row_generacionesT["id_generacion"].'" >Generación id: '.$row_generacionesT["id_generacion"].'  inicio <strong>'.$row_generacionesT["fecha_inicio"].' </strong> fin <strong> '.$row_generacionesT["fecha_fin"].' </strong></option>
                                                 ';
                                               }
                                               echo '
