@@ -132,7 +132,7 @@ function AgregarLicenciatura(e){ // si entra
                     ${Nueva_tarea}
                               <div class="btn-group col-5">
                               <input type="hidden" id="valor_de_licenciatura${id_tarea}" value="${licenciatura}">
-                              <input type="hidden" id="valor_de_licenciatura${id_tarea}" value="${id_Lic_Recibida}">
+                              <input type="hidden" id="valor_de_licenciatura_activa${id_tarea}" value="${id_Lic_Recibida}">
                               <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(${id_tarea})>Editar</button>
                               <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(${id_tarea})>Eliminar</button>
                               </div> <br>
