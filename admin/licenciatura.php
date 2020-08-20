@@ -131,6 +131,7 @@
                       <td><?php echo $proyectos['NombreLic']?></td>
                       <td><?php echo $proyectos['periodos'] ?></td>
                       <input type="hidden" id="obtener_nombre_lic<?php echo $proyectos['ID_Lincenciatura'] ?>" value="<?php echo $proyectos['NombreLic']?>">
+                      <input type="hidden" id="obtener_periodo_lic<?php echo $proyectos['ID_Lincenciatura'] ?>" value="<?php echo $proyectos['periodos']?>">
                       <td>
                       <div class="btn-group">
                         <button type="button" class="btn btn-outline-primary btn-sm" onclick =Editar_licenciaturas(<?php echo $proyectos['ID_Lincenciatura']?>)>Editar</button>
@@ -243,7 +244,6 @@
             </div>
   </div>
 </div>
-    <button type="button" class="btn btn-primary" onclick =las_pruebas()>prueba igual:v</button>
  <!--fin seccion de edicion --> 
   <!-- /.content-wrapper -->
   <footer class="main-footer">

@@ -192,20 +192,21 @@ $query = "select * from licenciatura";
   break;
     // **********************     editar_licenciatura activa   ***************************
     case 'editar_licenciatura_activa':
+      $id_activa = $_POST['id_activa'];
       $id_recibido = $_POST['id_licenciatura'];
-      $NombreLicenciatura = $_POST['nombre'];
       $periodos = $_POST['periodos'];
       include 'conexion.php';
       try{
      $stmt = $conn->prepare("update licenciatura_activa set ID_Lincenciatura=?,id_periodo=? where ID_LicActiva=?");
-     $stmt->bind_param('ssi',$NombreLicenciatura,$periodos,$id_recibido);
+     $stmt->bind_param('ssi',$id_recibido,$periodos,$id_activa);
      $stmt->execute(); 
    
      if($stmt->affected_rows > 0){  
        $respuesta = array(   
-         'como_respuesta' => 'editar_la_lic',
+         'como_respuesta' => 'editar_lic_activa',
          'numero' => $periodos,
-         'Nombre_Asignatura' => $NombreLicenciatura
+         'Nombre_Asignatura' => $id_activa,
+         'el_id_licenciatura' => $id_recibido
        );
      }else{
        $respuesta = array(

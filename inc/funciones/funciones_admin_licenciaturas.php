@@ -13,7 +13,7 @@ try{
 function obtenerLicActiva(){
   include 'conexion.php';
   try{
-    return $conn->query("SELECT licenciatura_activa.id_periodo,licenciatura_activa.ID_LicActiva,licenciatura.NombreLic,ciclo.fecha_inicio,ciclo.fecha_fin FROM ciclo,licenciatura,licenciatura_activa WHERE licenciatura_activa.ID_lincenciatura=licenciatura.ID_Lincenciatura AND licenciatura_activa.ID_ciclo=ciclo.ID_Ciclo");
+    return $conn->query("SELECT licenciatura_activa.id_periodo,licenciatura_activa.ID_LicActiva,licenciatura.NombreLic FROM licenciatura,licenciatura_activa WHERE licenciatura_activa.ID_lincenciatura=licenciatura.ID_Lincenciatura");
   }catch(Exception $e){
     echo "Error! :" . $e->getMessage();
     return false;

@@ -7,14 +7,13 @@ var texto_nombre="";
 var USAME ="";
 var arreglo_json ="";
 var cadena_periodo ="";
+var id_licenciatura ="";
 eventListeners();
 
 function eventListeners(){
   document.querySelector('#formulario').addEventListener('click',AgregarLicenciatura);
   document.querySelector('#formulario1').addEventListener('click',AgregarLicenciaturaActiva);
   }
-
-
 function AgregarLicenciatura(e){ // si entra 
     e.preventDefault();
     var lic = document.querySelector('#NombreLic').value,
@@ -47,6 +46,8 @@ function AgregarLicenciatura(e){ // si entra
              <td>${nombre}</td>
              <td>${periodo}</td>
              <input type="hidden" id="obtener_nombre_lic${id}" value="${nombre}">
+             <input type="hidden" id="obtener_periodo_lic${id}" value="${periodo}">
+             
              <td>
              <div class="btn-group">
              <button type="button" class="btn btn-outline-primary btn-sm"onclick =Editar_licenciaturas(${id})>Editar</button>
@@ -61,7 +62,7 @@ function AgregarLicenciatura(e){ // si entra
       }   
       xhr.send(datos);
   }
-
+  /*agregar licenciatura activa */
   function LicenciaturaActiva(id_recibido){
    //  var Nueva_tarea = document.querySelector('#Nombre_Materia'+id_recibido).value;
    console.log('si entro a_agregar licenciatura activa');
@@ -118,20 +119,23 @@ function AgregarLicenciatura(e){ // si entra
                var respuesta = JSON.parse(xhr.responseText);
                console.log(respuesta);
                id_tarea=respuesta.id_asignatura;
+               var licenciatura = document.querySelector('#valor_de_licenciatura_activa_otro'+id_Lic_Recibida).value;
                var CampoMateria = document.querySelector('#tab_'+id_Lic_Recibida);
-
+                console.log("el valor del id de licenciatura activa"+ licenciatura);
+                console.log("valor de la licenciatatrua activa"+id_tarea);
+                console.log("id de la licenciatura como tal"+id_Lic_Recibida);
                var NuevoCampo_materia = document.createElement('div');
-               NuevoCampo_materia.className = "tab-pane";
-               NuevoCampo_materia.setAttribute("id","tab_"+id_Lic_Recibida);
+               NuevoCampo_materia.setAttribute("id","campo-de-materia"+id_tarea);
+               NuevoCampo_materia.setAttribute("name","campo-de-materia"+id_tarea);
                NuevoCampo_materia.innerHTML = `
-                 <div id="campo-de-materia${id_tarea}" name="campo-de-materia${id_tarea}">
+               <br>
                     ${Nueva_tarea}
                               <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura${id_tarea}" value="${licenciatura}">
                               <input type="hidden" id="valor_de_licenciatura${id_tarea}" value="${id_Lic_Recibida}">
                               <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(${id_tarea})>Editar</button>
                               <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(${id_tarea})>Eliminar</button>
                               </div> <br>
-                          </div>
                       `;// url donde se envia//
                       CampoMateria.appendChild(NuevoCampo_materia)
                 console.log("correcto ingreso de datos");
@@ -144,6 +148,8 @@ function AgregarLicenciatura(e){ // si entra
       function Editar_licenciaturas(variable_recibida_editar){
         console.log(variable_recibida_editar); //pruebas de recepcion de datos
         nombre=document.querySelector('#obtener_nombre_lic'+variable_recibida_editar).value;
+        periodo=document.querySelector('#obtener_periodo_lic'+variable_recibida_editar).value;
+        console.log(periodo);
           console.log(nombre);
           //mensaje emergente
         swal({
@@ -154,8 +160,8 @@ function AgregarLicenciatura(e){ // si entra
           confirmButtonText: 'Actualizar!',
           title: 'Editar datos de:',
           html:
-            '<h2>Nombre</h2><input id="swal-input1" class="swal2-input">' +
-            '<h2>Periodos</h2><input id="swal-input2" class="swal2-input">',
+          '<h2>Nombre</h2> <input id="swal-input1" class="swal2-input" value="' + nombre + '">' +
+          '<h2>Periodos</h2> <input id="swal-input2" class="swal2-input" value="' + periodo + '">',
           preConfirm: function () {
             return new Promise(function (resolve) {
               resolve([
@@ -198,6 +204,8 @@ function AgregarLicenciatura(e){ // si entra
                  <td>${Nuevo_nombre}</td>
                  <td>${nuevo_periodo}</td>
                  <input type="hidden" id="obtener_nombre_lic${variable_recibida_editar}" value="${Nuevo_nombre}">
+                 <input type="hidden" id="obtener_periodo_lic${variable_recibida_editar}" value="${nuevo_periodo}">
+                 
                  <td>
                  <div class="btn-group">
                  <button type="button" class="btn btn-outline-primary btn-sm"onclick =Editar_licenciaturas(${variable_recibida_editar})>Editar</button>
@@ -408,8 +416,6 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
      }   
      xhr.send(datos);
       }
-
-
     function ShowSelected() //primer select
     {
     /* Para obtener el valor */
@@ -430,10 +436,12 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
     var selected = combo.options[combo.selectedIndex].text;
     texto_check1 =cod;
     }
-    // ------------------------------------------------------editar nombre de asignaturas
-    function editar_materias(id_recibido){
+    // -----------------editar nombre de asignaturas
+    function editar_materias(id_recibido){ //id de la asignatura
       campo = document.querySelector('#campo-de-materia'+id_recibido);
       licenciatura = document.querySelector('#valor_de_licenciatura'+id_recibido).value;
+      id_licenciatura_activa = document.querySelector('#valor_de_licenciatura_activa'+id_recibido).value;
+      console.log(id_licenciatura_activa);
       console.log(licenciatura);
         console.log(id_recibido);
         {
@@ -468,21 +476,23 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
             if(this.status === 200) {
                 var respuesta = JSON.parse(xhr.responseText);
                 console.log(respuesta);
-                        var CampoMateria = document.querySelector('#tab_'+licenciatura);
+                        var CampoMateria = document.querySelector('#tab_'+id_licenciatura_activa);
+                        var NuevoCampo_materia = document.createElement('div');
+                        NuevoCampo_materia.setAttribute("id","campo-de-materia"+id_recibido);
+                        NuevoCampo_materia.setAttribute("name","campo-de-materia"+id_recibido);
+                        NuevoCampo_materia.innerHTML = `
+                        <br>
+                             ${nombre}
+                                       <div class="btn-group col-5">
+                                       <input type="hidden" id="valor_de_licenciatura${id_recibido}" value="${licenciatura}">
+                                       <input type="hidden" id="valor_de_licenciatura_activa${id_recibido}" value="${id_licenciatura_activa}">
+                                       <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(${id_recibido})>Editar</button>
+                                       <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(${id_recibido})>Eliminar</button>
+                                       </div> <br>
+                               `;// url donde se envia//
+                               CampoMateria.replaceChild(NuevoCampo_materia,campo)
+                         console.log("correcto ingreso de datos");
 
-               var NuevoCampo_materia = document.createElement('div');
-               NuevoCampo_materia.className = "tab-pane";
-               NuevoCampo_materia.setAttribute("id","tab_"+licenciatura);
-               NuevoCampo_materia.innerHTML = `
-                 <div id="campo-de-materia${id_recibido}" name="campo-de-materia${id_recibido}">
-                    ${nombre}
-                    <div class="btn-group col-5">
-                    <input type="hidden" id="valor_de_licenciatura${id_recibido}" value="${licenciatura}">
-                    <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(${id_recibido})>Editar</button>
-                    <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(${id_recibido})>Eliminar</button>
-                    </div> <br>
-                      `;// url donde se envia//
-                      //CampoMateria.appendChild(NuevoCampo_materia);
                       CampoMateria.replaceChild(NuevoCampo_materia,campo);
         }         
           }   
@@ -567,7 +577,6 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
                             }                                    
       xhr.send(datos);
     }
-
       //select dentro de editar
     function editar_licenciatura_activa(variable_recibida_editar){
       console.log(variable_recibida_editar)
@@ -635,7 +644,7 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
        for(var i=0;i<arreglo_json.length;i++){
 
         if(arreglo_json[i].nombre ===Nuevo_nombre){
-
+             id_licenciatura = arreglo_json[i].ID_Lincenciatura;
              var periodo= arreglo_json[i].total_periodos;
          //    console.log(periodo);
         //     console.log("valor total del cambio");
@@ -662,12 +671,12 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
       operacion = 'editar_licenciatura_activa';
 
       var datos = new FormData();
-      datos.append('id_licenciatura',id_cambio);
-      datos.append('nombre',nombre);
+      datos.append('id_activa',id_cambio);
+      datos.append('id_licenciatura',id_licenciatura)
       datos.append('periodos',periodo);
       datos.append('operacion',operacion);
         console.log(operacion);
-        console.log(id_cambio +" "+nombre +"" + periodo +""+operacion)
+        console.log(id_cambio +" "+nombre +"" + periodo +""+operacion +"" +id_licenciatura)
       var xhr = new XMLHttpRequest();
       xhr.open('POST','../inc/funciones/admin-licenciaturas-tareas.php', true);
 

@@ -16,11 +16,6 @@
     if ($resultado = mysqli_query($link, "SELECT id_instituto FROM instituto where id_instituto=1")) {
         echo(mysqli_num_rows($resultado));
         $valor =mysqli_num_rows($resultado);
-            if($valor == 0){
-                echo 'no hay datos';
-            }else{
-                echo 'si hay datos';
-            }
     }
  
 
@@ -41,8 +36,7 @@ if($valor == 0){
     //Insersion de datos a la tabla "instituto" en la BD
         mysqli_query($link,"INSERT INTO instituto (id_instituto,nombre,clave,tipo_de_institucion,descripcion,direccion,telefono,correo) 
         VALUES(1,'$nominst','$clave','$tipo','$desc','$direc','$tel','$correo')");
-        echo"Se insertaron datos por primera vez en la tabla";
-        echo "<meta http-equiv='REFRESH'content='5;URL=institucion.php'>";
+        echo "<meta http-equiv='REFRESH'content='0;URL=institucion.php'>";
         
 }else{
         //echo"Entro al ELSE :/";
@@ -51,6 +45,6 @@ if($valor == 0){
         //Actualiza datos de la tabla "instituto" en la BD
         mysqli_query($link,"UPDATE instituto SET nombre='$nominst',clave='$clave',tipo_de_institucion='$tipo',descripcion='$desc'
         ,direccion='$direc',telefono='$tel',correo='$correo' WHERE id_instituto=1");
-        echo "<meta http-equiv='REFRESH'content='5;URL=institucion.php'>";
+        echo "<meta http-equiv='REFRESH'content='0;URL=institucion.php'>";
 }
 ?>
