@@ -30,13 +30,13 @@ function getXMLHTTPRequest(){
       var operacion;
       var fecha_i_ciclo_n = document.getElementById("fecha_i_ciclo_n").value;
       var fecha_f_ciclo_n = document.getElementById("fecha_f_ciclo_n").value;
-      var ciclo_activo = document.getElementById("ciclo_activo").value;
-      var estado_ciclo_n  = document.getElementById("estado_ciclo_n").checked;
+      //var ciclo_activo = document.getElementById("ciclo_activo").value;
+      //var estado_ciclo_n  = document.getElementById("estado_ciclo_n").checked;
       if(ciclo_activo > 0 ){
         ciclo_activo = true;
       }
-      //alert("fecha inicio ciclo n " + fecha_i_ciclo_n + " fecha fin " + fecha_f_ciclo_n + " estado ciclo n " + estado_ciclo_n + " operacion= "+operacion + " ciclo a= "+ciclo_activo);
-      var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_n=" + fecha_i_ciclo_n +"&"+"fecha_f_n="+fecha_f_ciclo_n+"&"+"estado_n="+estado_ciclo_n+"&"+"operacion="+operacion+"&"+"ciclo_activo="+ciclo_activo;
+      alert("fecha inicio ciclo n " + fecha_i_ciclo_n + " fecha fin " + fecha_f_ciclo_n + " estado ciclo n "+ " operacion= "+operacion + " ciclo a= "+ciclo_activo);
+      var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_n=" + fecha_i_ciclo_n +"&"+"fecha_f_n="+fecha_f_ciclo_n+"&"+"estado_n=false"+"&"+"operacion="+operacion+"&"+"ciclo_activo="+ciclo_activo;
       miPeticion.open("GET", url, true);
       miPeticion.onreadystatechange=respuestaAjax;
       miPeticion.send(null);
@@ -76,6 +76,20 @@ function getXMLHTTPRequest(){
       else{
         estado_c = "futuro";
       }
+      alert("fecha inicio ciclo A= " + fecha_i_ciclo_a + " fecha fin= " + fecha_f_ciclo_a + " estado ciclo a= " + estado_c + " operacion= actualizar " +"id "+id );
+      var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_a=" + fecha_i_ciclo_a +"&"+"fecha_f_a="+fecha_f_ciclo_a+"&"+"estado_a="+estado_c+"&"+"operacion=actual"+"&"+"id="+id;
+      miPeticion.open("GET", url, true);
+      miPeticion.onreadystatechange=respuestaAjax;
+      miPeticion.send(null);
+      setTimeout('llamarAjax()', 1000);
+    }
+    function actualizar_ciclo_inactivo_con_uno_activo(id){
+      var id;
+      var estado_c = "";
+      var fecha_i_ciclo_a = document.getElementById("fecha_i_ciclo_a"+id).value;
+      var fecha_f_ciclo_a = document.getElementById("fecha_f_ciclo_a"+id).value;
+      //var estado_ciclo_a  = document.getElementById("estado_ciclo_a"+id).checked;
+      estado_c = "futuro";
       alert("fecha inicio ciclo A= " + fecha_i_ciclo_a + " fecha fin= " + fecha_f_ciclo_a + " estado ciclo a= " + estado_c + " operacion= actualizar " +"id "+id );
       var url = "./operacionePHP/operaciones_ciclos.php?fecha_i_a=" + fecha_i_ciclo_a +"&"+"fecha_f_a="+fecha_f_ciclo_a+"&"+"estado_a="+estado_c+"&"+"operacion=actual"+"&"+"id="+id;
       miPeticion.open("GET", url, true);
