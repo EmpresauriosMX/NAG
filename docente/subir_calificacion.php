@@ -1,6 +1,6 @@
 <?php
 include '../inc/templates/header.php';
-include '../inc/funciones/funciones.php';
+//include '../inc/funciones/funciones.php';
 ?>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

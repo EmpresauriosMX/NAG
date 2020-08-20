@@ -78,7 +78,7 @@
             <li class="nav-item">
             <a href="#">
               <img src="../dist/img/user1-128x128.jpg"  class="brand-image img-circle" style="opacity: .8">
-              <span class="brand-text">Alumno: ID_74</span>
+              <span class="brand-text">Alumno: Daniel</span>
             </a>
             </li>
             <!--Fin imagen usuario-->

@@ -19,18 +19,6 @@
     }
  
 
-       echo"resultado de la consulta es : $row[id_instituto]";
-       echo'La variable row es:  '.$row[id_instituto].'';
-       echo"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-       echo "La variable res: $result";
-       echo"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-
-       if(0 == $row[id_instituto]){
-           echo"Entro al IF";
-       }else{
-            echo"Entro al ELSE :/";
-       }
-}*/
 if($valor == 0){
     //echo"Entro al IF";
     //Insersion de datos a la tabla "instituto" en la BD
