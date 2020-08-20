@@ -211,9 +211,10 @@
                               <p style="color:red;">2. Sólo cambia a activo si no hay otro ciclo activo </p>
                               <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
                               ';
+                              /*
                               if(!$hay_ciclo_activo){
                                 echo '<input type="checkbox"  name="my-checkbox" id="estado_ciclo_n" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">';
-                              }
+                              }*/
                               echo'
                               <!----- ON OFF BUTTON --->
                               
@@ -415,10 +416,22 @@
                                                     <p style="color:red;">2. Sólo cambia a activo si no hay otro ciclo activo </p>
                                                     <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
                                                     <!----- ON OFF BUTTON --->';
-                                                      if(!$hay_ciclo_activo){
-                                                          echo '<input type="checkbox"  name="my-checkbox" id="estado_ciclo_a'.$row_ciclos_futuros["ID_Ciclo"].'" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">';
-                                                      }
-                                                    echo '
+                                      if(!$hay_ciclo_activo){
+                                      echo '<input type="checkbox"  name="my-checkbox" id="estado_ciclo_a'.$row_ciclos_futuros["ID_Ciclo"].'" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                                        <!-- / FORMULARIO DEL CICLO NUEVO -->
+                                                        <input type="hidden" id="id_ciclo" value="">
+                                                      </form> 
+                                                    
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo('.$row_ciclos_futuros["ID_Ciclo"].')>Guardar cambios</button>
+                                            </div>
+                                      
+                                      ';                
+                                      }    
+                                      else{        
+                                        echo'  
                                                     <!-- / FORMULARIO DEL CICLO NUEVO -->
                                                     <input type="hidden" id="id_ciclo" value="">
                                                   </form> 
@@ -426,8 +439,11 @@
                                         </div>
                                         <div class="modal-footer justify-content-between">
                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo('.$row_ciclos_futuros["ID_Ciclo"].')>Guardar cambios</button>
+                                          <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo_con_uno_activo('.$row_ciclos_futuros["ID_Ciclo"].')>Guardar cambios</button>
                                         </div>
+                                        ';
+                                      }
+                                        echo '
                                       </div>
                                       <!-- /.modal-content -->
                                     </div>
@@ -450,7 +466,7 @@
                     
                   ';
                 ?>
-      </div><!-- /.container-fluid -->
+        </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
