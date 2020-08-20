@@ -123,7 +123,7 @@
               <div class="icon">
                 <i class="fas fa-graduation-cap"></i>
               </div>
-              <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="licenciaturas.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -257,13 +257,13 @@
               
               <tbody>
               <tr>
-                <td>El Buen Florentino</td>
+                <td>Florentino Juarez Castro</td>
                 <td>Sistemas Computacionales</td>
                 <td>99.99%</td>
               </tr>
               
               <tr>
-                <td>El Tio Alan</td>
+                <td>Alan Alejandro Gomez Tun</td>
                 <td>Sistemas Computacionales</td>
                 <td>95%</td>
               </tr>

@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nag ! Docente </title>
+    <title>Nag | Docente </title>
   
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,7 +22,7 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="../index3.html" class="navbar-brand">
+      <a href="../../docente/index.php" class="navbar-brand">
         <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image">
        <!-- <span class="brand-text font-weight-light">AdminLTE 3</span> texto de la imagen-->
       </a>
@@ -35,7 +35,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="index3.html" class="nav-link">materia</a>
+            <!--<a href="index3.html" class="nav-link">materia</a>-->
           </li>
           <li class="nav-item">
             <a href="../docente/subir_calificacion.php" class="nav-link">subir calificacion</a>
@@ -50,7 +50,7 @@
         </li>
         <li class="nav-item">
             <div class="image">
-                <img src="../img/julio_profe.png" height="50px" width="50px"    class="img-circle elevation-2" alt="User Image">
+                <img src="../dist/img/user1-128x128.jpg" height="50px" width="50px"    class="img-circle elevation-2" alt="User Image">
             </div>
            
           </a>

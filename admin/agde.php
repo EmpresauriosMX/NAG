@@ -17,9 +17,7 @@
         echo(mysqli_num_rows($resultado));
         $valor =mysqli_num_rows($resultado);
     }
-    
- /*   echo"ANTES DEL WHILE";
-    while($row=mysqli_fetch_array($res)){
+ 
 
        echo"resultado de la consulta es : $row[id_instituto]";
        echo'La variable row es:  '.$row[id_instituto].'';
