@@ -84,7 +84,7 @@
     <div class="col-md-6">
     <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Agregar licenciatura</h3>
+                <h3 class="card-title">Agregar Licenciatura</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -110,16 +110,16 @@
     <div class="col-xs-12 col-sm-6 col-lg-6">
      <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Tabla de Licenciaturas</h3>
+                <h3 class="card-title">Tabla De Licenciaturas</h3>
               </div>
               <div class="card-body">
               <table id="example1" class="table">
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>licenciatura</th>
-                    <th>periodos </th>
-                    <th>opciones</th>
+                    <th>Licenciatura</th>
+                    <th>Periodos </th>
+                    <th>Opciones</th>
                   </tr>
                   </thead>
                   <tbody id="submenu1" name ="submenu1">
@@ -153,12 +153,12 @@
 
 <!--seccion licenciatura activa -->
 <div class="container-fluid">
-  <h1>Licenciaturas activas</h1>
+  <h1>Licenciaturas Activas</h1>
   <div class="row" style="background-color:white;">
     <div class="col-md-6">
     <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">formulario licenciatura activa</h3>
+                <h3 class="card-title">Formulario Licenciatura Activa</h3>
               </div>
               
               <form>
@@ -167,7 +167,7 @@
                     <div class="col-sm-8">
                       <!-- select -->
                       <div class="form-group">
-                        <label> licenciatura</label>
+                        <label> Licenciatura</label>
                         <select class="form-control" id="producto" name="producto" onchange="ShowSelected();">
                         <option>--seleccionar licenciatura--</option>
                         <?php
@@ -183,7 +183,7 @@
                         <label>Periodo</label>
                         <div id="contenedor_periodo" name="contenedor_periodo">
                           <select class="form-control" id="producto1" name="producto1" onchange="ShowSelected1();">
-                          <option>---Asignar periodo---</option>
+                          <option>---Asignar Periodo---</option>
                           <?php
                           for ($i = 0; $i <= 12; $i++) { //funcion de acierdo a las licenciaturas
                             ?>
@@ -216,9 +216,9 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>licenciatura</th>
+                    <th>Licenciatura</th>
                     <th>Periodos </th>
-                    <th>opciones</th>
+                    <th>Opciones</th>
                   </tr>
                   </thead>
                   <tbody id="tabla_lic_activa" name="tabla_lic_activa">

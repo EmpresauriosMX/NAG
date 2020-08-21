@@ -58,6 +58,7 @@ function AgregarLicenciatura(e){ // si entra
                     `;// url donde se envia//
                 ListaLicenciaturas.appendChild(NuevaLicenciatura); //agregar al innerHTML
                 //*************************fin de agregar al submenu*****************************//
+                location.reload();
   }         
       }   
       xhr.send(datos);
@@ -216,11 +217,11 @@ function AgregarLicenciatura(e){ // si entra
                         `;// url donde se envia//
                     campo = document.querySelector('#campo_Licenciaturas'+variable_recibida_editar);
                     ListaLicenciaturas.replaceChild(NuevaLicenciatura,campo);
+                    location.reload();
                                       //a donde se aplica, el nuevo contenido, el viejo contenido
           }         
             }   
             xhr.send(datos);
-
           }
         })
     }
@@ -461,8 +462,8 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
                     Swal.fire({
                       icon: 'success',
                       type: 'success',
-                      title: 'ha cambiado'+nombre,
-                      text: 'Something went wrong!'
+                      title: 'Cambios Realizados',
+                      text: 'El nuevo nombre es: '+ nombre
                     })
                     var datos = new FormData();
           datos.append('id_asignatura',id_recibido);
@@ -517,7 +518,7 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
         if (result.value) {
           Swal.fire(
             'Eliminado!',
-            'ha sido eliminado la materia',
+            'Ha sido eliminado la materia',
             'success'
           )
           operacion = 'eliminar_materia';
@@ -597,7 +598,7 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
           
           //se obtiene la nueva licenciatura en la seccion de edicion 
           cadena ="";
-          cadena += "<option> --seleccionar una nueva licenciatura </option>";
+          cadena += "<option> -- Seleccionar una nueva licenciatura -- </option>";
           for(var i=0;i<respuesta.length;i++){
             cadena+="<option>"+ respuesta[i].nombre+"</option>";
           //  console.log(cadena);
@@ -605,7 +606,7 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
           (async () => {
 
             const { value: formValues } = await Swal.fire({
-              title: 'Editar Licenciatura activa',
+              title: 'Editar Licenciatura Activa',
               html:
   
                 '<div id="contenido-select"> <select class="form-control" id="swal-select" onchange =periodo_seleccion()>' + cadena+ '</select>'+
@@ -651,8 +652,7 @@ function editar_licenciatura_dactiva(variable_recibida_editar){
         }
       }
       for (var q=0; q<periodo; q++) {
-
-        cadena_periodo += "<option>"+ q +"</option> ";
+        cadena_periodo += "<option>"+ (q+1) +"</option> ";
         };
       //  console.log(cadena_periodo);
 

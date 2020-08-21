@@ -73,7 +73,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Seccion de Materias</h1>
+            <h1 class="m-0 text-dark">Seccion De Materias</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
@@ -87,7 +87,7 @@
       <div class="container-fluid">
         <!-- Main row -->
             <div class="card-body" style="background-color:white;">
-            <h4>Licenciaturas en el ciclo activo</h4>
+            <h4>Licenciaturas En El Ciclo Activo</h4>
             <div class="row" >
               <div class="col-5 col-sm-3">
                 <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
@@ -128,7 +128,7 @@
                       <input name="Nombre_materia<?php echo $generaciones['ID_LicActiva']?>" id="Nombre_Materia<?php echo $generaciones['ID_LicActiva']?>">
                       <input type="hidden" id="valor_de_licenciatura_activa_otro<?php echo $generaciones['ID_LicActiva']?>" value="<?php echo $generaciones['ID_Lincenciatura'] ?>">
                             <br>
-                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(<?php echo $generaciones['ID_LicActiva']?>)>Agregar materia</button>
+                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(<?php echo $generaciones['ID_LicActiva']?>)>Agregar Materia</button>
                             <?php
                           $asignaturas = Obtener_Asignaturas($generaciones['ID_LicActiva']);
                           foreach($asignaturas as $asignatura):?>
@@ -151,7 +151,6 @@
             </div>
 
                                 <!--------------------------fin de generacion------------------------------------ -->
-                            <?php  echo $LicActiva_S['NombreLic']?>
                   </div>
                     <?php endforeach; ?>
                 </div>

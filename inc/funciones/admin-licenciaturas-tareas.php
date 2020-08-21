@@ -61,7 +61,6 @@ $query = "select * from licenciatura";
     $periodo = $_POST['periodo'];
     include 'conexion.php';
     try{
-
       $stmt = $conn->prepare("INSERT INTO licenciatura (NombreLic,periodos) VALUES(?,?)");
       $stmt->bind_param('si',$NombreLicenciatura,$periodo);
       $stmt->execute(); 
@@ -160,7 +159,7 @@ $query = "select * from licenciatura";
     
     include 'conexion.php';
     try{
-    
+        
       $stmt = $conn->prepare("INSERT INTO licenciatura_activa (ID_Lincenciatura,ID_Ciclo,id_periodo) VALUES(?,?,?)");
       $stmt->bind_param('iii',$id_recibido,$ciclo,$periodo);
       $stmt->execute(); 
