@@ -1,0 +1,28 @@
+.form-group label {
+    color: slategray;
+}
+
+.acomodar-select {
+    display: flex;
+    margin-right: 1rem;
+}
+
+.form-group {
+    margin-bottom: 0;
+    margin-top: .2rem;
+}
+
+.desactivar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-default {
+    color: black;
+    background-color: mediumspringgreen;
+}
+ 
+.acomodarcheck {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}

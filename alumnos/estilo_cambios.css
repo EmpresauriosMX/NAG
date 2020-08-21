@@ -1,0 +1,29 @@
+.dividir-dos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center center;
+    
+  }
+.cambiar-datos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-primary{
+    min-width: 350px;
+    margin-left: 100px;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 200px;
+}
+.asignaturas{
+    min-width: 1350px;
+    margin-left: 80px;
+    
+}
+.perfil_profes{
+    background-color: paleturquoise;
+    min-width: 415px;
+}
