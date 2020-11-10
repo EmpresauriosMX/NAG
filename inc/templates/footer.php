@@ -49,5 +49,15 @@
 <script src="script.js"></script>
 <!--script de sweetalert2 -->
 <script src="../dist/js/sweetalert2.all.min.js"></script>
+
+
+<?php
+	// Guarda todo el contenido a un archivo
+	$fp = fopen($archivoCache, 'w');
+	fwrite($fp, ob_get_contents());
+	fclose($fp);
+	// Enviar al navegador
+	ob_end_flush();
+?>
 </body>
 </html>

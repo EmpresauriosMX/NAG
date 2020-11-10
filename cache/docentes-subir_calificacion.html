@@ -1,26 +1,65 @@
-<?php
-    // Definir un nombre para cachear
-    $archivo = basename($_SERVER['PHP_SELF']);
-    $pagina = str_replace(".php", "", $archivo);
 
-    // Definir archivo para cachear (puede ser .php también)
-	$archivoCache = '../cache/docentes-'.$pagina.'.html';
-	// Cuanto tiempo deberá estar este archivo almacenado
-	$tiempo = 36000;
-	// Checar que el archivo exista, el tiempo sea el adecuado y muestralo
-	if (file_exists($archivoCache) && time() - $tiempo < filemtime($archivoCache)) {
-   	include($archivoCache);
-    	exit;
-	}
-	// Si el archivo no existe, o el tiempo de cacheo ya se venció genera uno nuevo
-	ob_start();
-?>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nag | Docente </title>
+  
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <!--sweetalert estilos -->
+    <link rel="stylesheet" href="../dist/css/sweetalert2.min.css">
 
-<?php
-include '../inc/templates/header.php';
-//include '../inc/funciones/funciones.php';
-?>
-  <!-- Control Sidebar -->
+  </head>
+<body class="hold-transition layout-top-nav">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+    <div class="container">
+      <a href="../docente/index.php" class="navbar-brand">
+        <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image">
+       <!-- <span class="brand-text font-weight-light">AdminLTE 3</span> texto de la imagen-->
+      </a>
+
+      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <!--<a href="index3.html" class="nav-link">materia</a>-->
+          </li>
+          <li class="nav-item">
+            <a href="../docente/subir_calificacion.php" class="nav-link">subir calificacion</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- derecha barra de navegacion-->
+      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+        <li class="nav-item dropdown">
+            <a href="../docente/index.php" class="nav-link">perfil</a> 
+        </li>
+        <li class="nav-item">
+            <div class="image">
+                <img src="../dist/img/user1-128x128.jpg" height="50px" width="50px"    class="img-circle elevation-2" alt="User Image">
+            </div>
+           
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /.navbar -->  <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
@@ -53,12 +92,7 @@ include '../inc/templates/header.php';
         <span class="sr-only">Toggle Dropdown</span>
       </button>
       <div class="dropdown-menu" role="menu">
-      <?php
-            while($row=mysqli_fetch_array($resultado)){ ?> 
-            <a class="dropdown-item" href="#"> <?php echo ($row["NombreLic"]);?> </a>
-      <?php
-} ?>
-      </div>
+            </div>
     </div> <!--fin de btn-group-->
     <div class="btn-group">
       <button type="button" class="btn btn-default">grupo</button>
@@ -187,6 +221,56 @@ include '../inc/templates/header.php';
 
     </div>
   </div>
-<?php
-include '../inc/templates/footer.php';
-?>
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="../plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="../plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="../plugins/moment/moment.min.js"></script>
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="../plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="../dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+
+<!-- script en docentes-->
+<script src="script.js"></script>
+<!--script de sweetalert2 -->
+<script src="../dist/js/sweetalert2.all.min.js"></script>
+
+

@@ -1,3 +1,22 @@
+<?php
+    // Definir un nombre para cachear
+    $archivo = basename($_SERVER['PHP_SELF']);
+    $pagina = str_replace(".php", "", $archivo);
+
+    // Definir archivo para cachear (puede ser .php también)
+	$archivoCache = '../cache/alumnos-'.$pagina.'.html';
+	// Cuanto tiempo deberá estar este archivo almacenado
+	$tiempo = 36000;
+	// Checar que el archivo exista, el tiempo sea el adecuado y muestralo
+	if (file_exists($archivoCache) && time() - $tiempo < filemtime($archivoCache)) {
+   	include($archivoCache);
+    	exit;
+	}
+	// Si el archivo no existe, o el tiempo de cacheo ya se venció genera uno nuevo
+	ob_start();
+?>
+
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -595,6 +614,13 @@ $row = mysqli_fetch_array($qry);
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
-
+<?php
+	// Guarda todo el contenido a un archivo
+	$fp = fopen($archivoCache, 'w');
+	fwrite($fp, ob_get_contents());
+	fclose($fp);
+	// Enviar al navegador
+	ob_end_flush();
+?>
 </body>
 </html>
