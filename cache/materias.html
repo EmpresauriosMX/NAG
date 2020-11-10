@@ -1,0 +1,516 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="../plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../dist/css/sweetalert2.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+    <!--nav derecha-->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item d-none d-sm-inline-block">
+            <a class="nav-link">Ciclo: cuatrimestre 6. junio - agosto</a>
+        </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- inicio --------------------- BARRA DE NAVEGACIÓN IZQUIERDA------------->
+    <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.php" class="brand-link">
+      <img src="../img/naglogo.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
+      <span class="brand-text font-weight-light">Administrador</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Bienvenido</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-chart-bar"></i>
+              <p>
+                Estadísticas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="index.php" class="nav-link active">
+                  <i class="fas fa-poll"></i>
+                  <p>General</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          <!--ALUMNOS-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Estudiantes
+                <i class="fas fa-angle-left right"></i>
+                <!--span class="badge badge-info right">6</span-->
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="alumnos_general.php" class="nav-link">
+                  <i class="fas fa-user-friends"></i>
+                  <p>Ver Alumnos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="Agregar_alumno.php" class="nav-link">
+                  <i class="fas fa-user-plus"></i>
+                  <p>Agregar Alumnos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-edit"></i>
+                  <p>Editar Alumnos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--DOCENTES-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
+              <p>
+                Docentes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="docente_general.php" class="nav-link">
+                  <i class="fas fa-users"></i>
+                  <p>Ver Docentes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="Agregar_docente.php" class="nav-link">
+                  <i class="fas fa-user-plus"></i>
+                  <p>Agregar Docente</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-edit"></i>
+                  <p>Editar Docente</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--ADMINS-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-tie"></i>
+              <p>
+                Administradores
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-friends"></i>
+                  <p>Ver Administradores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-plus"></i>
+                  <p>Agregar Administrador</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-user-edit"></i>
+                  <p>Editar Administrador</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="tabla.php" class="nav-link">
+              <i class="nav-icon fas fa-book-open"></i>
+              <p>
+                Ver Usuarios
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-header">ESTE CICLO</li>
+          <li class="nav-item">
+            <a href="ciclos.php" class="nav-link">
+              <i class="nav-icon fas fa-circle-notch"></i>
+              <p>
+                Ciclos
+                <span class="right badge badge-danger">No cambiar</span>
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="generaciones.php" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Generaciones
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="materias.php" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Asignaturas
+                <!--span class="badge badge-info right">2</span-->
+              </p>
+            </a>
+          </li>
+                    <!--li class="nav-header">MISCELLANEOUS</li-->
+          <li class="nav-item">
+            <a href="licenciatura.php" class="nav-link">
+              <i class="nav-icon fas fa-scroll"></i>
+              <p>Licenciaturas</p>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="Datos_escolares.php" class="nav-link">
+              <i class="nav-icon fas fa-university"></i>
+              <p>Institución</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="Config_Usuario.php" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Configuración de usuario</p>
+            </a>
+          </li>
+           <li class="nav-header">INFO. NAG</li>
+           <li class="nav-item">
+            <a href="Preguntas-Frecuentes" class="nav-link">
+              <i class="nav-icon fas fa-book-reader"></i>
+              <p>Guía de Usuario</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="guiadeseguridad.php" class="nav-link">
+              <i class="nav-icon fas fa-lock"></i>
+              <p>Guía de Seguridad</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>  <!-- Fin --------------------- BARRA DE NAVEGACIÓN IZQUIERDA------------->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Seccion De Materias</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!------------------------------------------------------------------------inicio seccion de edicion -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Main row -->
+            <div class="card-body" style="background-color:white;">
+            <h4>Licenciaturas En El Ciclo Activo</h4>
+            <div class="row" >
+              <div class="col-5 col-sm-3">
+                <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                                       <a class="nav-link" id="vert-tabs-1-tab" data-toggle="pill" href="#vert-tabs-1" role="tab" aria-controls="vert-tabs-1" aria-selected="false">sistemas</a>
+                                           <a class="nav-link" id="vert-tabs-4-tab" data-toggle="pill" href="#vert-tabs-4" role="tab" aria-controls="vert-tabs-4" aria-selected="false">contabilidad</a>
+                                    </div>
+              </div>
+              <div class="col-7 col-sm-9">
+                <div class="tab-content" id="vert-tabs-tabContent">
+                                        <div class="tab-pane fade" id="vert-tabs-1" role="tabpanel" aria-labelledby="vert-tabs-1-tab">
+
+                            <!----------------------INICIO periodos----------------------------------------------------->
+                            <div class="card">
+              <div class="card-header d-flex p-0">
+                <ul class="nav nav-pills ml-auto p-2" id = "submenu" name = "submenu">
+               
+                                          <li class="nav-item"><a class="nav-link" href="#tab_1" data-toggle="tab">sistemas 3</a></li>  
+                                          <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">sistemas 9</a></li>  
+                                          <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">sistemas 10</a></li>  
+                  
+                </ul>
+              </div>
+              <div class="card-body">
+                <div class="tab-content" id="Contenedor_Materias" name="Contenedor_Materias">
+                                        <div class="tab-pane" id="tab_1">
+                      <br>
+                      <input name="Nombre_materia1" id="Nombre_Materia1">
+                      <input type="hidden" id="valor_de_licenciatura_activa_otro1" value="1">
+                            <br>
+                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(1)>Agregar Materia</button>
+                                                      <div id="campo-de-materia1" name="campo-de-materia1">
+                              <br>
+                              ingles                              <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura1" value="1">
+                              <input type="hidden" id="valor_de_licenciatura_activa1" value="1">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(1)>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(1)>Eliminar</button>
+                              </div> <br>
+                          </div>
+                                                </div>
+                                          <div class="tab-pane" id="tab_2">
+                      <br>
+                      <input name="Nombre_materia2" id="Nombre_Materia2">
+                      <input type="hidden" id="valor_de_licenciatura_activa_otro2" value="1">
+                            <br>
+                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(2)>Agregar Materia</button>
+                                                      <div id="campo-de-materia2" name="campo-de-materia2">
+                              <br>
+                              frances                              <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura2" value="1">
+                              <input type="hidden" id="valor_de_licenciatura_activa2" value="2">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(2)>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(2)>Eliminar</button>
+                              </div> <br>
+                          </div>
+                                                    <div id="campo-de-materia4" name="campo-de-materia4">
+                              <br>
+                              hola                              <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura4" value="1">
+                              <input type="hidden" id="valor_de_licenciatura_activa4" value="2">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(4)>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(4)>Eliminar</button>
+                              </div> <br>
+                          </div>
+                                                    <div id="campo-de-materia5" name="campo-de-materia5">
+                              <br>
+                              hola                              <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura5" value="1">
+                              <input type="hidden" id="valor_de_licenciatura_activa5" value="2">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(5)>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(5)>Eliminar</button>
+                              </div> <br>
+                          </div>
+                                                </div>
+                                          <div class="tab-pane" id="tab_3">
+                      <br>
+                      <input name="Nombre_materia3" id="Nombre_Materia3">
+                      <input type="hidden" id="valor_de_licenciatura_activa_otro3" value="1">
+                            <br>
+                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(3)>Agregar Materia</button>
+                                                      <div id="campo-de-materia3" name="campo-de-materia3">
+                              <br>
+                              sip                              <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura3" value="1">
+                              <input type="hidden" id="valor_de_licenciatura_activa3" value="3">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(3)>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(3)>Eliminar</button>
+                              </div> <br>
+                          </div>
+                                                </div>
+                                    </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+
+                                <!--------------------------fin de generacion------------------------------------ -->
+                  </div>
+                                            <div class="tab-pane fade" id="vert-tabs-4" role="tabpanel" aria-labelledby="vert-tabs-4-tab">
+
+                            <!----------------------INICIO periodos----------------------------------------------------->
+                            <div class="card">
+              <div class="card-header d-flex p-0">
+                <ul class="nav nav-pills ml-auto p-2" id = "submenu" name = "submenu">
+               
+                                          <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">contabilidad 7</a></li>  
+                  
+                </ul>
+              </div>
+              <div class="card-body">
+                <div class="tab-content" id="Contenedor_Materias" name="Contenedor_Materias">
+                                        <div class="tab-pane" id="tab_4">
+                      <br>
+                      <input name="Nombre_materia4" id="Nombre_Materia4">
+                      <input type="hidden" id="valor_de_licenciatura_activa_otro4" value="2">
+                            <br>
+                            <button type="button" class="btn btn-block btn-info" onclick =AgregarNuevaMateria(4)>Agregar Materia</button>
+                                                      <div id="campo-de-materia6" name="campo-de-materia6">
+                              <br>
+                              sdsdsdsd                              <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura6" value="2">
+                              <input type="hidden" id="valor_de_licenciatura_activa6" value="4">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(6)>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(6)>Eliminar</button>
+                              </div> <br>
+                          </div>
+                                                    <div id="campo-de-materia7" name="campo-de-materia7">
+                              <br>
+                              sss                              <div class="btn-group col-5">
+                              <input type="hidden" id="valor_de_licenciatura7" value="2">
+                              <input type="hidden" id="valor_de_licenciatura_activa7" value="4">
+                              <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_materias(7)>Editar</button>
+                              <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_materias(7)>Eliminar</button>
+                              </div> <br>
+                          </div>
+                                                </div>
+                                    </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+
+                                <!--------------------------fin de generacion------------------------------------ -->
+                  </div>
+                                    </div>
+              </div>
+            </div>
+          </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!----------------------------------------------------------------------- /.fin seccion de edicion -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0-pre
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<!--Mis scripts -->
+<script src="../admin/funciones js/licenciaturas.js"></script> 
+<!-- OPTIONAL SCRIPTS -->
+<script src="../dist/js/demo.js"></script>
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<script src="../dist/js/sweetalert2.all.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="../plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="../plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="../plugins/moment/moment.min.js"></script>
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="../plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="../dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+
+<!-- jQuery Mapael -->
+<script src="../plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="../plugins/raphael/raphael.min.js"></script>
+<script src="../plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="../plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<!-- ChartJS -->
+<script src="../plugins/chart.js/Chart.min.js"></script>
+<!-- PAGE SCRIPTS -->
+<script src="../dist/js/pages/dashboard2.js"></script>
+
