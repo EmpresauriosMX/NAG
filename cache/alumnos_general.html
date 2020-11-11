@@ -292,78 +292,79 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-            <!-- Main row -->
-            <div class="busqueda">
-                
-                <div class="busqueda-general">
-                    <div class="titulo-busgen">
-                        <h3>Busqueda de Alumnos</h3>
-                    </div>
-                    <div class="busqueda-gen-select">
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Licenciatura</label>
-                            <select class="form-control">
-                            <option disabled selected>- Elige una opción -</option>
-                            <option>Sistemas Computacionales</option>
-                            <option>Enfermería</option>
-                            <option>Arquitectura</option>
-                            <option>Contaduría y Finanzas</option>
-                            <option>Psicología</option>
-                            </select>
-                        </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Cuatrimestre</label>
-                            <select class="form-control">
-                            <option disabled selected>- Elige una opción -</option>                                
-                            <option>Primero</option>
-                            <option>Segundo</option>
-                            <option>Tercero</option>
-                            <option>Cuarto</option>
-                            <option>Quinto</option>
-                            </select>
-                        </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Grupo</label>
-                            <select class="form-control">
-                            <option disabled selected>- Elige una opción -</option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            </select>
-                        </div>
-                        </div>
-                    </div>
-        
-                </div>
-                <div class="busqueda-especifica">
-                    <h4>Alumno Específico</h4>
-                    <!-- SEARCH FORM -->
-                    <form class="form-inline ml-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Matrícula" aria-label="Search">
-                        <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                            Buscar
-                            <i class="fas fa-search"></i>
-                        </button>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-            
+      <!--------BARRA DE FILTROS DE BÚSQUEDA----------->
+      <div class="row">
+        <!--SELECTS DE BUSQUEDA-->
+        <div class="col-md-8">
+          <div class="row">
+            <!---SELECT DE LICENCIATURA-->
+            <div class="col-md-4">
+              <!-- select -->
+              <div class="form-group">
+                <label>Licenciatura</label>
+                <select class="custom-select">
+                  <option>Todos</option>
+                  <option>licenciatura 1</option>
+                  <option>licenciatura 1</option>
+                  <option>licenciatura 1</option>
+                  <option>licenciatura 1</option>
+                </select>
+              </div>
             </div>
+            <!--SELECT DE LICENCIATURA /-->
+            <!---SELECT DE CUATRIMESTRE-->
+            <div class="col-sm-4">
+              <!-- select -->
+              <div class="form-group">
+                <label>Cuatrimestre</label>
+                <select class="custom-select">
+                  <option>Todos</option>
+                  <option>option 1</option>
+                  <option>option 2</option>
+                  <option>option 3</option>
+                  <option>option 4</option>
+                  <option>option 5</option>
+                </select>
+              </div>
+            </div>
+            <!--SELECT DE CUATRIMESTRE /-->
+            <!---SELECT DE GRUPO-->
+            <div class="col-sm-4">
+              <!-- select -->
+              <div class="form-group">
+                <label>Grupo</label>
+                <select class="custom-select">
+                  <option>Todos</option>
+                  <option>option 2</option>
+                  <option>option 3</option>
+                  <option>option 4</option>
+                  <option>option 5</option>
+                </select>
+              </div>
+            </div>
+            <!--SELECT DE GRUPO /-->
+          </div>
+          
+        </div>
+        <!--SELECTS DE BUSQUEDA /-->
+        <div class="col-md-4">
+          <!-- SEARCH FORM -->
+          <form class="form-group">
+            <label>Búsqueda por matrícula</label>
+            <div class="input-group input-group-sm">
+              <input class="form-control " type="search" placeholder="Matrícula" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <!--BUSQUEDA-->
+        </div>
+      </div>
+      <!--------BARRA DE FILTROS DE BÚSQUEDA---------->
+
             <div class="listas">
                 <div class="columna-lista">
                     <div class="card">
