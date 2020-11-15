@@ -378,6 +378,402 @@
                             </thead>
                             <tbody>
           
+                                  <tr>
+                                    <td>1</td>
+                                    <th>1</th>
+                                    <td>Fecha inicio: <strong>12/02/2000</strong>    Fecha fin: <strong>12/03/2003</strong></td>
+                                    <td>
+                                      <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl1">Configurar</button>
+                                      <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default1">Eliminar</button>
+                                    </td>
+                                    <td><span class="badge bg-primary">Futuro</span></td>
+                                  </tr>
+                                  <!-----------------------------MODAL PARA ELIMINAR LOS CICLOS-------->
+                                  <div class="modal fade" id="modal-default1">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Ciclo Fecha inicio: <strong>12/02/2000</strong> Fecha fin: <strong>12/03/2003</strong></h5> </h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>¿Desea eliminar este ciclo?</p>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=eliminar_ciclo_futuro(1)>Eliminar</button>
+                                        </div>
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+
+
+                                  <!-----------------------------MODAL DE CONFIGURACIÓN--------->
+                                  <div class="modal fade" id="modal-xl1">
+                                    <div class="modal-dialog modal-xl">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Configurando el ciclo Fecha inicio: <strong>12/02/2000</strong>    Fecha fin: <strong>12/03/2003</strong></h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                
+                                                  <form action="#" method="GET" name="form_ciclo_nuevo">
+                                                    <div class="form-group">
+                                                      <label>Rango de fechas</label>
+                                                      <div class="row">
+                                                        <!--FECHA DE INICIO-->
+                                                        <div class="col-md-3">
+                                                          <div class="form-group">
+                                                            <label>Fecha de inicio</label>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value="12/02/2000" id="fecha_i_ciclo_a1" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                        <!--FECHA DE FIN-->
+                                                        <div class="col-md-3">
+                                                          <div class="form-group">
+                                                            <label>Fecha de fin</label>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value="12/03/2003"  id="fecha_f_ciclo_a1" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <p style="color:red;">1. Cambiar a ciclo activo </p>
+                                                    <p> 1.1Esta accion cambia toda la arquitectura de los alumnos, docentes, licenciaturas, calificaciones y demás campos. aplicar solo cuando haya finalizado el ciclo anterior </p>
+                                                    <p style="color:red;">2. Sólo cambia a activo si no hay otro ciclo activo </p>
+                                                    <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
+                                                    <!----- ON OFF BUTTON ---><input type="checkbox"  name="my-checkbox" id="estado_ciclo_a1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                                        <!-- / FORMULARIO DEL CICLO NUEVO -->
+                                                        <input type="hidden" id="id_ciclo" value="">
+                                                      </form> 
+                                                    
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo(1)>Guardar cambios</button>
+                                            </div>
+                                      
+                                      
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+                                  <!-- /.modal -->
+                                
+                                  <tr>
+                                    <td>2</td>
+                                    <th>2</th>
+                                    <td>Fecha inicio: <strong></strong>    Fecha fin: <strong></strong></td>
+                                    <td>
+                                      <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl2">Configurar</button>
+                                      <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default2">Eliminar</button>
+                                    </td>
+                                    <td><span class="badge bg-primary">Futuro</span></td>
+                                  </tr>
+                                  <!-----------------------------MODAL PARA ELIMINAR LOS CICLOS-------->
+                                  <div class="modal fade" id="modal-default2">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Ciclo Fecha inicio: <strong></strong> Fecha fin: <strong></strong></h5> </h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>¿Desea eliminar este ciclo?</p>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=eliminar_ciclo_futuro(2)>Eliminar</button>
+                                        </div>
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+
+
+                                  <!-----------------------------MODAL DE CONFIGURACIÓN--------->
+                                  <div class="modal fade" id="modal-xl2">
+                                    <div class="modal-dialog modal-xl">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Configurando el ciclo Fecha inicio: <strong></strong>    Fecha fin: <strong></strong></h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                
+                                                  <form action="#" method="GET" name="form_ciclo_nuevo">
+                                                    <div class="form-group">
+                                                      <label>Rango de fechas</label>
+                                                      <div class="row">
+                                                        <!--FECHA DE INICIO-->
+                                                        <div class="col-md-3">
+                                                          <div class="form-group">
+                                                            <label>Fecha de inicio</label>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value="" id="fecha_i_ciclo_a2" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                        <!--FECHA DE FIN-->
+                                                        <div class="col-md-3">
+                                                          <div class="form-group">
+                                                            <label>Fecha de fin</label>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value=""  id="fecha_f_ciclo_a2" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <p style="color:red;">1. Cambiar a ciclo activo </p>
+                                                    <p> 1.1Esta accion cambia toda la arquitectura de los alumnos, docentes, licenciaturas, calificaciones y demás campos. aplicar solo cuando haya finalizado el ciclo anterior </p>
+                                                    <p style="color:red;">2. Sólo cambia a activo si no hay otro ciclo activo </p>
+                                                    <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
+                                                    <!----- ON OFF BUTTON ---><input type="checkbox"  name="my-checkbox" id="estado_ciclo_a2" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                                        <!-- / FORMULARIO DEL CICLO NUEVO -->
+                                                        <input type="hidden" id="id_ciclo" value="">
+                                                      </form> 
+                                                    
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo(2)>Guardar cambios</button>
+                                            </div>
+                                      
+                                      
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+                                  <!-- /.modal -->
+                                
+                                  <tr>
+                                    <td>3</td>
+                                    <th>3</th>
+                                    <td>Fecha inicio: <strong></strong>    Fecha fin: <strong></strong></td>
+                                    <td>
+                                      <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl3">Configurar</button>
+                                      <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default3">Eliminar</button>
+                                    </td>
+                                    <td><span class="badge bg-primary">Futuro</span></td>
+                                  </tr>
+                                  <!-----------------------------MODAL PARA ELIMINAR LOS CICLOS-------->
+                                  <div class="modal fade" id="modal-default3">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Ciclo Fecha inicio: <strong></strong> Fecha fin: <strong></strong></h5> </h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>¿Desea eliminar este ciclo?</p>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=eliminar_ciclo_futuro(3)>Eliminar</button>
+                                        </div>
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+
+
+                                  <!-----------------------------MODAL DE CONFIGURACIÓN--------->
+                                  <div class="modal fade" id="modal-xl3">
+                                    <div class="modal-dialog modal-xl">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Configurando el ciclo Fecha inicio: <strong></strong>    Fecha fin: <strong></strong></h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                
+                                                  <form action="#" method="GET" name="form_ciclo_nuevo">
+                                                    <div class="form-group">
+                                                      <label>Rango de fechas</label>
+                                                      <div class="row">
+                                                        <!--FECHA DE INICIO-->
+                                                        <div class="col-md-3">
+                                                          <div class="form-group">
+                                                            <label>Fecha de inicio</label>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value="" id="fecha_i_ciclo_a3" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                        <!--FECHA DE FIN-->
+                                                        <div class="col-md-3">
+                                                          <div class="form-group">
+                                                            <label>Fecha de fin</label>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value=""  id="fecha_f_ciclo_a3" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <p style="color:red;">1. Cambiar a ciclo activo </p>
+                                                    <p> 1.1Esta accion cambia toda la arquitectura de los alumnos, docentes, licenciaturas, calificaciones y demás campos. aplicar solo cuando haya finalizado el ciclo anterior </p>
+                                                    <p style="color:red;">2. Sólo cambia a activo si no hay otro ciclo activo </p>
+                                                    <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
+                                                    <!----- ON OFF BUTTON ---><input type="checkbox"  name="my-checkbox" id="estado_ciclo_a3" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                                        <!-- / FORMULARIO DEL CICLO NUEVO -->
+                                                        <input type="hidden" id="id_ciclo" value="">
+                                                      </form> 
+                                                    
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo(3)>Guardar cambios</button>
+                                            </div>
+                                      
+                                      
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+                                  <!-- /.modal -->
+                                
+                                  <tr>
+                                    <td>4</td>
+                                    <th>4</th>
+                                    <td>Fecha inicio: <strong></strong>    Fecha fin: <strong></strong></td>
+                                    <td>
+                                      <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#modal-xl4">Configurar</button>
+                                      <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#modal-default4">Eliminar</button>
+                                    </td>
+                                    <td><span class="badge bg-primary">Futuro</span></td>
+                                  </tr>
+                                  <!-----------------------------MODAL PARA ELIMINAR LOS CICLOS-------->
+                                  <div class="modal fade" id="modal-default4">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Ciclo Fecha inicio: <strong></strong> Fecha fin: <strong></strong></h5> </h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>¿Desea eliminar este ciclo?</p>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                          <button type="button" class="btn btn-danger" data-dismiss="modal" onClick=eliminar_ciclo_futuro(4)>Eliminar</button>
+                                        </div>
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+
+
+                                  <!-----------------------------MODAL DE CONFIGURACIÓN--------->
+                                  <div class="modal fade" id="modal-xl4">
+                                    <div class="modal-dialog modal-xl">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Configurando el ciclo Fecha inicio: <strong></strong>    Fecha fin: <strong></strong></h4>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                
+                                                  <form action="#" method="GET" name="form_ciclo_nuevo">
+                                                    <div class="form-group">
+                                                      <label>Rango de fechas</label>
+                                                      <div class="row">
+                                                        <!--FECHA DE INICIO-->
+                                                        <div class="col-md-3">
+                                                          <div class="form-group">
+                                                            <label>Fecha de inicio</label>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value="" id="fecha_i_ciclo_a4" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                        <!--FECHA DE FIN-->
+                                                        <div class="col-md-3">
+                                                          <div class="form-group">
+                                                            <label>Fecha de fin</label>
+                                                              <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                                </div>
+                                                                <input type="text" value=""  id="fecha_f_ciclo_a4" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <p style="color:red;">1. Cambiar a ciclo activo </p>
+                                                    <p> 1.1Esta accion cambia toda la arquitectura de los alumnos, docentes, licenciaturas, calificaciones y demás campos. aplicar solo cuando haya finalizado el ciclo anterior </p>
+                                                    <p style="color:red;">2. Sólo cambia a activo si no hay otro ciclo activo </p>
+                                                    <p style="color:red;">3. Si hay un ciclo activo se guardará como ciclo futuro </p>
+                                                    <!----- ON OFF BUTTON ---><input type="checkbox"  name="my-checkbox" id="estado_ciclo_a4" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                                        <!-- / FORMULARIO DEL CICLO NUEVO -->
+                                                        <input type="hidden" id="id_ciclo" value="">
+                                                      </form> 
+                                                    
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary" data-dismiss="modal" onClick=actualizar_ciclo_inactivo(4)>Guardar cambios</button>
+                                            </div>
+                                      
+                                      
+                                      </div>
+                                      <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                  </div>
+                                  <!-- /.modal -->
+                                
                             </tbody>
                           </table>
                         </div>

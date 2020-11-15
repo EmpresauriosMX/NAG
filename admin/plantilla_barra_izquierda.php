@@ -99,6 +99,12 @@
                   <p>Editar Docente</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="./Carga_Docente.php" class="nav-link">
+                  <i class="fas fa-user-edit"></i>
+                  <p>Carga Docente</p>
+                </a>
+              </li>
             </ul>
           </li>
           <!--ADMINS-->
@@ -184,6 +190,12 @@
             <a href="licenciatura.php" class="nav-link">
               <i class="nav-icon fas fa-scroll"></i>
               <p>Licenciaturas</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="Horario.php" class="nav-link">
+              <i class="nav-icon fas fa-scroll"></i>
+              <p>Horario</p>
             </a>
           </li>
 
