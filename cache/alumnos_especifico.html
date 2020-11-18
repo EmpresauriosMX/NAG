@@ -276,151 +276,204 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido  Fulanito Perez</h1>
-          </div><!-- /.col -->
+            <h1>Estudiante</h1>
+          </div>
           <div class="col-sm-6">
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Estudiantes</a></li>
+              <li class="breadcrumb-item active">Estudiante</li>
+            </ol>
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
-    </div>
+    </section>
     <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-            <!-- Main row -->
-            <div class="busqueda">
-                
-                <div class="busqueda-general">
-                    <div class="titulo-busgen">
-                        <h3>General</h3>
-                    </div>
-                    <div class="busqueda-gen-select">
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Licenciatura</label>
-                            <select class="form-control">
-                            <option disabled selected>- Elige una opción -</option>
-                            <option disabled selected>- Elige una opción -</option>
-                            <option>Sistemas Computacionales</option>
-                            <option>Enfermería</option>
-                            <option>Arquitectura</option>
-                            <option>Contaduría y Finanzas</option>
-                            <option>Psicología</option>
-                            </select>
-                        </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Cuatrimestre</label>
-                            <select class="form-control">
-                            <option disabled selected>- Elige una opción -</option>                                
-                            <option>Primero</option>
-                            <option>Segundo</option>
-                            <option>Tercero</option>
-                            <option>Cuarto</option>
-                            <option>Quinto</option>
-                            </select>
-                        </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Grupo</label>
-                            <select class="form-control">
-                            <option disabled selected>- Elige una opción -</option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            </select>
-                        </div>
-                        </div>
-                    </div>
-        
-                </div>
-                <div class="busqueda-especifica">
-                    <h3>Específica</h3>
-                    <!-- SEARCH FORM -->
-                    <form class="form-inline ml-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Matrícula" aria-label="Search">
-                        <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                            Buscar
-                            <i class="fas fa-search"></i>
-                        </button>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-            
+      <!--------BARRA DE FILTROS DE BÚSQUEDA----------->
+      <div class="row">
+        <div class="col-md-4">
+          <!-- SEARCH FORM -->
+          <form class="form-group">
+            <label>Búsqueda por matrícula</label>
+            <div class="input-group input-group-sm">
+              <input class="form-control " type="search" placeholder="Matrícula" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
             </div>
-            <div class="datos-alumno">
-                <div class="info-alumno">
-                    <!-- Profile Image -->
-                    <div class="card card-primary card-outline">
-                        <div class="card-body box-profile">
-                            <div class="alinear-foto">
-                                <div class="foto">
-                                    <img class="profile-user-img img-fluid img-circle"
-                                    src="../img/julio_profe.jpg"
-                                    alt="User profile picture">
-                                </div>
-                                <div class="info foto">
-                                    <h3 class="profile-username text-center">Weeey Noo</h3>
+          </form>
+          <!--BUSQUEDA-->
+        </div>
+      </div>
+      <!--------BARRA DE FILTROS DE BÚSQUEDA--------/-->
+      <!----------HISTORIAL GENERAL DEL ESTUDIANTE------>
+      <div class="row">
+        <div class="col-md-5">
+          <!-- Profile Image -->
+          <div class="card card-primary ">
+            <div class="card-body box-profile">
+              <div class="text-center">
+                <img class="profile-user-img img-fluid img-circle"
+                     src="../dist/img/user4-128x128.jpg"
+                     alt="User profile picture">
+              </div>
 
-                                <p class="text-muted text-center">Matrícula</p>
-                                <p class="text-muted text-center">Sistemas Computacionales</p>
-                                </div>
-                            
-                            </div>
-                            <ul class="list-group list-group-unbordered mb-3">
-                            <li class="list-group-item">
-                                <b>Cuatrimestre</b> <a class="float-right">6°</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Dirección</b> <a class="float-right">su ksa</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Teléfono</b> <a class="float-right">9874672245</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Genero</b> <a class="float-right">No se</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Correo</b> <a class="float-right">weey_noo@gmail.com</a>
-                            </li>
-                            </ul>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
+              <h3 class="profile-username text-center">Nina Mcintire</h3>
 
-                <div class="botones_info_alumnos">
+              <p class="text-muted text-center">Nutrición</p>
 
-                    <button type="button" class="btn btn-block bg-gradient-success btn-lg">Editar</button>
+              <ul class="list-group list-group-unbordered mb-3">
+                <li class="list-group-item">
+                  <b>Cuatrimestre</b> <a class="float-right">7</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Matricula</b> <a class="float-right">123456789</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Generación</b> <a class="float-right">2018 - 2021</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Promedio</b> <a class="float-right">91.4</a>
+                </li>
+              </ul>
 
-                    <button type="button" class="btn btn-block bg-gradient-danger btn-lg">Eliminar</button>
-                    
-                    <button type="button" class="btn btn-block bg-gradient-info btn-lg">Cambiar Estatus</button>
-
-                </div>
-            
+              <div class="progress" style="height: 25px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 77%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">77%</div>
+              </div>
             </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!--------ABOUT ME------->
+        <div class="col-md-7">
+          <!-- About Me Box -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Acerca de</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <strong><i class="fas fa-book mr-1"></i> Education</strong>
 
-            
-            
+              <p class="text-muted">
+                B.S. in Computer Science from the University of Tennessee at Knoxville
+              </p>
+
+              <hr>
+
+              <strong><i class="fas fa-map-marker-alt mr-1"></i> Dirección</strong>
+
+              <p class="text-muted">Cuartos CUV</p>
+
+              <hr>
+
+              <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+              <p class="text-muted">
+                <span class="tag tag-danger">UI Design</span>
+                <span class="tag tag-success">Coding</span>
+                <span class="tag tag-info">Javascript</span>
+                <span class="tag tag-warning">PHP</span>
+                <span class="tag tag-primary">Node.js</span>
+              </p>
+
+              <hr>
+
+              <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!--------ABOUT ME-----/-->
+      </div>
+      <!--------PROGRESO-----/-->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default">Parcial</button>
+                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                      <a class="dropdown-item" href="#">1</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">2</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">3</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <!--Barra de progreso-->
+                  <div class="progress" style="height: 20px;">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
+                  </div>
+                  <!--Fin barra de progreso-->
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <div class="row">
+
+                <!--En value sera en donde se cambia el promedio-->
+                <div class="col-6 col-md-3 text-center">
+                  <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
+                         value="85" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                  <div class="knob-label">Sistemas Distribuidos</div>
+                </div>
+
+                <div class="col-6 col-md-3 text-center">
+                  <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
+                         value="95" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                  <div class="knob-label">Base de Datos</div>
+                </div>
+
+                <div class="col-6 col-md-3 text-center">
+                  <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
+                         value="92" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                  <div class="knob-label">Redes de Computadoras</div>
+                </div>
+
+                <div class="col-6 col-md-3 text-center">
+                  <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
+                         value="88" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                  <div class="knob-label">Taller de Responsabilidad</div>
+                </div>
+                <!-- ./col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>  
+      <!-------PROGRESO------/-->
+      
+
+
+      <!----------HISTORIAL GENERAL DEL ESTUDIANTE------/-->
             <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>

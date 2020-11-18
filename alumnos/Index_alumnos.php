@@ -529,6 +529,12 @@ $row = mysqli_fetch_array($qry);
 
                     <div class="knob-label">Taller de Responsabilidad</div>
                   </div>
+                  <div class="col-6 col-md-3 text-center">
+                    <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
+                           value="88" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                    <div class="knob-label">Taller de Responsabilidad</div>
+                  </div>
                   <!-- ./col -->
                 </div>
                 <!-- /.row -->
