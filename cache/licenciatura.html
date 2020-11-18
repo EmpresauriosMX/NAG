@@ -162,6 +162,12 @@
                   <p>Editar Docente</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="./Carga_Docente.php" class="nav-link">
+                  <i class="fas fa-user-edit"></i>
+                  <p>Carga Docente</p>
+                </a>
+              </li>
             </ul>
           </li>
           <!--ADMINS-->
@@ -235,6 +241,12 @@
                     <!--li class="nav-header">MISCELLANEOUS</li-->
           <li class="nav-item">
             <a href="licenciatura.php" class="nav-link">
+              <i class="nav-icon fas fa-scroll"></i>
+              <p>Licenciaturas</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="Horario.php" class="nav-link">
               <i class="nav-icon fas fa-scroll"></i>
               <p>Licenciaturas</p>
             </a>
@@ -356,6 +368,32 @@
                       </div>
                       </td>
                       </tr>
+                                          <tr name="campo_Licenciaturas3" id="campo_Licenciaturas3">
+                      <td>3</td>
+                      <td>recursos humanos</td>
+                      <td>12</td>
+                      <input type="hidden" id="obtener_nombre_lic3" value="recursos humanos">
+                      <input type="hidden" id="obtener_periodo_lic3" value="12">
+                      <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick =Editar_licenciaturas(3)>Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(3)>Eliminar</button>
+                      </div>
+                      </td>
+                      </tr>
+                                          <tr name="campo_Licenciaturas4" id="campo_Licenciaturas4">
+                      <td>4</td>
+                      <td>recursos humanos</td>
+                      <td>12</td>
+                      <input type="hidden" id="obtener_nombre_lic4" value="recursos humanos">
+                      <input type="hidden" id="obtener_periodo_lic4" value="12">
+                      <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick =Editar_licenciaturas(4)>Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick =Eliminar_licenciatura(4)>Eliminar</button>
+                      </div>
+                      </td>
+                      </tr>
                                       </tbody>
                   
                 </table>
@@ -388,6 +426,8 @@
                         <option>--seleccionar licenciatura--</option>
                                               <option value="1"> sistemas </option>
                                           <option value="2"> contabilidad </option>
+                                          <option value="3"> recursos humanos </option>
+                                          <option value="4"> recursos humanos </option>
                                             </select>
                       </div>
                     </div>
@@ -482,6 +522,28 @@
                       <div class="btn-group">
                         <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_licenciatura_activa(4)>Editar</button>
                         <button type="button" class="btn btn-outline-danger btn-sm" onclick =EliminarLic_activa(4)>Eliminar</button>
+                      </div>
+                      </td>
+                      </tr>
+                                          <tr name="campo_Licenciaturas_activas6" id="campo_Licenciaturas_activas6">
+                      <td>6 </td>
+                      <td>contabilidad</td>
+                      <td>4 </td>
+                      <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_licenciatura_activa(6)>Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick =EliminarLic_activa(6)>Eliminar</button>
+                      </div>
+                      </td>
+                      </tr>
+                                          <tr name="campo_Licenciaturas_activas7" id="campo_Licenciaturas_activas7">
+                      <td>7 </td>
+                      <td>contabilidad</td>
+                      <td>9 </td>
+                      <td>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick =editar_licenciatura_activa(7)>Editar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick =EliminarLic_activa(7)>Eliminar</button>
                       </div>
                       </td>
                       </tr>
