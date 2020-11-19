@@ -284,7 +284,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Estudiantes</a></li>
+              <li class="breadcrumb-item"><a href="../cache/alumnos_general.html">Estudiantes</a></li>
               <li class="breadcrumb-item active">Estudiante</li>
             </ol>
           </div>
@@ -342,6 +342,9 @@
                   <b>Generación</b> <a class="float-right">2018 - 2021</a>
                 </li>
                 <li class="list-group-item">
+                  <b>Grado y grupo</b> <a class="float-right">7 "A"</a>
+                </li>
+                <li class="list-group-item">
                   <b>Promedio</b> <a class="float-right">91.4</a>
                 </li>
               </ul>
@@ -363,11 +366,12 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-              <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
-              </p>
+              <strong><i class="fas fa-address-book"></i> Contacto</strong>
+                <ul class="text-muted">
+                  <li>Telefono: 999 999 9999</li>
+                  <li>Correo: nombre.apellido@email.com</li>
+                  <li><a href="">Enviar whatsapp</a></li>
+                </ul>
 
               <hr>
 
@@ -405,10 +409,23 @@
           <div class="card">
             <div class="card-header">
               <div class="row">
-                <div class="col-md-3">
+                <h4 class="mx-auto">Calificaciones</h4>
+                <div class="col-md-5 ml-4" >
                   <div class="btn-group">
-                    <button type="button" class="btn btn-default">Parcial</button>
-                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                    <button type="button" class="btn btn-default-sm">Cuatrimestre</button>
+                    <button type="button" class="btn btn-default-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                      <a class="dropdown-item" href="#">1</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">2</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">3</a>
+                    </div>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default-sm">Parcial</button>
+                    <button type="button" class="btn btn-default-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
                     </button>
                     <div class="dropdown-menu" role="menu">
                       <a class="dropdown-item" href="#">1</a>
@@ -419,10 +436,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-5">
                   <!--Barra de progreso-->
                   <div class="progress" style="height: 20px;">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Promedio 89</div>
                   </div>
                   <!--Fin barra de progreso-->
                 </div>
@@ -433,28 +450,28 @@
               <div class="row">
 
                 <!--En value sera en donde se cambia el promedio-->
-                <div class="col-6 col-md-3 text-center">
+                <div class="mx-auto text-center">
                   <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
                          value="85" data-width="120" data-height="120" data-fgColor="#00c0ef">
 
                   <div class="knob-label">Sistemas Distribuidos</div>
                 </div>
 
-                <div class="col-6 col-md-3 text-center">
+                <div class="mx-auto text-center">
                   <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
                          value="95" data-width="120" data-height="120" data-fgColor="#00c0ef">
 
                   <div class="knob-label">Base de Datos</div>
                 </div>
 
-                <div class="col-6 col-md-3 text-center">
+                <div class="mx-auto text-center">
                   <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
                          value="92" data-width="120" data-height="120" data-fgColor="#00c0ef">
 
                   <div class="knob-label">Redes de Computadoras</div>
                 </div>
 
-                <div class="col-6 col-md-3 text-center">
+                <div class="mx-auto text-center">
                   <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125"
                          value="88" data-width="120" data-height="120" data-fgColor="#00c0ef">
 
@@ -470,7 +487,143 @@
         </div>
       </div>  
       <!-------PROGRESO------/-->
+      <!--------CONFIGURACION DE USUARIO------->
+      <div class="row">
+        <div class="col-md-9">
+        <div class="card">
+          <div class="card-header p-2">
+            <ul class="nav nav-pills">
+              <li class="nav-item"><a class="nav-link active" href="#estudiante" data-toggle="tab">Ajustes de estudiante</a></li>
+              <li class="nav-item"><a class="nav-link" href="#usuario" data-toggle="tab">Ajustes de usuario</a></li>
+              <li class="nav-item"><a class="nav-link" href="#horario" data-toggle="tab">Horario</a></li>
+              <li class="nav-item"><a class="nav-link" href="#docentes" data-toggle="tab">Docentes</a></li>
+            </ul>
+          </div><!-- /.card-header -->
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="active tab-pane" id="estudiante">
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Grupo</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputName" placeholder="Name">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Licenciatura</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputExperience" class="col-sm-2 col-form-label">Notas</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                      <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="usuario">
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputName" placeholder="Nina Mcintire">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Primer apellido</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputName" placeholder="apellido paterno">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Segundo apellido</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputName" placeholder="apellido materno">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputName2" class="col-sm-2 col-form-label">Numero</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputName2" placeholder="999 999 9999">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputExperience" class="col-sm-2 col-form-label">Dirección</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputExperience" class="col-sm-2 col-form-label">Genero</label>
+                    <div class="col-sm-10">
+                      <select class="form-control">
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                        <option>Indefinido</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                      <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="horario">
+                <h2>Horario</h2>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="docentes">
+                <h2>Docentes</h2>
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div><!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        </div>
+        <div class="col-md-3 mx-auto">
+          <button class="btn btn-primary btn-md btn-block" >Ver historial</button>
+          <button class="btn btn-primary btn-md btn-block" >Ver grupo</button>
+          <hr>
+          <button class="btn btn-warning btn-sm btn-block" >Cambiar estatus</button>
+          <button class="btn btn-danger btn-xs btn-block" >Eliminar</button>
+        </div>
+      </div>
       
+      <!--------CONFIGURACION DE USUARIO-----/-->
 
 
       <!----------HISTORIAL GENERAL DEL ESTUDIANTE------/-->
