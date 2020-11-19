@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -281,7 +280,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido  Fulanito Perez</h1>
+            <h1 class="m-0 text-dark">Docentes</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           </div><!-- /.col -->
@@ -293,161 +292,165 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-            <!-- Main row -->
-            <div class="busqueda">
-                
-                <div class="busqueda-general">
-                    <div class="titulo-busgen">
-                        <h3>Busqueda de Docentes</h3>
-                    </div>
-                    <div class="busqueda-gen-select">
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Licenciatura</label>
-                            <select class="form-control">
-                            <option>Sistemas Computacionales</option>
-                            <option>Enfermeria</option>
-                            <option>Odontologia</option>
-                            <option>Gastronomia</option>
-                            <option>Administracion</option>
-                            </select>
-                        </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Cuatrimestre</label>
-                            <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            </select>
-                        </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                        <!-- select -->
-                        <div class="form-group">
-                            <label>Grupo</label>
-                            <select class="form-control">
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            </select>
-                        </div>
-                        </div>
-                    </div>
-        
-                </div>
-                <div class="busqueda-especifica">
-                    <h3>Buscar Docente</h3>
-                    <!-- SEARCH FORM -->
-                    <form class="form-inline ml-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Matrícula" aria-label="Search">
-                        <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                            Buscar
-                            <i class="fas fa-search"></i>
-                        </button>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-            
+      <!--------BARRA DE FILTROS DE BÚSQUEDA----------->
+      <div class="row">
+        <!--SELECTS DE BUSQUEDA-->
+        <div class="col-md-8">
+          <div class="row">
+            <!---SELECT DE LICENCIATURA-->
+            <div class="col-md-4">
+              <!-- select -->
+              <div class="form-group">
+                <label>Especialidad</label>
+                <select class="custom-select">
+                  <option>Todos</option>
+                  <option>licenciatura 1</option>
+                  <option>licenciatura 1</option>
+                  <option>licenciatura 1</option>
+                  <option>licenciatura 1</option>
+                </select>
+              </div>
             </div>
-            <div class="listas">
-                <div class="columna-lista">
+            <!--SELECT DE LICENCIATURA /-->
+            <!---SELECT DE GRUPO-->
+            <div class="col-sm-4">
+              <!-- select -->
+              <div class="form-group">
+                <label>Grupo</label>
+                <select class="custom-select">
+                  <option>Todos</option>
+                  <option>option 2</option>
+                  <option>option 3</option>
+                  <option>option 4</option>
+                  <option>option 5</option>
+                </select>
+              </div>
+            </div>
+            <!--SELECT DE GRUPO /-->
+            <!---SELECT DE ESTATUS-->
+            <div class="col-sm-4">
+              <!-- select -->
+              <div class="form-group">
+                <label>Estatus</label>
+                <select class="custom-select">
+                  <option>Todos</option>
+                  <option>option 2</option>
+                  <option>option 3</option>
+                  <option>option 4</option>
+                  <option>option 5</option>
+                </select>
+              </div>
+            </div>
+            <!--SELECT DE ESTATUS /-->
+          </div>
+          
+        </div>
+        <!--SELECTS DE BUSQUEDA /-->
+        <div class="col-md-4">
+          <!-- SEARCH FORM -->
+          <form class="form-group">
+            <label>Búsqueda por id</label>
+            <div class="input-group input-group-sm">
+              <input class="form-control " type="search" placeholder="ID" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <!--BUSQUEDA-->
+        </div>
+      </div>
+      <!--------BARRA DE FILTROS DE BÚSQUEDA---------->
+      <!----------TABLA CON LA LISTA DE LOS ESTUDIANTES------>
+        <div class="row">
+          <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Sistemas Computacionales 6°A</h3>
+                            <h3 class="card-title">Sistemas Computacionales 7°A</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                <th>Nombre</th>
-                                <th>Materia</th>
-                                <th>Turno</th>
+                                <th style="width: 10px">#</th>
+                                <th>Nombre completo</th>
+                                <th>Especialidad</th>
+                                <th style="width: 40px">Estatus</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                <td>Lorenzo Balam Chay</td>
-                                <td>Interfaces</td>
-                                <td>Vespertino</td>
+                                <td>1.</td>
+                                <td>Acosta Renzo Julian</td>
+                                <td>leyes</td>
+                                <td><span class="badge bg-success">activo</span></td>
                                 </tr>
-
                                 <tr>
-                                <td>Gabriela del Rosario Braga Manzano</td>
-                                <td>Fundamentos de Desarrollo de Software</td>
-                                <td>Vespertino</td>
+                                <td>2.</td>
+                                <td>Rodolfo Alvarado Bacab</td>
+                                <td>Salud</td>
+                                <td><span class="badge bg-success ">activo</span></td>
                                 </tr>
-
                                 <tr>
-                                <td>Yanin Romero Tuz</td>
-                                <td>Taller de Responsabilidad VI</td>
-                                <td>Vespertino</td>
+                                <td>3.</td>
+                                <td>Luis Antonio Chuc Santos</td>
+                                <td>Derecho</td>
+                                <td><span class="badge bg-danger">suspendido</span></td>
                                 </tr>
-
-                            
-
+                                
                             </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
                     </div>
-                </div><!-- fin columna lista -->
-                <div class="columna-lista">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Sistemas Computacionales 4°A</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                <th>Nombre</th>
-                                <th>Materia</th>
-                                <th>Turno</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <td>Lorenzo Balam Chay</td>
-                                <td>Interfaces</td>
-                                <td>Vespertino</td>
-                                </tr>
-
-                                <tr>
-                                <td>Gabriela del Rosario Braga Manzano</td>
-                                <td>Fundamentos de Desarrollo de Software</td>
-                                <td>Vespertino</td>
-                                </tr>
-
-                                <tr>
-                                <td>Yanin Romero Tuz</td>
-                                <td>Taller de Responsabilidad VI</td>
-                                <td>Vespertino</td>
-                                </tr>
-
-                            
-
-                            </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>    
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Sistemas Computacionales 7°B</h3>
                 </div>
-            </div><!-- FIN listas -->
-            
-            
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Nombre completo</th>
+                        <th>Especialidad</th>
+                        <th style="width: 40px">Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>1.</td>
+                        <td>Acosta Renzo Julian</td>
+                        <td>leyes</td>
+                        <td><span class="badge bg-success">activo</span></td>
+                        </tr>
+                        <tr>
+                        <td>2.</td>
+                        <td>Rodolfo Alvarado Bacab</td>
+                        <td>Salud</td>
+                        <td><span class="badge bg-success ">activo</span></td>
+                        </tr>
+                        <tr>
+                        <td>3.</td>
+                        <td>Luis Antonio Chuc Santos</td>
+                        <td>Derecho</td>
+                        <td><span class="badge bg-danger">suspendido</span></td>
+                        </tr>
+                        
+                    </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+          </div>
+        </div>
+      <!----------TABLA CON LA LISTA DE LOS ESTUDIANTES----/-->
             <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
